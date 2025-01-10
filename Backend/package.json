@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/server.ts",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "debug": "nodemon --watch src --ext ts --exec ts-node --project tsconfig.json src/server.ts --legacy-watch"
   },
   "keywords": [],
   "author": "",

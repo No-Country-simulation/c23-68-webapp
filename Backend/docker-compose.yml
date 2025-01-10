@@ -3,7 +3,7 @@ services:
   backend:
     restart: always
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
     volumes:
       - .:/app
