@@ -1,0 +1,29 @@
+services:
+  backend:
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - '3000:3000'
+      - '9229:9229'
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - NODE_ENV=development
+      - API_KEY_RESEND=${API_KEY_RESEND}
+      - JWT_SECRET=${JWT_SECRET}
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb-data:/data/db
+volumes:
+  mongodb-data:
+    driver: local
