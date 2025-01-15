@@ -1,6 +1,6 @@
-import SideBar from './components/layout/sideBar'
 import { nameModal } from './config/nameModals'
 import usePopups from './hooks/usePopups'
+import Home from './pages/Home'
 
 function App() {
   const { LoadingModalID, LoginModalID } = nameModal
@@ -16,6 +16,7 @@ function App() {
 
   return (
     <>
+      <Home />
        {/* <div className='flex flex-col items-center justify-center h-screen gap-4'>
         <h1 className='text-xl text-red-600'> Testing de modales</h1>
         <button
@@ -32,7 +33,7 @@ function App() {
         </button> 
       </div>  */}
 
-  <SideBar/>
+  
     </>
   )
 }
