@@ -1,118 +1,112 @@
-// import React from "react";
-// import Navbar from "../components/layout/Navbar";
-
-// const Home = () => {
-//   return (
-//     <div className="h-screen w-screen p-6">
-//       <Navbar />
-//       <section className="flex h-4/5 justify-center items-center border-solid border-2 border-red-500">
-
-//         <div className="w-1/2  h-full   border-solid border-2 border-sky-500">
-//           <div>
-//             <h1 className="text-4xl font-anybody">Deja de preocuparte por el 
-//               dinero. 
-//           ¡Empieza a planificarlo hoy mismo!</h1>
-//           </div>
-//           <div className="flex items-center justify-between pt-3">
-//           <button type="button" className='flex items-center justify-center w-56 h-10 text-white text-lg bg-[#2ECC71] rounded-2xl p-2'>
-//             Ver panel
-//             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
-//   <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
-// </svg>
-//           </button>
-//           <p>Conocenos</p>
-//           </div>
-//         </div>
-
-//         <div className="w-1/2    border-solid border-2 border-sky-500">
-//           <div className="border-solid border-2 border-sky-500">acerca de bla bla...</div>
-//           <div className="flex border-solid border-2 border-sky-500">
-//             <div className="w-1/2  border-solid border-2 border-green-500">Findblog..</div>
-//             <div className="w-1/2   border-solid border-2 border-green-500">Equipo...</div>  
-//           </div>
-//         </div>
-
-//       </section>
-
-//       <footer className="flex flex-col w-1/2 mt-2   border-solid border-2 border-yellow-500">
-//         <div>  
-//           <h4 className="font-onest "> Nuestro planificador de finanzas personales te ayuda a gestionar tus recursos y tomar decisiones inteligentes para alcanzar tus metas financieras.
-// </h4>    
-//         </div>
-//         <div>.....Logos de redes sociales....</div>
-//          </footer>
-
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
 import React from "react";
+import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from "react-icons/fa";
 import Navbar from "../components/layout/Navbar";
+import "../styles/Home.css";
 
 const Home = () => {
   return (
-    <div className="min-h-screen w-screen bg-white font-sans">
-      {/* Navbar */}
+    <div className="h-100 w-100 bg-white">
+
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center justify-between px-8 py-12">
-        {/* Left Column */}
-        <div className="md:w-1/2 space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold leading-snug text-black">
-            Deja de <span className="text-yellow-400">preocuparte</span> por el <span className="text-yellow-400">dinero</span>. 
+      <section className="flex flex-col md:flex-row items-center justify-between px-8 py-10">
+        <div className="md:w-1/2 space-y-6 self-start">
+          <h1 className="text-4xl md:text-6xl font-anybody  text-black">
+            Deja de <br />
+            preocuparte por el <br />
+            <span className="text-yellow-400"> dinero</span>.
             <br />
-            ¡Empieza a <span className="text-pink-500">planificarlo</span> hoy mismo!
+            ¡Empieza a <br /> 
+            <span className="text-pink-500"> planificarlo</span> hoy <br />
+            mismo!
           </h1>
-          <div className="flex items-center space-x-4">
-            <button className="flex items-center justify-center px-6 py-3 bg-green-500 text-white text-lg rounded-full shadow-lg hover:bg-green-600">
+          <div className="flex items-center mt-16">
+            <button className="flex items-center justify-center px-6 py-3 bg-green-500 font-onest text-white text-lg rounded-full shadow-lg hover:bg-green-600">
               Ver Panel
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 ml-2">
-                <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-6 h-6 ml-2"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+                  clipRule="evenodd"
+                />
               </svg>
             </button>
-            <p className="text-lg text-gray-700 hover:underline cursor-pointer">Conócenos</p>
+            <button className="text-lg font-medium text-gray-700 hover:underline font-onest cursor-pointer ml-14">
+              Conócenos
+            </button>
           </div>
         </div>
 
-        {/* Right Column */}
-        <div className="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 md:mt-0">
-          <div className="p-6 bg-yellow-100 rounded-lg shadow-md">
-            <h3 className="font-bold text-lg">Acerca de</h3>
-            <p className="text-gray-600">
-              Logo Finanzas, creada para simplificar la gestión de tus finanzas personales y ayudarte a alcanzar tus metas.
+        <div className="grid grid-rows-2 grid-cols-2 gap-6 mt-8 md:mt-0 w-1/2">
+          
+          <div className="grid grid-cols-1 grid-rows-2 overflow-hidden max-w-full max-h-full row-span-1 col-span-2 p-6  rounded-2xl shadow-md bg-cover bg-center acerca-bg">
+            <div>
+              <button className="font-onest bg-white bg-opacity-70 text-lg p-2 rounded-2xl">
+                Acerca de
+              </button>
+              <p className="text-white p-2 font-onest  mt-2">
+                Logo Finanzas, creada para simplificar la gestión de tus
+                finanzas personales y ayudarte a alcanzar tus metas.
+              </p>
+            </div>
+
+            <div className="self-end w-1/2">
+              <p className="text-white text-start font-onest text-sm p-2">
+
+              Creemos que la planificación financiera no tiene por qué ser
+              complicada, por eso creamos herramientas prácticas que se adaptan
+              a tus necesidades y objetivos.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 grid-rows-2 overflow-hidden p-6 rounded-2xl shadow-md bg-cover bg-center finblog-bg ">
+            <div>
+               <button className="font-onest text-lg bg-white bg-opacity-70 p-2 rounded-2xl">
+              Finblog
+            </button>
+            <p className="text-white p-2 font-onest mt-2">
+              Consejos prácticos para gestionar tu dinero, ahorrar y alcanzar
+              tus objetivos financieros
+            </p>
+            </div>
+           
+            <p className="self-end font-onest text-white text-start text-sm p-2 w-1/2">
+            Descubre tips sencillos para gestionar tu dinero y lograr tus metas.
             </p>
           </div>
-          <div className="p-6 bg-green-100 rounded-lg shadow-md">
-            <h3 className="font-bold text-lg">Finblog</h3>
-            <p className="text-gray-600">
-              Consejos prácticos para gestionar tu dinero, ahorrar y alcanzar tus objetivos financieros.
-            </p>
-          </div>
-          <div className="p-6 bg-pink-100 rounded-lg shadow-md col-span-2">
-            <h3 className="font-bold text-lg">Equipo</h3>
-            <p className="text-gray-600">
-              Conoce al equipo que hace posible el sistema para planificar tus finanzas personales.
+
+         
+          <div className="p-6 bg-pink-100 rounded-2xl shadow-md bg-cover bg-center equipo-bg flex flex-col items-start justify-between">
+            <button className="font-onest text-lg bg-white bg-opacity-70 p-2  rounded-2xl">
+              Equipo
+            </button>
+            <p className="font-onest text-white font-semibold text-8xl ">06</p>
+            <p className="text-white font-onest p-2">
+              Conoce al equipo que hace posible el sistema para planificar tus
+              finanzas personales.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-6 bg-gray-100 mt-12">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <p className="text-gray-600">
-            Nuestro planificador de finanzas personales te ayuda a gestionar tus recursos y tomar decisiones inteligentes.
+      <footer className="w-1/2  p-8 ">
+        <div className=" text-start ">
+          <p className="text-black-600 font-onest mb-4">
+            *Nuestro planificador de finanzas personales te ayuda a gestionar tus
+            recursos y tomar decisiones inteligentes.
           </p>
-          <div className="flex items-center justify-center space-x-4">
-            {/* Icons de redes sociales */}
-            <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-            <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-            <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-            <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+          <div className="flex items-center justify-around"> 
+
+            <FaFacebook className="w-8 h-8 text-black-600 cursor-pointer" />
+            <FaTwitter className="w-8 h-8 text-black-600 cursor-pointer" />
+            <FaInstagram className="w-8 h-8 text-black-600 cursor-pointer" />
+            <FaTiktok className="w-8 h-8 text-black-600 cursor-pointer" />
           </div>
         </div>
       </footer>
