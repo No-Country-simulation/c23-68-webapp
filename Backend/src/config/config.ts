@@ -5,4 +5,5 @@ export const {
   PORT = 3001,
   MONGO_URI = '',
   JWT_SECRET = 'SecretToken',
+  API_KEY = '',
 } = process.env
