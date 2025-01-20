@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <div className='flex flex-col items-center justify-center h-screen gap-4'>
-        <h1 className='text-xl text-red-600'> Popus</h1>
+        <h1 className='text-xl text-orange-400'> Popus</h1>
         <button
           className='px-2 py-1 border border-red-400 rounded-lg'
           //onClick={() => handleShowModal(LoadingModalID)}
