@@ -44,7 +44,7 @@ const Home = () => {
 
         <div className="grid grid-rows-2 grid-cols-2 gap-6 mt-8 md:mt-0 w-1/2">
           
-          <div className="grid grid-cols-1 grid-rows-2 overflow-hidden max-w-full max-h-full row-span-1 col-span-2 p-6  rounded-2xl shadow-md bg-cover bg-center acerca-bg">
+          <div className="grid grid-cols-1 grid-rows-2 overflow-hidden max-w-full max-h-full row-span-1 col-span-2 p-6  rounded-2xl shadow-md bg-cover bg-center about-bg">
             <div>
               <button className="font-onest bg-white bg-opacity-70 text-lg p-2 rounded-2xl">
                 Acerca de
@@ -82,7 +82,7 @@ const Home = () => {
           </div>
 
          
-          <div className="p-6 bg-pink-100 rounded-2xl shadow-md bg-cover bg-center equipo-bg flex flex-col items-start justify-between">
+          <div className="p-6 bg-pink-100 rounded-2xl shadow-md bg-cover bg-center team-bg flex flex-col items-start justify-between">
             <button className="font-onest text-lg bg-white bg-opacity-70 p-2  rounded-2xl">
               Equipo
             </button>
