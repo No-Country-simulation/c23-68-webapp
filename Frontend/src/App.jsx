@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <h1 className='text-4xl text-center'>Hello World</h1>
+      
       <Home />
       {/* <div className='flex flex-col items-center justify-center h-screen gap-4'>
         <h1 className='text-xl text-red-600'> Testing de modales</h1>
