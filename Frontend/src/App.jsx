@@ -8,8 +8,13 @@ import Home from "./pages/Home";
 import Team from "./pages/Team";
 
 function App() {
+<<<<<<< HEAD
   const { LoadingModalID, LoginModalID } = nameModal;
   const { show } = usePopups();
+=======
+  const { LoadingModalID, LoginModalID, RegisterModalID, LoginContraModalID } = nameModal
+  const { show } = usePopups()
+>>>>>>> 7a90ad0990fb56ae67cf1c913737b309e6642f56
 
   const handleShowModal = (idModal) => {
     show({
@@ -37,19 +42,30 @@ function App() {
 
       <div className='flex flex-col items-center justify-center h-screen gap-4'>
         <h1 className='text-xl text-red-600'> Testing de modales</h1>
+
         <button
           className='px-2 py-1 border border-red-400 rounded-lg'
-          onClick={() => handleShowModal(LoadingModalID)}
+          //onClick={() => handleShowModal(LoadingModalID)}
+          onClick={() => handleShowModal(LoginContraModalID)}
         >
-          Show Loading Modal
+          Show Login Contra Modal
         </button>
         <button
           className='px-2 py-1 border border-red-400 rounded-lg'
           onClick={() => handleShowModal(LoginModalID)}
         >
           Show Login Modal
-        </button> 
-      </div> 
+
+        </button>
+        <button
+          className='px-2 py-1 border border-red-400 rounded-lg'
+          onClick={() => handleShowModal(RegisterModalID)}
+        >
+          Show Register Modal
+        </button>
+
+      </div>
+       
     </>
   );
 }
