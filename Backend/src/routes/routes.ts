@@ -14,4 +14,23 @@ export const routes = {
       absolute: '/api/auth/register',
     },
   },
+  transactions: {
+    base: 'api/transactions',
+    getAll: {
+      relative: '/getTransactions',
+      absolute: '/api/transactions/getTransactions',
+    },
+    create: {
+      relative: '/createTransaction',
+      absolute: '/api/transactions/createTransaction',
+    },
+    update: {
+      relative: '/updateTransaction/:id',
+      absolute: '/api/transactions/updateTransaction/:id',
+    },
+    delete: {
+      relative: '/deleteTransaction/:id',
+      absolute: '/api/transactions/deleteTransaction/:id',
+    },
+  },
 }
