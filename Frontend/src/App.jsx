@@ -8,13 +8,8 @@ import Home from "./pages/Home";
 import Team from "./pages/Team";
 
 function App() {
-<<<<<<< HEAD
-  const { LoadingModalID, LoginModalID } = nameModal;
-  const { show } = usePopups();
-=======
   const { LoadingModalID, LoginModalID, RegisterModalID, LoginContraModalID } = nameModal
   const { show } = usePopups()
->>>>>>> 7a90ad0990fb56ae67cf1c913737b309e6642f56
 
   const handleShowModal = (idModal) => {
     show({
