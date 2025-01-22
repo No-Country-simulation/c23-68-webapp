@@ -22,3 +22,8 @@ export const TransactionModel = model<Transaction>(
   'Transaction',
   TransactionSchema
 )
+
+TransactionSchema.index({ user: 1, date: -1 })
+TransactionSchema.index({ user: 1, type: 1 })
+TransactionSchema.index({ category: 1 })
+TransactionSchema.index({ user: 1, category: 1 })
