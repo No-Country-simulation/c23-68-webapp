@@ -12,6 +12,7 @@ const Navbar = () => {
         type="button"
         className="flex items-center justify-center px-6 py-3 bg-green-500 font-onest text-white text-lg rounded-full shadow-lg hover:bg-green-600"
       >
+        
         Iniciar Sesion
         <svg
           xmlns="http://www.w3.org/2000/svg"
