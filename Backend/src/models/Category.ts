@@ -11,3 +11,5 @@ const CategorySchema = new Schema<Category>({
 })
 
 export const CategoryModel = model<Category>('Category', CategorySchema)
+
+CategorySchema.index({ name: 1, type: 1 }, { unique: true })

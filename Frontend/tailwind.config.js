@@ -6,6 +6,7 @@ export default {
       fontFamily:{
         anybody:['Anybody','sans-serif'],
         onest:['Onest','sans-serif']
+
       },
       colors:{
         'verde':'#2ECC71',
@@ -20,7 +21,10 @@ export default {
         'rosa':'#FF007FB2',
         'celeste':'#4285F4CC',
       },
+
     },
   },
   plugins: [],
+}
+  
 }
