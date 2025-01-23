@@ -1,45 +1,32 @@
-import { nameModal } from './config/nameModals'
-import usePopups from './hooks/usePopups'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import About from './pages/About';
 
 function App() {
-  const { LoadingModalID, LoginModalID, RegisterModalID, LoginContraModalID } = nameModal
-  const { show } = usePopups()
-
-  const handleShowModal = (idModal) => {
-    show({
-      popUpId: idModal,
-      metadata: { id: idModal },
-      pushMethod: 'prepend',
-    })
-  }
-
   return (
-    <>
-      <div className='flex flex-col items-center justify-center h-screen gap-4'>
-        <h1 className='text-xl text-orange-400'> Popus</h1>
-        <button
-          className='px-2 py-1 border border-red-400 rounded-lg'
-          //onClick={() => handleShowModal(LoadingModalID)}
-          onClick={() => handleShowModal(LoginContraModalID)}
-        >
-          Show Login Contra Modal
-        </button>
-        <button
-          className='px-2 py-1 border border-red-400 rounded-lg'
-          onClick={() => handleShowModal(LoginModalID)}
-        >
-          Show Login Modal
-        </button>
-        <button
-          className='px-2 py-1 border border-red-400 rounded-lg'
-          onClick={() => handleShowModal(RegisterModalID)}
-        >
-          Show Register Modal
-        </button>
+    <Router>
+      <div className="font-sans bg-white ">
+        <div className="text-center mt-12">
+          {/* Mostrar el botón solo si NO estamos en la ruta '/about' */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Link to="/about">
+                  <button className="bg-green-300 px-4 py-2 rounded-full">
+                    Acerca de
+                  </button>
+                </Link>
+              }
+            />
+          </Routes>
+        </div>
 
+        <Routes>
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
