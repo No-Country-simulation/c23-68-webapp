@@ -1,9 +1,6 @@
 import Navbar from "./components/layout/Navbar";
 import { BrowserRouter, Router, useRoutes } from "react-router-dom";
-import About from "./pages/About";
-import Finblog from "./pages/Finblog";
 import Home from "./pages/Home";
-import Team from "./pages/Team";
 import { nameModal } from "./config/nameModals";
 import usePopups from "./hooks/usePopups";
 import { useState } from "react";
@@ -29,9 +26,7 @@ function App() {
   const AppRoutes = () => {
     let routes = useRoutes([
       { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> },
-      { path: "/finblog", element: <Finblog /> },
-      { path: "/team", element: <Team /> }
+    
     ]);
     return routes;
   };
