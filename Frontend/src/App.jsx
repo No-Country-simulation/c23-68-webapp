@@ -1,20 +1,31 @@
+
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import About from "./pages/About";
 import { nameModal } from './config/nameModals'
 import usePopups from './hooks/usePopups'
 import Home from './pages/Home'
 
+
 function App() {
-  const { LoadingModalID, LoginModalID, RegisterModalID, LoginContraModalID } = nameModal
-  const { show } = usePopups()
-
-  const handleShowModal = (idModal) => {
-    show({
-      popUpId: idModal,
-      metadata: { id: idModal },
-      pushMethod: 'prepend',
-    })
-  }
-
   return (
+
+    <Router>
+      <div className="font-sans bg-white ">
+        <div className="text-center mt-12">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Link to="/about">
+                  <button className="bg-green-300 px-4 py-2 rounded-full">
+                    Acerca de
+                  </button>
+                </Link>
+              }
+            />
+          </Routes>
+        </div>
+
     <>
 
       <div className='flex flex-col items-center justify-center h-screen gap-4'>
@@ -46,12 +57,21 @@ function App() {
           Show Register Modal
         </button>
 
+
+        <Routes>
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
+
+    </Router>
+  );
+
         </button> 
       </div>  */}
 
     </>
   )
+
 }
 
-export default App
+export default App;
