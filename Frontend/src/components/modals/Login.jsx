@@ -25,8 +25,10 @@ function SimpleInputIcon({ label, icon, placeholder, ...props }) {
 }
 
 export function Login() {
-  const { LoadingModalID, LoginModalID, LoginContraModalID, RegisterModalID } =
-    nameModal;
+  const { LoadingModalID,
+     LoginModalID,
+     LoginContraModalID,
+     RegisterModalID } =  nameModal;
 
   const { show, hide } = usePopups();
   const [showPassword, setShowPassword] = useState(false);
@@ -175,11 +177,11 @@ export function Login() {
           </button>
 
           <div className="flex items-center">
-            <hr class="flex-grow border-gris2 relative -mb-40 ml-10" />
+            <hr className="flex-grow border-gris2 relative -mb-40 ml-10" />
             <label className="relative -bottom-20 -my-2 text-lg  mx-2 font-normal font-onest text-black">
               o
             </label>
-            <hr class=" flex-grow border-gris2 relative -mb-40 mr-10" />
+            <hr className=" flex-grow border-gris2 relative -mb-40 mr-10" />
           </div>
           <div className="flex items-center">
             <button
@@ -189,22 +191,22 @@ export function Login() {
               <img
                 src="https://img.icons8.com/?size=512&id=17949&format=png"
                 alt=""
-                class="absolute bottom-3 left-20  w-5 h-5"
+                className="absolute bottom-3 left-20  w-5 h-5"
               />
-              <span class="font-onest font-normal text-gris text-lg flex-grow absolute bottom-2 right-16 ">
+              <span className="font-onest font-normal text-gris text-lg flex-grow absolute bottom-2 right-16 ">
                 Inicia sesión con Google
               </span>
             </button>
           </div>
           <div className="text-center mb-6">
-            <label className="relative -bottom-32 -left-16 text-sm text'center font-normal font-onest text-black">
+            <label className="relative -bottom-32 -left-16 text-sm text-center font-normal font-onest text-black">
               ¿No tienes una cuenta?
             </label>
           </div>
 
           <div className="text-center mb-6">
             <label
-              className="cursor-pointer relative -bottom-20 left-20 underline underline-offset-1 text-sm text'center font-medium font-onest text-black"
+              className="cursor-pointer relative -bottom-20 left-20 underline underline-offset-1 text-sm text-center font-medium font-onest text-black"
               onClick={() => handleShowModal(RegisterModalID)}
             >
               Crear cuenta

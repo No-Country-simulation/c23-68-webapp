@@ -1,15 +1,22 @@
 import Navbar from "./components/layout/Navbar";
-import { nameModal } from "./config/nameModals";
 import { BrowserRouter, Router, useRoutes } from "react-router-dom";
-import usePopups from "./hooks/usePopups";
 import About from "./pages/About";
 import Finblog from "./pages/Finblog";
 import Home from "./pages/Home";
 import Team from "./pages/Team";
+import { nameModal } from "./config/nameModals";
+import usePopups from "./hooks/usePopups";
+import { useState } from "react";
 
 function App() {
-  const { LoadingModalID, LoginModalID, RegisterModalID, LoginContraModalID } = nameModal
-  const { show } = usePopups()
+ 
+  const { LoadingModalID,
+    LoginModalID,
+    LoginContraModalID,
+    RegisterModalID } =  nameModal;
+
+ const { show, hide } = usePopups();
+ const [showPassword, setShowPassword] = useState(false);
 
   const handleShowModal = (idModal) => {
     show({
@@ -18,6 +25,7 @@ function App() {
       pushMethod: "prepend",
     });
   };
+
   const AppRoutes = () => {
     let routes = useRoutes([
       { path: "/", element: <Home /> },
@@ -57,7 +65,7 @@ function App() {
           onClick={() => handleShowModal(RegisterModalID)}
         >
           Show Register Modal
-        </button>
+        </button> 
 
       </div>
        

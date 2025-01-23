@@ -1,18 +1,22 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="flex items-center justify-between mt-4 mb-4 w-100 px-8">
       <h1>
-        <NavLink to="/" className="text-4xl font-onest font-bold text-black hover:text-green-500 hover:underline"> FIPE!</NavLink>
+        <NavLink
+          to="/"
+          className="text-4xl font-onest font-bold text-black hover:text-green-500 hover:underline"
+        >
+          
+          FIPE!
+        </NavLink>
       </h1>
 
       <button
         type="button"
         className="flex items-center justify-center px-6 py-3 bg-green-500 font-onest text-white text-lg rounded-full shadow-lg hover:bg-green-600"
       >
-        
         Iniciar Sesion
         <svg
           xmlns="http://www.w3.org/2000/svg"
