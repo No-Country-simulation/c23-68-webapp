@@ -1,12 +1,35 @@
 import { NavLink } from "react-router-dom";
+import { nameModal } from "../../config/nameModals";
+import usePopups from "../../hooks/usePopups";
+import { useState } from "react";
 
 const Navbar = () => {
+
+
+  const { LoadingModalID,
+    LoginModalID,
+    LoginContraModalID,
+    RegisterModalID } =  nameModal;
+
+ const { show, hide } = usePopups();
+ const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowModal = (idModal) => {
+    show({
+      popUpId: idModal,
+      metadata: { id: idModal },
+      pushMethod: "prepend",
+    });
+  };
+
+
+
   return (
     <div className="flex items-center justify-between mt-4 mb-4 w-100 px-8">
       <h1>
         <NavLink
           to="/"
-          className="text-4xl font-onest font-bold text-black hover:text-green-500 hover:underline"
+          className="text-4xl font-anybody font-medium text-black hover:text-green-500 hover:underline"
         >
           
           FIPE!
@@ -16,7 +39,8 @@ const Navbar = () => {
       <button
         type="button"
         className="flex items-center justify-center px-6 py-3 bg-green-500 font-onest text-white text-lg rounded-full shadow-lg hover:bg-green-600"
-      >
+        onClick={() => handleShowModal(LoginModalID)}
+     >
         Iniciar Sesion
         <svg
           xmlns="http://www.w3.org/2000/svg"

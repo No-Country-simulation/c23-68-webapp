@@ -10,21 +10,21 @@ import { useState } from "react";
 
 function App() {
  
-  const { LoadingModalID,
-    LoginModalID,
-    LoginContraModalID,
-    RegisterModalID } =  nameModal;
+//   const { LoadingModalID,
+//     LoginModalID,
+//     LoginContraModalID,
+//     RegisterModalID } =  nameModal;
 
- const { show, hide } = usePopups();
- const [showPassword, setShowPassword] = useState(false);
+//  const { show, hide } = usePopups();
+//  const [showPassword, setShowPassword] = useState(false);
 
-  const handleShowModal = (idModal) => {
-    show({
-      popUpId: idModal,
-      metadata: { id: idModal },
-      pushMethod: "prepend",
-    });
-  };
+//   const handleShowModal = (idModal) => {
+//     show({
+//       popUpId: idModal,
+//       metadata: { id: idModal },
+//       pushMethod: "prepend",
+//     });
+//   };
 
   const AppRoutes = () => {
     let routes = useRoutes([
@@ -42,7 +42,7 @@ function App() {
         <Navbar />
         <AppRoutes />
       </BrowserRouter>
-
+{/* 
       <div className='flex flex-col items-center justify-center h-screen gap-4'>
         <h1 className='text-xl text-red-600'> Testing de modales</h1>
 
@@ -67,7 +67,7 @@ function App() {
           Show Register Modal
         </button> 
 
-      </div>
+      </div> */}
        
     </>
   );

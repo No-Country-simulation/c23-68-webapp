@@ -101,6 +101,7 @@ export function Login() {
             </label>
 
             <span
+              
               className="cursor-pointer relative  -bottom-16 left-32 text-xs font-semibold font-onest text-justify text-verde"
               onClick={() => handleShowModal(LoginContraModalID)}
             >
