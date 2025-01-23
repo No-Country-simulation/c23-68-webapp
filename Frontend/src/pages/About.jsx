@@ -3,7 +3,6 @@ import React from "react";
 const About = () => {
   return (
     <div className="font-sans bg-white min-h-screen">
-      {/* Navbar */}
       <header className="flex justify-between items-center mx-20 my-14 bg-white">
         <h1 className="text-xl font-onest font-bold">LOGO FINANZAS</h1>
 
@@ -46,16 +45,16 @@ const About = () => {
         </svg>
       </header>
       <div className="bg-white shadow-lg rounded-3xl border-b-8  border-r-8 border-l-2 border-t-2 border-black py-12 p-24 w-[89%] max-w-[1400px] mx-auto">
-      <img
-                src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/1024px/1f4b8_color.png"
-                alt=""
-                class="absolute top-50 left-96  w-20 h-20"
-              />
-      <img
-                src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/1024px/1f4b8_color.png"
-                alt=""
-                class="absolute top-50 right-96  w-20 h-20"
-              />
+        <img
+          src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/1024px/1f4b8_color.png"
+          alt=""
+          class="absolute top-50 left-96  w-20 h-20"
+        />
+        <img
+          src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/1024px/1f4b8_color.png"
+          alt=""
+          class="absolute top-50 right-96  w-20 h-20"
+        />
         <div className="text-center">
           <button className="bg-verdeclaro font-normal font-onest text-xl px-7 py-2 rounded-full border border-black ">
             Acerca de
@@ -72,7 +71,6 @@ const About = () => {
           </p>
         </div>
 
-        {/* Tarjetas de servicios */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 max-w-7xl mr-6 mt-5">
           <div className="text-left bg-verdesemioscuro pt-6 pl-3 rounded-2xl shadow-md hover:shadow-verdesemioscuro -mx-10 my-7">
             <h3 className=" text-2xl text-negro font-semibold ml-2 mr-24 font-anybody leading-6">
@@ -180,7 +178,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Sección inferior */}
         <div className="flex flex-row gap-14 mt-5 -ml-8">
           <div className="border-[0.5px] border-negro  rounded-3xl w-1/2 pt-5 pr-10 ">
             <h4 className="font-semibold text-lg font-anybody text-negro text-right">
@@ -191,11 +188,22 @@ const About = () => {
               herramientas para mejorar tu bienestar financiero. ¡Empieza a
               aprender hoy y da el primer paso hacia un futuro más seguro!
             </p>
-            <svg width="33" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="relative bottom-10 left-10">
-            <path d="M13.3889 24.3889L2.5 13.5M2.5 13.5L13.3889 2.61114M2.5 13.5L30.5 13.5" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg
+              width="33"
+              height="27"
+              viewBox="0 0 33 27"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="relative bottom-10 left-10"
+            >
+              <path
+                d="M13.3889 24.3889L2.5 13.5M2.5 13.5L13.3889 2.61114M2.5 13.5L30.5 13.5"
+                stroke="#1E1E1E"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-
           </div>
           <div className=" border-[0.5px] border-negro  rounded-3xl w-1/2 pt-4 pl-10">
             <h4 className="font-semibold text-lg font-anybody text-negro text-left pr-32">
@@ -205,11 +213,22 @@ const About = () => {
               Descubre a los apasionados que la hicieron posible. ¡Conoce a
               nuestro equipo!
             </p>
-            <svg width="33" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="relative bottom-14 -right-96 ">
-            <path d="M19.6111 2.61108L30.5 13.5M30.5 13.5L19.6111 24.3889M30.5 13.5H2.5" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg
+              width="33"
+              height="27"
+              viewBox="0 0 33 27"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="relative bottom-14 -right-96 "
+            >
+              <path
+                d="M19.6111 2.61108L30.5 13.5M30.5 13.5L19.6111 24.3889M30.5 13.5H2.5"
+                stroke="#1E1E1E"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-            
           </div>
         </div>
       </div>

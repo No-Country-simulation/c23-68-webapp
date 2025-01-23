@@ -1,12 +1,11 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import About from './pages/About';
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import About from "./pages/About";
 
 function App() {
   return (
     <Router>
       <div className="font-sans bg-white ">
         <div className="text-center mt-12">
-          {/* Mostrar el botón solo si NO estamos en la ruta '/about' */}
           <Routes>
             <Route
               path="/"
