@@ -2,7 +2,7 @@ import { nameModal } from './config/nameModals'
 import usePopups from './hooks/usePopups'
 
 function App() {
-  const { LoadingModalID, LoginModalID } = nameModal
+  const { LoadingModalID, LoginModalID, DataFormModalID, SavingsFormModalID, DataSavedModalID } = nameModal
   const { show } = usePopups()
 
   const handleShowModal = (idModal) => {
@@ -28,6 +28,26 @@ function App() {
           onClick={() => handleShowModal(LoginModalID)}
         >
           Show Login Modal
+        </button>
+        <button
+          className="px-2 py-1 border border-red-400 rounded-lg"
+          onClick={() => handleShowModal(DataFormModalID)}
+        >
+          Show Data Form Modal
+        </button>
+
+        <button
+          className="px-2 py-1 border border-red-400 rounded-lg"
+          onClick={() => handleShowModal(SavingsFormModalID)}
+        >
+          Show Savings Form Modal
+        </button>
+
+        <button
+          className="px-2 py-1 border border-red-400 rounded-lg"
+          onClick={() => handleShowModal(DataSavedModalID)}
+        >
+          Data Saved Modal
         </button>
       </div>
     </>
