@@ -1,4 +1,3 @@
-import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "../styles/Home.css";
