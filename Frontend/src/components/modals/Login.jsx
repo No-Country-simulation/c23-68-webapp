@@ -95,19 +95,17 @@ export function Login() {
             title="Por favor, ingresa un correo electrónico válido."
             className=" bg-white border relative -bottom-16  font-onest font-light text-lg text-black block w-full p-2.5 pr-10 truncate rounded-lg"
           />
-          <div className="mb-6">
-            <label className=" relative -bottom-16 left-0 text-lg font-normal font-onest text-justify text-black ">
+
+
+
+
+          <div className="mb-6 flex flex-col">
+
+            <label className=" relative -bottom-[4.5rem] left-0 text-lg font-normal font-onest text-justify text-black ">
               Contraseña
             </label>
 
-            <span
-              
-              className="cursor-pointer relative  -bottom-16 left-32 text-xs font-semibold font-onest text-justify text-verde"
-              onClick={() => handleShowModal(LoginContraModalID)}
-            >
-              ¿Olvidaste tu contraseña?
-            </span>
-
+           
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
@@ -168,6 +166,13 @@ export function Login() {
                 )}
               </button>
             </div>
+               <span
+              className="cursor-pointer relative top-12  text-xs font-semibold font-onest text-justify text-verde"
+              onClick={() => handleShowModal(LoginContraModalID)}
+            >
+              ¿Olvidaste tu contraseña?
+            </span>
+
           </div>
 
           <button

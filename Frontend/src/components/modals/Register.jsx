@@ -196,9 +196,9 @@ export function Register() {
               <img
                 src="https://img.icons8.com/?size=512&id=17949&format=png"
                 alt=""
-                class="absolute bottom-3 left-20  w-5 h-5"
+                className="absolute bottom-3 left-20  w-5 h-5"
               />
-              <span class="font-onest font-normal text-gris text-lg flex-grow absolute bottom-2 right-16 ">
+              <span className="font-onest font-normal text-gris text-lg flex-grow absolute bottom-2 right-16 ">
                 Inicia sesión con Google
               </span>
             </button>
