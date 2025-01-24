@@ -7,6 +7,9 @@ WORKDIR /app
 # Copia el archivo package.json y package-lock.json (si existe)
 COPY package*.json ./
 
+# Copia solo los archivos de configuración primero para aprovechar la cache
+COPY package.json package-lock.json ./
+
 # Instala las dependencias
 RUN npm install
 
