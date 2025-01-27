@@ -16,13 +16,10 @@ export default {
         'grisclaro':'#1E1E1E80',
         'gris2':'#1E1E1E4D',
         'gris':'#1E1E1ECC',
-<<<<<<< HEAD
-=======
         'negro':'#1E1E1E',
         'amarillo':'#FFC107CC',
         'rosa':'#FF007FB2',
         'celeste':'#4285F4CC',
->>>>>>> 6223b6e7dc9177ba1ad27db13b025f25bbcd0ad3
       },
 
     },
