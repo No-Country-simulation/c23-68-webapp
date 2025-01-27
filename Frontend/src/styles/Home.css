@@ -1,11 +1,11 @@
 .about-bg {
-    background-image: url('../assets/images/about.png');
+    background-image: url('../../public/images/about.png');
   }
   
   .finblog-bg {
-    background-image: url('../assets/images/finblog.png');
+    background-image: url('../../public/images/finblog.png');
   }
   
   .team-bg {
-    background-image: url('../assets/images/team.png');
+    background-image: url('../../public/images/team.png');
   }
