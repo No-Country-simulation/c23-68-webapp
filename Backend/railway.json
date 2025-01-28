@@ -1,0 +1,19 @@
+{
+  "deployments": [
+    {
+      "branch": "main",
+      "service": "backend",
+      "env": "production"
+    },
+    {
+      "branch": "development",
+      "service": "backend",
+      "env": "development"
+    },
+    {
+      "branch": "qa",
+      "service": "backend",
+      "env": "qa"
+    }
+  ]
+}

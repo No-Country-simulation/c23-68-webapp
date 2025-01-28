@@ -24,9 +24,8 @@ function SimpleInputIcon({ label, icon, placeholder, ...props }) {
   );
 }
 
-export function Login() {
-  const { LoadingModalID, LoginModalID, LoginContraModalID, RegisterModalID } =
-    nameModal;
+export function Register() {
+  const { RegisterModalID, LoadingModalID, LoginModalID } = nameModal;
 
   const { show, hide } = usePopups();
   const [showPassword, setShowPassword] = useState(false);
@@ -41,12 +40,13 @@ export function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const nombre = document.getElementById("nombre").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    console.log({ email, password });
+    console.log({ nombre, email, password });
 
-    if (!email || !password) {
-      console.error("Email y password son obligatorios");
+    if (!nombre || !email || !password) {
+      console.error("Nombre, Email y password son obligatorios");
     }
 
     show({
@@ -66,8 +66,9 @@ export function Login() {
       }
     );
   };
+
   return (
-    <Modal id={LoginModalID}>
+    <Modal id={RegisterModalID}>
       <form className="space-y-6">
         <div className="flex flex-col container mx-1  px-24 py-24 bg-white shadow-lg rounded-3xl">
           <button
@@ -77,8 +78,22 @@ export function Login() {
             ✕
           </button>
           <h1 className="relative -bottom-4 text-4xl font-semibold text-center font-anybody">
-            Iniciar Sesión
+            Créate una cuenta
           </h1>
+
+          <SimpleInputIcon
+            id="nombre"
+            type="nombre"
+            label={
+              <span className=" relative -bottom-16 left-0  font-onest font-normal text-justify text-lg text-black">
+                Nombre
+              </span>
+            }
+            placeholder="Samir Pérez"
+            pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s'-]{2,}$"
+            title="Por favor, ingresa un nombre válido."
+            className=" bg-white border relative -bottom-16  font-onest font-light text-lg text-black block w-full p-2.5 pr-10 truncate rounded-lg"
+          />
 
           <SimpleInputIcon
             id="email"
@@ -98,20 +113,12 @@ export function Login() {
               Contraseña
             </label>
 
-            <span
-              className="cursor-pointer relative  -bottom-16 left-32 text-xs font-semibold font-onest text-justify text-verde"
-              onClick={() => handleShowModal(LoginContraModalID)}
-            >
-              ¿Olvidaste tu contraseña?
-            </span>
-
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 className="relative -bottom-20 bg-white border text-gray-900 text-lg rounded-lg block w-full p-2.5 pr-10 truncate"
                 placeholder="••••••••••••••"
-                required
               />
               <button
                 type="button"
@@ -175,7 +182,7 @@ export function Login() {
           </button>
 
           <div className="flex items-center">
-            <hr className="flex-grow border-gris2 relative -mb-40 ml-10" />
+            <hr class="flex-grow border-gris2 relative -mb-40 ml-10" />
             <label className="relative -bottom-20 -my-2 text-lg  mx-2 font-normal font-onest text-black">
               o
             </label>
@@ -189,25 +196,25 @@ export function Login() {
               <img
                 src="https://img.icons8.com/?size=512&id=17949&format=png"
                 alt=""
-                className="absolute bottom-3 left-20  w-5 h-5"
+                class="absolute bottom-3 left-20  w-5 h-5"
               />
-              <span className="font-onest font-normal text-gris text-lg flex-grow absolute bottom-2 right-16 ">
+              <span class="font-onest font-normal text-gris text-lg flex-grow absolute bottom-2 right-16 ">
                 Inicia sesión con Google
               </span>
             </button>
           </div>
           <div className="text-center mb-6">
             <label className="relative -bottom-32 -left-16 text-sm text-center font-normal font-onest text-black">
-              ¿No tienes una cuenta?
+              ¿Ya tienes una cuenta?
             </label>
           </div>
 
           <div className="text-center mb-6">
             <label
               className="cursor-pointer relative -bottom-20 left-20 underline underline-offset-1 text-sm text-center font-medium font-onest text-black"
-              onClick={() => handleShowModal(RegisterModalID)}
+              onClick={() => handleShowModal(LoginModalID)}
             >
-              Crear cuenta
+              Iniciar Sesión
             </label>
           </div>
         </div>

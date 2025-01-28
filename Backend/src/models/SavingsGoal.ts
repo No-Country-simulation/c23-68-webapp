@@ -27,3 +27,7 @@ export const SavingsGoalModel = model<SavingsGoal>(
   'SavingsGoal',
   SavingsGoalSchema
 )
+
+SavingsGoalSchema.index({ user: 1 })
+SavingsGoalSchema.index({ deadline: 1 })
+SavingsGoalSchema.index({ user: 1, progress: -1 })

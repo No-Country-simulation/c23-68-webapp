@@ -1,57 +1,29 @@
-import { nameModal } from './config/nameModals'
-import usePopups from './hooks/usePopups'
+import Navbar from "./components/layout/Navbar";
+import { BrowserRouter, Router, useRoutes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+
 
 function App() {
-  const { LoadingModalID, LoginModalID, DataFormModalID, SavingsFormModalID, DataSavedModalID } = nameModal
-  const { show } = usePopups()
 
-  const handleShowModal = (idModal) => {
-    show({
-      popUpId: idModal,
-      metadata: { id: idModal },
-      pushMethod: 'prepend',
-    })
-  }
+  const AppRoutes = () => {
+    let routes = useRoutes([
+      { path: "/", element: <Home /> },
+      { path: "/about", element: <About /> },
+    ]);
+    return routes;
+  };
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center h-screen gap-4'>
-        <h1 className='text-xl text-red-600'> Testing de modales</h1>
-        <button
-          className='px-2 py-1 border border-red-400 rounded-lg'
-          onClick={() => handleShowModal(LoadingModalID)}
-        >
-          Show Loading Modal
-        </button>
-        <button
-          className='px-2 py-1 border border-red-400 rounded-lg'
-          onClick={() => handleShowModal(LoginModalID)}
-        >
-          Show Login Modal
-        </button>
-        <button
-          className="px-2 py-1 border border-red-400 rounded-lg"
-          onClick={() => handleShowModal(DataFormModalID)}
-        >
-          Show Data Form Modal
-        </button>
+      <BrowserRouter>
+        <Navbar />
+        <AppRoutes />
+      </BrowserRouter>
 
-        <button
-          className="px-2 py-1 border border-red-400 rounded-lg"
-          onClick={() => handleShowModal(SavingsFormModalID)}
-        >
-          Show Savings Form Modal
-        </button>
 
-        <button
-          className="px-2 py-1 border border-red-400 rounded-lg"
-          onClick={() => handleShowModal(DataSavedModalID)}
-        >
-          Data Saved Modal
-        </button>
-      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
