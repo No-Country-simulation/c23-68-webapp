@@ -1,7 +1,7 @@
+
 <div align="center">
 <img src="" alt="equipo" />
 </div>
-
 
 
 <h1 align="center"><img src="https://tenor.com/bU2WX.gif" width="30" />¡Hola! Bienvenidos al perfil del Equipo C23-68-webapp  </h1>
@@ -10,6 +10,10 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 
 
 ## ⭐ Nuestro Proyecto
+
+<div align="center">
+<img src="" alt="portada" />
+</div>
 
 **Nombre:** FIPE
 
@@ -28,3 +32,98 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 
 [![FIGMA](https://img.shields.io/badge/figma-9C55F7?style=for-the-badge&logo=figma&logoColor=white)](<https://www.figma.com/design/Ak3qOJMMIRUmoNAu4wYKeI/Planificador-de-finanzas-personales-C23-68?node-id=5-5&t=yjZJEmQelmy3a0LP-1>)
 [![Sitio web](https://img.shields.io/website?url=https%3A%2F%2Ffipe.cl&style=for-the-badge)]()
+
+**Reunion del equipo**
+
+<div align="center">
+<img src="" alt="Captura" />
+</div>
+
+**Wireframes**
+
+<div align="center">
+<img src="" alt="wireframe" />
+</div>
+
+**Diseño UI**
+
+<div align="center">
+<img src="" alt="DiseñoUI" />
+</div>
+
+
+
+## 🫂 Nuestro Equipo
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="">
+        <img src="" width="140" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="">
+         <img src="" width="140" />
+       </a>
+    </td>
+    <td align="center">
+      <a href="">
+         <img src="" width="140" />
+       </a>
+    </td>
+    <td align="center">
+      <a href="">
+         <img src="" width="140" />
+       </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">Franco <img src="" width="16" /></td>
+    <td align="center">Nayely <img src="" width="16" /></td>
+    <td align="center">Angel <img src="" width="16" /></td>
+    <td align="center">Fabri <img src="" width="16" /></td>
+  </tr>
+  <tr>
+    <td align="center">PM & Backend</td>
+    <td align="center">Design UX/UI</td>
+    <td align="center">Frontend</td>
+    <td align="center">Frontend</td>
+  </tr>
+  <tr>
+    <td align="center"><img alt="Portafolio" src=""></td>
+    <td align="center"><img alt="Portafolio" src=""></td>
+    <td align="center"><img alt="Portafolio" src=""></td>
+    <td align="center"><img alt="Portafolio" src=""></td>
+  </tr>
+
+</table>
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="">
+         <img src="" width="140" />
+       </a>
+    </td>
+    <td align="center">
+      <a href="">
+         <img src="" width="140" />
+       </a>
+    </td>
+    
+  </tr>
+  <tr>
+    <td align="center">Hugo <img src="" width="16" /></td>
+    <td align="center">Styff <img src="" width="16" /></td>
+  </tr>
+  <tr>
+    <td align="center">Frontend</td>
+    <td align="center">Quality Assurance</td>
+  </tr>
+  <tr>
+    <td align="center"><img alt="Portafolio" src=""></td>
+    <td align="center"><img alt="Portafolio" src=""></td>
+  </tr>
+  
+</table>
