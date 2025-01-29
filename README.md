@@ -87,8 +87,8 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
   <tr>
     <td align="center">PM & Backend</td>
     <td align="center">Design UX/UI</td>
-    <td align="center">Frontend</td>
-    <td align="center">Frontend</td>
+    <td align="center"> Dev Frontend</td>
+    <td align="center">Dev Frontend</td>
   </tr>
   <tr>
     <td align="center"><img alt="Portafolio" src=""></td>
@@ -118,7 +118,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
     <td align="center">Styff <img src="" width="16" /></td>
   </tr>
   <tr>
-    <td align="center">Frontend</td>
+    <td align="center">Dev Frontend</td>
     <td align="center">Quality Assurance</td>
   </tr>
   <tr>
