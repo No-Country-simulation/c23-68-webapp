@@ -26,6 +26,21 @@ export async function createUser(userData: ICreateUser) {
       }
     }
 
+    if (userData.currency !== undefined && userData.currency === '') {
+      return {
+        status: false,
+        message: 'Ingrese el campo de una forma correcta',
+      }
+    }
+    if (
+      userData.currency !== undefined &&
+      typeof userData.currency === 'number'
+    ) {
+      return {
+        status: false,
+        message: 'El campo currency debe ser un valor campo de texto',
+      }
+    }
     if (userData.currency) {
       const allowedCurrencies = ['USD', 'EUR', 'CLP', 'PEN', 'VEF']
       if (!allowedCurrencies.includes(userData.currency)) {
