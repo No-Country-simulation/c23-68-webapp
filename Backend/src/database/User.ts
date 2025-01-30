@@ -2,7 +2,7 @@ import { FilterQuery } from 'mongoose'
 import { User, UserModel } from '../models/User'
 import bcrypt from 'bcrypt'
 
-interface ICreateUser {
+export interface ICreateUser {
   name: string
   email: string
   password: string
@@ -16,6 +16,25 @@ export async function createUser(userData: ICreateUser) {
       return {
         status: false,
         message: 'El correo electrónico ya está en uso por otro usuario',
+      }
+    }
+
+    if (typeof userData.name !== 'string' || !userData.name) {
+      return {
+        status: false,
+        message: 'El nombre es requerido',
+      }
+    }
+
+    if (userData.currency) {
+      const allowedCurrencies = ['USD', 'EUR', 'CLP', 'PEN', 'VEF']
+      if (!allowedCurrencies.includes(userData.currency)) {
+        return {
+          status: false,
+          message: `Moneda no permitida, las monedas permitidas son: ${allowedCurrencies.join(
+            ','
+          )}`,
+        }
       }
     }
 
@@ -43,6 +62,13 @@ export async function createUser(userData: ICreateUser) {
       }
     }
 
+    if (!userData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      return {
+        status: false,
+        message: 'El correo electrónico no es válido',
+      }
+    }
+
     const hashedPassword = await bcrypt.hash(userData.password, 7)
 
     const user = new UserModel({
@@ -64,7 +90,7 @@ export async function createUser(userData: ICreateUser) {
   }
 }
 
-export async function getUserById(email: string) {
+export async function getUserByEmail(email: string) {
   try {
     const user = await UserModel.findOne({ email })
     if (!user) {
