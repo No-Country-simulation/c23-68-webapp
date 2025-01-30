@@ -1,10 +1,17 @@
-import { createUser, getUserById } from '../database/User'
+import { createUser, getUserByEmail } from '../database/User'
 import { IResponse } from '../interface/reponse'
 import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 import { createToken, verifyToken } from '../helpers/jwt'
 import { NODE_ENV } from '../config/config'
 import { validationsLogin, validationsRegister } from '../helpers/auth'
+
+export interface IDataLogin {
+  userId: string
+  name: string
+  email: string
+  currency: string
+}
 
 export async function login(req: Request, res: Response) {
   const { email, password } = req.body
@@ -14,7 +21,7 @@ export async function login(req: Request, res: Response) {
     return
   }
 
-  const user = await getUserById(email)
+  const user = await getUserByEmail(email)
 
   if (!user.status || !user.data) {
     const response: IResponse<undefined> = {
@@ -36,7 +43,7 @@ export async function login(req: Request, res: Response) {
     return
   }
 
-  const dataPublicUser = {
+  const dataPublicUser: IDataLogin = {
     userId: user.data.userId,
     name: user.data.name,
     email: user.data.email,
