@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Modal } from "./Modal";
 import { nameModal } from "../../config/nameModals";
 import usePopups from "../../hooks/usePopups";
+import { fetchLogin } from "../../service/login";
 
 function SimpleInputIcon({ label, icon, placeholder, ...props }) {
   const setPlaceholder = placeholder || "Input con icono";
@@ -41,21 +42,48 @@ export function Login() {
     });
   };
 
-  const handleSubmit = (event) => {
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const email = document.getElementById("email").value;
+  //   const password = document.getElementById("password").value;
+  //   console.log({ email, password });
+
+  //   if (!email || !password) {
+  //     console.error("Email y password son obligatorios");
+  //   }
+
+  //   show({
+  //     popUpId: LoadingModalID,
+  //     metadata: { id: LoadingModalID },
+  //     pushMethod: "prepend",
+  //   });
+  // };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    console.log({ email, password });
-
+  
     if (!email || !password) {
-      console.error("Email y password son obligatorios");
+      console.error("Campos obligatorios");
+      return;
     }
-
-    show({
-      popUpId: LoadingModalID,
-      metadata: { id: LoadingModalID },
-      pushMethod: "prepend",
-    });
+  
+    show({ popUpId: LoadingModalID });
+  
+    try {
+      const data = await fetchLogin(email, password);
+      if (data) {
+        // Cerrar todos los modales
+        [LoginModalID, LoadingModalID].forEach((modalId) => hide({ popUpId: modalId }));
+        console.log("Login exitoso");
+      }
+    } catch (error) {
+      console.error("Error:", error.message);
+      // Mostrar error al usuario
+    } finally {
+      hide({ popUpId: LoadingModalID });
+    }
   };
 
   const handleClose = () => {

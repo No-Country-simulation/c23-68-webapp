@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Modal } from "./Modal";
 import { nameModal } from "../../config/nameModals";
 import usePopups from "../../hooks/usePopups";
+import { fetchRegister } from "../../service/register";
+import useAuthStore from "../../store/useAuth.store";
 
 function SimpleInputIcon({ label, icon, placeholder, ...props }) {
   const setPlaceholder = placeholder || "Input con icono";
@@ -38,15 +40,18 @@ export function Register() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const login = useAuthStore((state) => state.login); // Función de Zustand
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const nombre = document.getElementById("nombre").value;
+    const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    console.log({ nombre, email, password });
+    console.log({ name, email, password });
 
-    if (!nombre || !email || !password) {
+    if (!name || !email || !password) {
       console.error("Nombre, Email y password son obligatorios");
+      return;
     }
 
     show({
@@ -54,6 +59,10 @@ export function Register() {
       metadata: { id: LoadingModalID },
       pushMethod: "prepend",
     });
+
+    const data = await fetchRegister(email, password, name);
+
+   
   };
 
   const handleClose = () => {
@@ -82,8 +91,8 @@ export function Register() {
           </h1>
 
           <SimpleInputIcon
-            id="nombre"
-            type="nombre"
+            id="name"
+            type="text"
             label={
               <span className=" relative -bottom-16 left-0  font-onest font-normal text-justify text-lg text-black">
                 Nombre
@@ -178,7 +187,7 @@ export function Register() {
             onClick={(event) => handleSubmit(event)}
             className=" relative -bottom-12 px-32 py-3 font-onest font-bold text-white text-lg transition duration-300 ease-in-out bg-verde rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-verde focus:ring-verde "
           >
-            Iniciar Sesión
+            Registrarse
           </button>
 
           <div className="flex items-center">
