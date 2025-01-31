@@ -49,7 +49,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 **Diseño UI**
 
 <div align="center">
-<img src="" alt="DiseñoUI" />
+<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/63shots_so.png" alt="DiseñoUI" />
 </div>
 
 
