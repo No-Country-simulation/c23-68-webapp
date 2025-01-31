@@ -91,7 +91,7 @@ Somos un equipo **multidisciplinario de desarrolladores y diseñadores** que com
 
 <table align="center">
   <tr>
-    <td align="center">Hugo <img src="" width="16" /></td>
+    <td align="center">Hugo <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/pe.png" width="16" /></td>
     <td align="center">Styfferson <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/ve.png" width="16" /></td>
   </tr>
   <tr>
@@ -99,7 +99,7 @@ Somos un equipo **multidisciplinario de desarrolladores y diseñadores** que com
     <td align="center">Quality Assurance</td>
   </tr>
   <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/francoespinoza/">
+    <td align="center"><a href="https://www.linkedin.com/in/hugogsalazar/">
     	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
     </a></td>
     <td align="center"><a href="https://www.linkedin.com/in/styff-castro/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
