@@ -76,9 +76,15 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
     <td align="center"><a href="https://www.linkedin.com/in/francoespinoza/">
     	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
     </a></td>
-    <td align="center"><img alt="Portafolio" src=""></td>
-    <td align="center"><img alt="Portafolio" src=""></td>
-    <td align="center"><img alt="Portafolio" src=""></td>
+    <td align="center"><a href="https://www.linkedin.com/in/nayely-rodriguez-auccasi-45a049260/">
+    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    </a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/francoespinoza/">
+    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    </a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/francoespinoza/">
+    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    </a></td>
   </tr>
 
 </table>
@@ -106,8 +112,12 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
     <td align="center">Quality Assurance</td>
   </tr>
   <tr>
-    <td align="center"><img alt="Portafolio" src=""></td>
-    <td align="center"><img alt="Portafolio" src=""></td>
+    <td align="center"><a href="https://www.linkedin.com/in/francoespinoza/">
+    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    </a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/styff-castro/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    </a></td>
   </tr>
   
 </table>
