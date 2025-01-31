@@ -42,7 +42,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 **Wireframes**
 
 <div align="center">
-<img src="" alt="wireframe" />
+<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/wireframe.jpeg" alt="wireframe" />
 </div>
 
 **Diseño UI**
