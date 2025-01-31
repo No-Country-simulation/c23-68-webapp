@@ -56,7 +56,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 
 
 
-## 🫂 Nuestro Equipo
+## 👥 Nuestro Equipo
 
 <table align="center">
   
