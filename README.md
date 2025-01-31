@@ -61,7 +61,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 <table align="center">
   
   <tr>
-    <td align="center">Franco <img src="" width="16" /></td>
+    <td align="center">Franco <img src="🇨🇱" width="16" /></td>
     <td align="center">Nayely <img src="" width="16" /></td>
     <td align="center">Angel <img src="" width="16" /></td>
     <td align="center">Fabri <img src="" width="16" /></td>
