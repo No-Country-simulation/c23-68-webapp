@@ -37,7 +37,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 **Reunion del equipo**
 
 <div align="center">
-<img src="" alt="Captura" />
+<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/captura%20de%20discord.png" alt="Captura" />
 </div>
 
 **Wireframes**
