@@ -12,7 +12,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 ## ⭐ Nuestro Proyecto
 
 <div align="center">
-<img src="" alt="portada" />
+<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/portadafipe.png" alt="portada" />
 </div>
 
 **Nombre:** FIPE
