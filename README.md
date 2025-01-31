@@ -91,21 +91,8 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 
 <table align="center">
   <tr>
-    <td align="center">
-      <a href="">
-         <img src="" width="140" />
-       </a>
-    </td>
-    <td align="center">
-      <a href="">
-         <img src="" width="140" />
-       </a>
-    </td>
-    
-  </tr>
-  <tr>
     <td align="center">Hugo <img src="" width="16" /></td>
-    <td align="center">Styff <img src="" width="16" /></td>
+    <td align="center">Styfferson <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/ar.png" width="16" /></td>
   </tr>
   <tr>
     <td align="center">Dev Frontend</td>
