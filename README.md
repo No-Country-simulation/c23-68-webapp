@@ -73,8 +73,9 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
     <td align="center">Dev Frontend</td>
   </tr>
   <tr>
-    <td align="center" <a href="https://www.linkedin.com/in/francoespinoza/">>
-    	<img src="https://img.shields.io/badge/%E2%9C%A8-Linkedin%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="linkedin" /> </a> </td>
+    <td align="center"><a href="https://www.linkedin.com/in/francoespinoza/">
+    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    </a></td>
     <td align="center"><img alt="Portafolio" src=""></td>
     <td align="center"><img alt="Portafolio" src=""></td>
     <td align="center"><img alt="Portafolio" src=""></td>
