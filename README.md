@@ -1,6 +1,6 @@
 
 <div align="center">
-<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/portadafipe.png" alt="equipo" />
+<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/portadafipe.png" alt="equipoportada" />
 </div>
 
 
