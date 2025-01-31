@@ -34,7 +34,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 **Enlace:**
 
 [![FIGMA](https://img.shields.io/badge/figma-9C55F7?style=for-the-badge&logo=figma&logoColor=white)](<https://www.figma.com/design/Ak3qOJMMIRUmoNAu4wYKeI/Planificador-de-finanzas-personales-C23-68?node-id=5-5&t=yjZJEmQelmy3a0LP-1>)
-[![Sitio web](https://img.shields.io/website?url=https%3A%2F%2Ffipe.cl&style=for-the-badge)](https://c23-68-webapp-production.up.railway.app)
+[![Sitio web](https://img.shields.io/website?url=https%3A%2F%2Ffipe.cl&style=for-the-badge)](<https://c23-68-webapp-production.up.railway.app>)
 
 **Reunion del equipo**
 
