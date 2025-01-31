@@ -6,7 +6,7 @@
 
 <h1 align="center"><img src="https://tenor.com/bU2WX.gif" width="30" />¡Hola! Bienvenidos al perfil del Equipo C23-68-webapp  </h1>
 
-Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que compartimos una visión común: ayudarte a tomar el control de tus finanzas de manera sencilla y eficiente.
+Somos un equipo **multidisciplinario de desarrolladores y diseñadores** que compartimos una visión en común: ayudarte a tomar el control de tus finanzas de manera sencilla y eficiente.
 
 
 ## ⭐ Nuestro Proyecto
