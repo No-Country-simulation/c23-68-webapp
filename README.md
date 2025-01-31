@@ -28,6 +28,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
 ![Slack](https://img.shields.io/badge/Slack-611F69?style=for-the-badge&logo=slack&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![clickup](https://img.shields.io/badge/lightroom-001E36?style=for-the-badge&logo=adobe&logoColor=#31A8FF)
 
 **Enlace:**
 
