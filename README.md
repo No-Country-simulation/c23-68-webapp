@@ -64,7 +64,7 @@ Somos un grupo **multidisciplinario de desarrolladores y diseñadores** que comp
     <td align="center">Franco <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/cl.png" width="16" /></td>
     <td align="center">Nayely <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/pe.png" width="16" /></td>
     <td align="center">Angel <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/pe.png" width="16" /></td>
-    <td align="center">Fabri <img src="" width="16" /></td>
+    <td align="center">Fabri <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/ar.png" width="16" /></td>
   </tr>
   <tr>
     <td align="center">PM & Backend</td>
