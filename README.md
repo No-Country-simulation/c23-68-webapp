@@ -31,6 +31,7 @@ Somos un equipo **multidisciplinario de desarrolladores y diseñadores** que com
 ![clickup](https://img.shields.io/badge/clickup-001E36?style=for-the-badge&logo=adobe&logoColor=#31A8FF)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-FF4049?style=for-the-badge&logo=java&logoColor=white)
 
 **Enlace:**
 
