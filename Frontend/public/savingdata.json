@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "Prioridad": "Alta",
+    "Objetivo": "Ahorrar para comprar una laptop nueva",
+    "Monto": 9850,
+    "fecha_inicio": "2025-01-10",
+    "fecha_fin": "2025-01-20"
+  },
+  {
+    "id": 2,
+    "Prioridad": "Media",
+    "Objetivo": "Ahorrar para un viaje a Colombia",
+    "Monto": 2750,
+    "fecha_inicio": "2025-02-01",
+    "fecha_fin": "2025-02-10"
+  },
+  {
+    "id": 3,
+    "Prioridad": "Baja",
+    "Objetivo": "Ahorrar para un nuevo smartphone",
+    "Monto": 1500,
+    "fecha_inicio": "2025-03-05",
+    "fecha_fin": "2025-03-15"
+  },
+  {
+    "id": 4,
+    "Prioridad": "Alta",
+    "Objetivo": "Ahorrar para remodelar la casa",
+    "Monto": 7200,
+    "fecha_inicio": "2025-04-01",
+    "fecha_fin": "2025-04-20"
+  },
+  {
+    "id": 5,
+    "Prioridad": "Media",
+    "Objetivo": "Ahorrar para la educación de los hijos",
+    "Monto": 3800,
+    "fecha_inicio": "2025-05-10",
+    "fecha_fin": "2025-05-20"
+  },
+  {
+    "id": 6,
+    "Prioridad": "Baja",
+    "Objetivo": "Ahorrar para un curso de cocina",
+    "Monto": 2200,
+    "fecha_inicio": "2025-06-01",
+    "fecha_fin": "2025-06-05"
+  },
+  {
+    "id": 7,
+    "Prioridad": "Alta",
+    "Objetivo": "Ahorrar para un fondo de emergencia",
+    "Monto": 9500,
+    "fecha_inicio": "2025-07-15",
+    "fecha_fin": "2025-07-30"
+  },
+  {
+    "id": 8,
+    "Prioridad": "Media",
+    "Objetivo": "Ahorrar para una boda",
+    "Monto": 3000,
+    "fecha_inicio": "2025-08-01",
+    "fecha_fin": "2025-08-10"
+  },
+  {
+    "id": 9,
+    "Prioridad": "Baja",
+    "Objetivo": "Ahorrar para renovar la licencia de conducir",
+    "Monto": 1800,
+    "fecha_inicio": "2025-09-05",
+    "fecha_fin": "2025-09-15"
+  }
+]
