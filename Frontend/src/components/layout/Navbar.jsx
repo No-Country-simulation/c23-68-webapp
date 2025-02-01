@@ -3,6 +3,8 @@ import { useState } from "react";
 import { nameModal } from "../../config/nameModals";
 import usePopups from "../../hooks/usePopups";
 import  useAuthStore  from "../../store/useAuth.store";
+import {fetchLogout} from "../../service/logout";
+import profileImage from '../../assets/images/foto-perfil.png';
 
 const Navbar = () => {
 
@@ -22,6 +24,10 @@ const Navbar = () => {
     });
   };
 
+  const handleLogout = () => {
+    fetchLogout();
+  }
+
   return (
     <div className="flex items-center justify-between mt-4 mb-4 w-100 px-8">
       <h1>
@@ -37,7 +43,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <img 
-              src='../../assets/images/foto-perfil.png'
+              src={profileImage}
               alt="Foto de perfil" 
               className="w-10 h-10 rounded-full"
             />

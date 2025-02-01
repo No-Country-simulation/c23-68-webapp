@@ -24,7 +24,7 @@ export const fetchLogin = async (email, password) => {
 
     // Guardar datos en Zustand y localStorage
     // localStorage.setItem("authToken", data.token);
-    // useAuthStore.getState().login(data.user);
+     useAuthStore.getState().login(data.user);
     // console.log("Usuario autenticado:", data.user);
 
     return data; // Devuelve la respuesta del backend (probablemente un token)

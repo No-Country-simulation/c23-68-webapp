@@ -1,7 +1,7 @@
-import { useAuthStore } from "../store/authStore";
+import useAuthStore  from "../store/useAuth.store";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-const fetchLogout = async (token) => {
+export const fetchLogout = async (token) => {
     try {
         const response = await fetch(`${backendUrl}/api/auth/logout`, {
             method: "POST",
@@ -17,9 +17,6 @@ const fetchLogout = async (token) => {
 
         console.log("Sesión cerrada correctamente.");
         
-        // Eliminar el token del almacenamiento local
-        localStorage.removeItem("token");
-        return true;
 
         useAuthStore.getState().logout();
     } catch (error) {
@@ -28,8 +25,3 @@ const fetchLogout = async (token) => {
     }
 };
 
-// Ejemplo de uso con token guardado en localStorage
-const userToken = localStorage.getItem("token"); 
-if (userToken) {
-    fetchLogout(userToken);
-}
