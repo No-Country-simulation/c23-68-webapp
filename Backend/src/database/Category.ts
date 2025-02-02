@@ -30,7 +30,7 @@ export async function createCategory({ type, subcategories }: Category) {
 
 export async function getCategories(type: string) {
   try {
-    const category = await CategoryModel.find({ type })
+    const category = await CategoryModel.findOne({ type })
 
     if (!category) {
       return {

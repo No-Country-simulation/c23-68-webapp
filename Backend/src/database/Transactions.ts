@@ -132,13 +132,6 @@ export async function editTransaction(
       }
     }
 
-    console.log({
-      type: updates.type,
-      category: updates.category,
-      booleanC: !updates.category,
-      booleanT: !updates.type,
-    })
-
     if (
       updates?.type !== undefined &&
       updates.type === ('' as unknown as TransactionType)
@@ -157,7 +150,6 @@ export async function editTransaction(
     }
 
     if (updates.type && !updates.category) {
-      console.log('AAAAAAAAAA')
       return {
         status: false,
         message: 'Ingrese la categoria correspondiente',
@@ -183,9 +175,7 @@ export async function editTransaction(
         }
       }
 
-      const subCategories = responseCategories.data
-        .filter((item) => item.type === typeCategory)
-        .flatMap((item) => item.subcategories)
+      const subCategories = responseCategories.data.subcategories
 
       if (!updates.category) {
         return {

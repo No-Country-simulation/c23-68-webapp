@@ -75,4 +75,23 @@ export const routes = {
       absolute: '/api/category/delete',
     },
   },
+  savingsGoal: {
+    base: '/api/savingsGoal',
+    create: {
+      relative: '/create',
+      absolute: '/api/savingsGoal/create',
+    },
+    get: {
+      relative: '/get',
+      absolute: '/api/savingsGoal/get',
+    },
+    update: {
+      relative: '/update',
+      absolute: '/api/savingsGoal/update',
+    },
+    delete: {
+      relative: '/delete',
+      absolute: '/api/savingsGoal/delete',
+    },
+  },
 }
