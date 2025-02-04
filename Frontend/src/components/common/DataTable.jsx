@@ -1,23 +1,83 @@
 import SearchInput from "./SearchInput";
 import { Badge } from "../common/Badge";
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 
 const DataTable = ({ data }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filteredData, setFilteredData] = useState(data);
+  const [priorityFilter, setPriorityFilter] = useState("");
+  const itemsPerPage = 5;
+
+  useEffect(() => {
+
+    setFilteredData(data);
+  }, [data]);
+
+  const handleSearch = (searchTerm) => {
+    const filtered = data.filter((item) =>
+      item.Objetivo.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredData(filtered);
+    setCurrentPage(1);
+  };
+
+
+  const handlePriorityFilterChange = (event) => {
+    const selectedPriority = event.target.value;
+    setPriorityFilter(selectedPriority);
+
+
+    const filtered = data.filter(
+      (item) => selectedPriority === "" || item.Prioridad === selectedPriority
+    );
+    setFilteredData(filtered);
+    setCurrentPage(1);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const nextPage = () => {
+    if (currentPage < Math.ceil(filteredData.length / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
-    <div className="p-6 w-full h-screen bg-gray-200 font-onest">
+    <div className="p-10 w-full bg-gray-200 font-onest font-normal text-lg">
       <div className="flex justify-between mb-4">
-        <SearchInput />
-        <select name="" id="" className="border p-2 mb-4 rounded-lg">
+        <SearchInput onSearch={handleSearch} />
+        <select
+          value={priorityFilter}
+          onChange={handlePriorityFilterChange}
+          className="border p-2 mb-4 rounded-lg text-gris2 font-bold">
           <option value="">Etiqueta</option>
-          <option value="">Alta</option>
-          <option value="">Media</option>
-          <option value="">Baja</option>
+          <option value="Alta">Alta</option>
+          <option value="Media">Media</option>
+          <option value="Baja">Baja</option>
         </select>
       </div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-normal text-gris">Historial</h2>
-        <button className="bg-verde text-white px-6 py-2 rounded-lg">
-          Agregar
+        <button className="bg-verde text-white px-6 py-2 rounded-lg flex items-center gap-2">
+          <svg
+            width="20"
+            height="21"
+            viewBox="0 0 20 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M10 18.5C12.1217 18.5 14.1566 17.6571 15.6569 16.1569C17.1571 14.6566 18 12.6217 18 10.5C18 8.37827 17.1571 6.34344 15.6569 4.84315C14.1566 3.34285 12.1217 2.5 10 2.5C7.87827 2.5 5.84344 3.34285 4.34315 4.84315C2.84285 6.34344 2 8.37827 2 10.5C2 12.6217 2.84285 14.6566 4.34315 16.1569C5.84344 17.6571 7.87827 18.5 10 18.5ZM11 7.5C11 7.23478 10.8946 6.98043 10.7071 6.79289C10.5196 6.60536 10.2652 6.5 10 6.5C9.73478 6.5 9.48043 6.60536 9.29289 6.79289C9.10536 6.98043 9 7.23478 9 7.5V9.5H7C6.73478 9.5 6.48043 9.60536 6.29289 9.79289C6.10536 9.98043 6 10.2348 6 10.5C6 10.7652 6.10536 11.0196 6.29289 11.2071C6.48043 11.3946 6.73478 11.5 7 11.5H9V13.5C9 13.7652 9.10536 14.0196 9.29289 14.2071C9.48043 14.3946 9.73478 14.5 10 14.5C10.2652 14.5 10.5196 14.3946 10.7071 14.2071C10.8946 14.0196 11 13.7652 11 13.5V11.5H13C13.2652 11.5 13.5196 11.3946 13.7071 11.2071C13.8946 11.0196 14 10.7652 14 10.5C14 10.2348 13.8946 9.98043 13.7071 9.79289C13.5196 9.60536 13.2652 9.5 13 9.5H11V7.5Z"
+              fill="white"
+            />
+          </svg>
+          <span>Agregar</span>
         </button>
       </div>
       <table className="w-full border-collapse bg-white rounded-xl">
@@ -32,20 +92,27 @@ const DataTable = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((data) => (
-            <tr key={data.id} className="">
+          {currentItems.map((data) => (
+            <tr key={data.id}>
               <td className="p-2 text-center">
-                <Badge className="p-2 text-center" variant="error">
+                <Badge
+                  className="p-2 text-center"
+                  variant={
+                    data.Prioridad === "Alta"
+                      ? "error"
+                      : data.Prioridad === "Media"
+                      ? "warning"
+                      : "info"
+                  }>
                   {data.Prioridad}
                 </Badge>
               </td>
-
               <td className="p-2 text-center pb-4">{data.Objetivo}</td>
-              <td className="p-2 text-center pb-4">{data.Monto}</td>
+              <td className="p-2 text-center pb-4">${data.Monto}.00</td>
               <td className="p-2 text-center pb-4">{data.fecha_inicio}</td>
               <td className="p-2 text-center pb-4">{data.fecha_fin}</td>
               <td className="p-2 flex gap-2 justify-center pb-4">
-                <button className="bg-yellow-500 text-white px-2 py-1 rounded">
+                <button className="bg-yellow-500 text-white px-2 py-1 rounded flex items-center gap-2">
                   <svg
                     width="21"
                     height="20"
@@ -63,10 +130,9 @@ const DataTable = ({ data }) => {
                       fill="white"
                     />
                   </svg>
-
                   <span>Editar</span>
                 </button>
-                <button className="bg-red-500 text-white px-2 py-1 rounded">
+                <button className="bg-[#FF4049] text-white px-2 py-1 rounded flex items-center gap-2">
                   <svg
                     width="21"
                     height="20"
@@ -80,7 +146,6 @@ const DataTable = ({ data }) => {
                       fill="white"
                     />
                   </svg>
-
                   <span>Eliminar</span>
                 </button>
               </td>
@@ -88,6 +153,42 @@ const DataTable = ({ data }) => {
           ))}
         </tbody>
       </table>
+      <div className="flex justify-end mt-4">
+        <nav>
+          <ul className="flex gap-2">
+            {Array.from(
+              { length: Math.ceil(filteredData.length / itemsPerPage) },
+              (_, i) => (
+                <li key={i + 1}>
+                  <button
+                    onClick={() => paginate(i + 1)}
+                    className={`px-3 py-1 rounded ${
+                      currentPage === i + 1
+                        ? "bg-celeste text-white"
+                        : "bg-white text-gris2"
+                    }`}>
+                    {i + 1}
+                  </button>
+                </li>
+              )
+            )}
+            <li>
+              <button
+                onClick={nextPage}
+                disabled={
+                  currentPage === Math.ceil(filteredData.length / itemsPerPage)
+                }
+                className={`px-3 py-1 rounded ${
+                  currentPage === Math.ceil(filteredData.length / itemsPerPage)
+                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                    : "bg-white text-gris2"
+                }`}>
+                &gt;
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 };
@@ -104,4 +205,5 @@ DataTable.propTypes = {
     })
   ).isRequired,
 };
+
 export default DataTable;

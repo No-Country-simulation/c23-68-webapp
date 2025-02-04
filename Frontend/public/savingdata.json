@@ -4,71 +4,71 @@
     "Prioridad": "Alta",
     "Objetivo": "Ahorrar para comprar una laptop nueva",
     "Monto": 9850,
-    "fecha_inicio": "2025-01-10",
-    "fecha_fin": "2025-01-20"
+    "fecha_inicio": "10/01/2025",
+    "fecha_fin": "20/01/2025"
   },
   {
     "id": 2,
     "Prioridad": "Media",
     "Objetivo": "Ahorrar para un viaje a Colombia",
     "Monto": 2750,
-    "fecha_inicio": "2025-02-01",
-    "fecha_fin": "2025-02-10"
+    "fecha_inicio": "01/02/2025",
+    "fecha_fin": "10/02/2025"
   },
   {
     "id": 3,
     "Prioridad": "Baja",
     "Objetivo": "Ahorrar para un nuevo smartphone",
     "Monto": 1500,
-    "fecha_inicio": "2025-03-05",
-    "fecha_fin": "2025-03-15"
+    "fecha_inicio": "05/03/2025",
+    "fecha_fin": "15/03/2025"
   },
   {
     "id": 4,
     "Prioridad": "Alta",
     "Objetivo": "Ahorrar para remodelar la casa",
     "Monto": 7200,
-    "fecha_inicio": "2025-04-01",
-    "fecha_fin": "2025-04-20"
+    "fecha_inicio": "01/04/2025",
+    "fecha_fin": "20/04/2025"
   },
   {
     "id": 5,
     "Prioridad": "Media",
     "Objetivo": "Ahorrar para la educación de los hijos",
     "Monto": 3800,
-    "fecha_inicio": "2025-05-10",
-    "fecha_fin": "2025-05-20"
+    "fecha_inicio": "10/05/2025",
+    "fecha_fin": "20/05/2025"
   },
   {
     "id": 6,
     "Prioridad": "Baja",
     "Objetivo": "Ahorrar para un curso de cocina",
     "Monto": 2200,
-    "fecha_inicio": "2025-06-01",
-    "fecha_fin": "2025-06-05"
+    "fecha_inicio": "01/06/2025",
+    "fecha_fin": "05/06/2025"
   },
   {
     "id": 7,
     "Prioridad": "Alta",
     "Objetivo": "Ahorrar para un fondo de emergencia",
     "Monto": 9500,
-    "fecha_inicio": "2025-07-15",
-    "fecha_fin": "2025-07-30"
+    "fecha_inicio": "15/07/2025",
+    "fecha_fin": "30/07/2025"
   },
   {
     "id": 8,
     "Prioridad": "Media",
     "Objetivo": "Ahorrar para una boda",
     "Monto": 3000,
-    "fecha_inicio": "2025-08-01",
-    "fecha_fin": "2025-08-10"
+    "fecha_inicio": "01/08/2025",
+    "fecha_fin": "10/08/2025"
   },
   {
     "id": 9,
     "Prioridad": "Baja",
     "Objetivo": "Ahorrar para renovar la licencia de conducir",
     "Monto": 1800,
-    "fecha_inicio": "2025-09-05",
-    "fecha_fin": "2025-09-15"
+    "fecha_inicio": "05/09/2025",
+    "fecha_fin": "15/09/2025"
   }
 ]
