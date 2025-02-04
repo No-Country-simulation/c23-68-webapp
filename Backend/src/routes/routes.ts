@@ -94,4 +94,27 @@ export const routes = {
       absolute: '/api/savingsGoal/delete',
     },
   },
+  dashboard: {
+    base: '/api/dashboard',
+    getTotalIncome: {
+      relative: '/getTotalIncome',
+      absolute: '/api/dashboard/getTotalIncome',
+    },
+    getTotalExpense: {
+      relative: '/getTotalExpense',
+      absolute: '/api/dashboard/getTotalExpense',
+    },
+    getExpensePercentage: {
+      relative: '/getExpensePercentage',
+      absolute: '/api/dashboard/getExpensePercentage',
+    },
+    getIncomeByCategory: {
+      relative: '/getIncomeByCategory',
+      absolute: '/api/dashboard/getIncomeByCategory',
+    },
+    compareIncomeExpense: {
+      relative: '/compareIncomeExpense',
+      absolute: '/api/dashboard/compareIncomeExpense',
+    },
+  },
 }

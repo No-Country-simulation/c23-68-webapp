@@ -5,6 +5,7 @@ import { routes } from './routes'
 import Transaction from './Transaccion'
 import Category from './Category'
 import SavingsGoal from './SavingsGoal'
+import Dashboard from './Dashboard'
 
 const router: Router = Router()
 router.get('/health', (_req, res) => {
@@ -14,4 +15,6 @@ router.use(routes.auth.base, Auth)
 router.use(routes.transaction.base, Transaction)
 router.use(routes.category.base, Category)
 router.use(routes.savingsGoal.base, SavingsGoal)
+router.use(routes.dashboard.base, Dashboard)
+
 export default router
