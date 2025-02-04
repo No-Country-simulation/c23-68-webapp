@@ -109,10 +109,30 @@ export async function getSavingGoalsController(req: Request, res: Response) {
       return
     }
 
+    const cleanData = savingGoals.data.map(
+      ({
+        _id,
+        name,
+        targetAmount,
+        currentAmount,
+        deadline,
+        createdAt,
+        priority,
+      }) => ({
+        id: _id,
+        name,
+        priority,
+        targetAmount,
+        currentAmount,
+        deadline,
+        createdAt,
+      })
+    )
+
     res.status(200).json({
       status: true,
       message: 'datos obtenidos exitosamente',
-      data: savingGoals.data,
+      data: cleanData,
     })
   } catch (error) {
     res.status(500).json({

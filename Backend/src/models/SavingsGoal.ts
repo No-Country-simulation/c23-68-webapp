@@ -7,6 +7,8 @@ export interface ISavingGoal extends Document {
   deadline: Date
   userId: mongoose.Types.ObjectId
   priority: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export const typeCategory = 'Ahorro'
