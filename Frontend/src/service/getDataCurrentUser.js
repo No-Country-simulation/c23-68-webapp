@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+import { backendUrl } from "../config/constants";
 
 
 const fetchGetDataCurrentUser = async (token) => {

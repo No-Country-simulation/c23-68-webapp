@@ -1,4 +1,4 @@
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+import {backendUrl} from "../config/constants";
 import  useAuthStore  from "../store/useAuth.store";
 
 export const fetchLogin = async (email, password) => {

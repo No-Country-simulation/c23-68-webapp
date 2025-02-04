@@ -1,5 +1,5 @@
 import useAuthStore  from "../store/useAuth.store";
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+import { backendUrl } from "../config/constants";
 
 export const fetchLogout = async (token) => {
     try {
