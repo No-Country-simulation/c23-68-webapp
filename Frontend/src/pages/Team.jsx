@@ -1,36 +1,23 @@
 import React from "react";
 
-const About = () => {
+const Team = () => {
   return (
     <div className="font-sans bg-white min-h-screen">
 
       <div className="bg-white shadow-lg rounded-3xl border-b-8  border-r-8 border-l-2 border-t-2 border-black py-12 p-24 w-[89%] max-w-[1400px] my-16 mx-auto">
-        <img
-          src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/1024px/1f4b8_color.png"
-          alt=""
-          class="absolute top-50 left-96  w-20 h-20"
-        />
-        <img
-          src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/1024px/1f4b8_color.png"
-          alt=""
-          class="absolute top-50 right-96  w-20 h-20"
-        />
         <div className="text-center">
-          <button className="bg-verdeclaro font-normal font-onest text-xl px-7 py-2 rounded-full border border-black ">
-            Acerca de
+          <button className="bg-rosaclaro font-normal font-onest text-xl px-7 py-2 rounded-full border border-black ">
+            Equipo
           </button>
           <h2 className="text-4xl py-4 font-semibold font-anybody mt-4">
-            Logo Finanzas
+            Conoce a nuestro equipo
           </h2>
           <p className="mt-4 max-w-4xl pt-1 mx-auto font-onest font-normal text-base text-negro">
-            Bienvenido a nuestra plataforma de gestión financiera personal,
-            diseñada para ayudarte a tomar el control de tus finanzas de manera
-            sencilla y efectiva. Creemos que administrar el dinero no debería
-            ser complicado, por eso hemos creado una herramienta intuitiva que
-            te permite:
+          En Logo Finanzas, estamos orgullosos de presentar al equipo que convirtió esta idea en realidad. Somos un grupo multidisciplinario de desarrolladores y diseñadores que compartimos una visión común: ayudarte a tomar el control de tus finanzas de manera sencilla y eficiente.
+          Cada detalle, desde el diseño de la plataforma hasta las funcionalidades que utilizas, es el resultado del esfuerzo, la creatividad y la pasión de nuestro equipo. Conoce a las personas que hicieron esto posible y descubre cómo trabajamos para brindarte una experiencia única.
           </p>
         </div>
-
+{/*
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 max-w-7xl mr-6 mt-5">
           <div className="text-left bg-verdesemioscuro pt-6 pl-3 rounded-2xl shadow-md hover:shadow-verdesemioscuro -mx-10 my-7">
             <h3 className=" text-2xl text-negro font-semibold ml-2 mr-24 font-anybody leading-6">
@@ -190,10 +177,10 @@ const About = () => {
               />
             </svg>
           </div>
-        </div>
+        </div>*/}
       </div>
     </div>
   );
 };
 
-export default About;
+export default Team;

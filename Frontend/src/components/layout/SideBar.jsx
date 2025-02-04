@@ -1,24 +1,49 @@
 import React from "react";
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
-  
-
   return (
-   
-        <div className="p-5 border-black">
-          <nav className="text-2xl font-bold">Logo finanzas
-          <ul>
-            <li className="py-2 px-4 hover:bg-gray-700">Inicio</li>
-            <li className="py-2 px-4 hover:bg-gray-700">Dashboard</li>
-            <li className="py-2 px-4 hover:bg-gray-700">Edicion</li>
-            <li className="py-2 px-4 hover:bg-gray-700">Findblog</li>
-            <li className="py-2 px-4 hover:bg-gray-700">Configuracion</li>
-            <li className="py-2 px-4 hover:bg-gray-700">Ayuda</li>
-          </ul>
-          </nav>
-        </div>
-      
+    <div className=" bg-gray-100 min-h-screen p-4 flex flex-col w-64">
+      <nav>
+        <ul className="space-y-3">
+        <li>
+            <NavLink to="/" className="block p-2 hover:bg-gray-200 rounded">
+              Inicio
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard" className="block p-2 hover:bg-gray-200 rounded">
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/datos" className="block p-2 hover:bg-gray-200 rounded">
+              Datos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/" className="block p-2 hover:bg-gray-200 rounded">
+              Ahorros
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/finblog" className="block p-2 hover:bg-gray-200 rounded">
+              Finblog
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/" className="block p-2 hover:bg-gray-200 rounded">
+              Configuración
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/" className="block p-2 hover:bg-gray-200 rounded">
+              Ayuda
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 };
 

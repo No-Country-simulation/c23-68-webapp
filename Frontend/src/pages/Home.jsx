@@ -17,8 +17,8 @@ const Home = () => {
             mismo!
           </h1>
           <div className="flex items-center mt-16">
-            <button className="flex items-center justify-center px-6 py-3 bg-green-500 font-onest text-white text-lg rounded-full shadow-lg hover:bg-green-600">
-              Ver Panel
+          <button className="flex items-center justify-center px-6 py-3 bg-green-500 font-onest text-white text-lg rounded-full shadow-lg hover:bg-green-600">
+          <NavLink to="/sidebar">Ver Panel</NavLink>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -32,6 +32,7 @@ const Home = () => {
                 />
               </svg>
             </button>
+
             <button className="text-lg font-medium text-gray-700 hover:underline font-onest cursor-pointer ml-14">
               Conócenos
             </button>
@@ -61,9 +62,8 @@ const Home = () => {
 
           <div className="grid grid-cols-1 grid-rows-2 overflow-hidden p-6 rounded-2xl shadow-md bg-cover bg-center finblog-bg ">
             <div>
-              <button className="font-onest text-lg bg-white bg-opacity-70 p-2 rounded-2xl">
+              <button className="font-onest text-lg bg-white bg-opacity-70 px-6 py-2 rounded-2xl hover:bg-opacity-90 transition-opacity">
                 <NavLink to="/finblog">Finblog</NavLink>
-              
               </button>
               <p className="text-white p-2 font-onest mt-2">
                 Consejos prácticos para gestionar tu dinero, ahorrar y alcanzar
@@ -80,7 +80,6 @@ const Home = () => {
           <div className="p-6 bg-pink-100 rounded-2xl shadow-md bg-cover bg-center team-bg flex flex-col items-start justify-between">
             <button className="font-onest text-lg bg-white bg-opacity-70 p-2  rounded-2xl">
               <NavLink to="/team">Equipo</NavLink>
-            
             </button>
             <p className="font-onest text-white font-semibold text-8xl ">06</p>
             <p className="text-white font-onest p-2">

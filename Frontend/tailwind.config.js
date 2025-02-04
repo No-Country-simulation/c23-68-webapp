@@ -16,12 +16,16 @@ export default {
         'grisclaro':'#1E1E1E80',
         'gris2':'#1E1E1E4D',
         'gris':'#1E1E1ECC',
+        'gris3':'#EEEEEE',
+        'gris4':'#868B93', 
         'negro':'#1E1E1E',
         'amarillo':'#FFC107CC',
+        'amarilloclaro':'#FFC10780',
         'rosa':'#FF007FB2',
-        'celeste':'#4285F4CC',
+        'rosaclaro':'#FF007F80',
+        'celeste':'#4285F4CC',  
       },
-
+      
     },
   },
   plugins: [],
