@@ -46,9 +46,6 @@ export async function createSavingGoalsController(req: Request, res: Response) {
       return
     }
 
-    console.log({
-      subCategory: category.data.subcategories,
-    })
     if (!category || !category.data.subcategories.includes(priority)) {
       res.status(400).json({
         status: false,
