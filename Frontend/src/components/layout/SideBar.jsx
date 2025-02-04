@@ -1,14 +1,13 @@
-import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 
 const SideBar = () => {
-  
+
 
   return (
-   
-        <div className="p-5 border-black">
-        
-          <ul>
+
+        <aside className=" w-64 min-h-screen p-5">
+
+          <ul className="space-y-4">
             <li className="py-2 px-4 hover:bg-gray-700">Inicio</li>
             <li className="py-2 px-4 hover:bg-gray-700">Dashboard</li>
             <li className="py-2 px-4 hover:bg-gray-700">Edicion</li>
@@ -16,9 +15,9 @@ const SideBar = () => {
             <li className="py-2 px-4 hover:bg-gray-700">Configuracion</li>
             <li className="py-2 px-4 hover:bg-gray-700">Ayuda</li>
           </ul>
-          
-        </div>
-      
+
+        </aside>
+
   );
 };
 
