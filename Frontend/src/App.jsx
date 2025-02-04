@@ -19,7 +19,6 @@ function App() {
 
       <div className='flex flex-col items-center justify-center h-screen gap-4'>
         <h1 className='text-xl text-orange-400'> Popus</h1>
-
       
       <Home />
       {/* <div className='flex flex-col items-center justify-center h-screen gap-4'>
@@ -48,7 +47,9 @@ function App() {
 
       </div>
         </button> 
-      </div>  */}
+      </div>*/}
+      
+      </div>  
 
     </>
   )
