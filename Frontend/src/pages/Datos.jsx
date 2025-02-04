@@ -16,7 +16,7 @@ const Datos = () => {
           </p>
           <img
             src="/images/datos.png"
-            className="w-[100px] h-auto" // Tamaño de la imagen
+            className="w-[150px] h-auto" // Tamaño de la imagen
             alt="datos"
           />
         </div>
@@ -33,31 +33,35 @@ const Datos = () => {
         </button>
       </div>
 
-      {/* Sección "Ver mis ingresos" */}
-      <div className="bg-white shadow-lg rounded-3xl border-b-2 p-8 w-[60%] max-w-[1000px] my-10 mx-auto ">
+      {/* Sección "Ver mis ingresos" - Hacemos clickeable el contenedor completo */}
+      <NavLink
+        to="/datos/ingresos" // Aquí se añade el enlace
+        className="bg-white shadow-lg rounded-3xl border-b-2 p-8 w-[60%] max-w-[1000px] my-10 mx-auto block"
+      >
         <div className="flex items-center justify-between">
           <p className="text-2xl font-medium font-anybody">
-            <NavLink to="/ingresos">Ver mis ingresos</NavLink>
+            Ver mis ingresos
           </p>
-          <svg  className="w-[12px] h-auto" width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2.75 2.91675L13.8333 14.0001L2.75 25.0834" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg className="w-[12px] h-auto" width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.75 2.91675L13.8333 14.0001L2.75 25.0834" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-
-
         </div>
-      </div>
+      </NavLink>
 
-      {/* Sección "Ver mis gastos" */}
-      <div className="bg-white shadow-lg rounded-3xl border-b-2 p-8 w-[60%] max-w-[1000px] my-10 mx-auto">
+      {/* Sección "Ver mis gastos" - Hacemos clickeable el contenedor completo */}
+      <NavLink
+        to="/datos/gastos" // Aquí se añade el enlace
+        className="bg-white shadow-lg rounded-3xl border-b-2 p-8 w-[60%] max-w-[1000px] my-10 mx-auto block"
+      >
         <div className="flex items-center justify-between">
           <p className="text-2xl font-medium font-anybody">
-          <NavLink to="/gastos">Ver mis gastos</NavLink>
+            Ver mis gastos
           </p>
-          <svg  className="w-[12px] h-auto" width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2.75 2.91675L13.8333 14.0001L2.75 25.0834" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg className="w-[12px] h-auto" width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.75 2.91675L13.8333 14.0001L2.75 25.0834" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-      </div>
+      </NavLink>
     </div>
   );
 };

@@ -10,7 +10,6 @@ import Datos from "./pages/Datos";
 import Ingresos from "./pages/Ingresos";
 import Gastos from "./pages/Gastos";
 
-
 // // Layout público (solo Navbar)
 // const PublicLayout = ({ children }) => (
 //   <div>
@@ -24,7 +23,7 @@ import Gastos from "./pages/Gastos";
    <div className="flex min-h-screen">
     
      <SideBar />
-     <main className="flex-1 p-4 ml-64">{children}</main>
+     <main className="flex-1  ">{children}</main>
    </div>
  );
 
@@ -38,24 +37,25 @@ function App() {
           { path: "/about", element: <About /> },
           { path: "/team", element: <Team /> },
           { path: "/finblog", element: <FinBlog /> },
-          { path: "/sidebar", element: <SideBar /> },
-          { path: "/datos", element: <Datos /> },
-          { path: "/ingresos", element: <Ingresos /> },
-          { path: "/gastos", element: <Gastos /> },
+          { path: "/dashboard", element: <PrivateLayout><Dashboard /></PrivateLayout> },
+          { path: "/datos", element: <PrivateLayout><Datos/></PrivateLayout> },
+          { path: "/datos/ingresos", element: <PrivateLayout><Ingresos/></PrivateLayout> },
+          { path: "/datos/gastos", element: <PrivateLayout><Gastos /></PrivateLayout> },
+
 
         
 
         //],
 
       // Rutas privadas
-       {
-         element: <PrivateLayout />,
-         children: [
-           { path: "/dashboard", element: <Dashboard /> },
-          //  { path: "/datos", element: <Datos /> },
-          //  { path: "/ingresos", element: <Ingresos /> },
-         ],
-       },
+      //  {
+      //    element: <PrivateLayout />,
+      //    children: [
+      //      { path: "/dashboard", element: <Dashboard /> },
+      //     //  { path: "/datos", element: <Datos /> },
+      //     //  { path: "/ingresos", element: <Ingresos /> },
+      //    ],
+      //  },
     ]);
 
     return routes;

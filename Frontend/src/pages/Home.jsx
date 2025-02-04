@@ -18,7 +18,7 @@ const Home = () => {
           </h1>
           <div className="flex items-center mt-16">
           <button className="flex items-center justify-center px-6 py-3 bg-green-500 font-onest text-white text-lg rounded-full shadow-lg hover:bg-green-600">
-          <NavLink to="/sidebar">Ver Panel</NavLink>
+          <NavLink to="/dashboard">Ver Panel</NavLink>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
