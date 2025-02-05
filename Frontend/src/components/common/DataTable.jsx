@@ -9,7 +9,7 @@ const DataTable = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredData, setFilteredData] = useState(data);
   const [priorityFilter, setPriorityFilter] = useState("");
-  const itemsPerPage = 5;
+  const itemsPerPage = 8;
 
   const { show } = usePopups();
   const { AhorrosFormModalID, DatosEliminadosModalID, AhorrosEditFormModalID } = nameModal;
