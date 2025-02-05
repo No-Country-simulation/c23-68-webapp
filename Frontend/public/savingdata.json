@@ -4,8 +4,8 @@
     "priority": "Alta",
     "name": "Ahorrar para comprar una laptop",
     "targetAmount": 9850,
-    "createdAt": "10/01/2025",
-    "deadline": "20/01/2025",
+    "createdAt": "2025-01-10",
+    "deadline": "2025-01-20",
     "currentAmount": 10
   },
   {
@@ -13,8 +13,8 @@
     "priority": "Media",
     "name": "Ahorrar para un viaje a Colombia",
     "targetAmount": 2750,
-    "createdAt": "01/02/2025",
-    "deadline": "10/02/2025",
+    "createdAt": "2025-02-01",
+    "deadline": "2025-02-10",
     "currentAmount": 10
   },
   {
@@ -22,8 +22,8 @@
     "priority": "Baja",
     "name": "Ahorrar para un nuevo smartphone",
     "targetAmount": 1500,
-    "createdAt": "05/03/2025",
-    "deadline": "15/03/2025",
+    "createdAt": "2025-03-05",
+    "deadline": "2025-03-15",
     "currentAmount": 10
   },
   {
@@ -31,8 +31,8 @@
     "priority": "Alta",
     "name": "Ahorrar para remodelar la casa",
     "targetAmount": 7200,
-    "createdAt": "01/04/2025",
-    "deadline": "20/04/2025",
+    "createdAt": "2025-04-01",
+    "deadline": "2025-04-20",
     "currentAmount": 10
   },
   {
@@ -40,8 +40,8 @@
     "priority": "Media",
     "name": "Ahorrar para la educación de los hijos",
     "targetAmount": 3800,
-    "createdAt": "10/05/2025",
-    "deadline": "20/05/2025",
+    "createdAt": "2025-05-10",
+    "deadline": "2025-05-20",
     "currentAmount": 10
   },
   {
@@ -49,8 +49,8 @@
     "priority": "Baja",
     "name": "Ahorrar para un curso de cocina",
     "targetAmount": 2200,
-    "createdAt": "01/06/2025",
-    "deadline": "05/06/2025",
+    "createdAt": "2025-06-01",
+    "deadline": "2025-06-05",
     "currentAmount": 10
   },
   {
@@ -58,8 +58,8 @@
     "priority": "Alta",
     "name": "Ahorrar para un fondo de emergencia",
     "targetAmount": 9500,
-    "createdAt": "15/07/2025",
-    "deadline": "30/07/2025",
+    "createdAt": "2025-07-15",
+    "deadline": "2025-07-30",
     "currentAmount": 10
   },
   {
@@ -67,8 +67,8 @@
     "priority": "Media",
     "name": "Ahorrar para una boda",
     "targetAmount": 3000,
-    "createdAt": "01/08/2025",
-    "deadline": "10/08/2025",
+    "createdAt": "2025-08-01",
+    "deadline": "2025-08-10",
     "currentAmount": 10
   },
   {
@@ -76,8 +76,8 @@
     "priority": "Baja",
     "name": "Ahorrar para renovar la licencia de conducir",
     "targetAmount": 1800,
-    "createdAt": "05/09/2025",
-    "deadline": "15/09/2025",
+    "createdAt": "2025-09-05",
+    "deadline": "2025-09-15",
     "currentAmount": 10
   }
 ]

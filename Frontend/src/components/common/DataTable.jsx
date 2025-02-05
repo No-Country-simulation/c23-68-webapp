@@ -37,6 +37,9 @@ const DataTable = ({ data }) => {
       pushMethod: "prepend",
     });
   }
+
+
+
   useEffect(() => {
 
     setFilteredData(data);

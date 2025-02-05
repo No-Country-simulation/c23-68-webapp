@@ -3,6 +3,7 @@ import { Modal } from "../modals/Modal";
 import { nameModal } from "../../config/nameModals";
 import usePopups from "../../hooks/usePopups";
 import usePopup from "../../hooks/usePopup";
+import { useEffect } from "react";
 
 const AhorrosEditForm = () => {
   const { show, hide } = usePopups();
@@ -16,13 +17,24 @@ const AhorrosEditForm = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      priority: activePopup?.metadata.priority,
-      name: activePopup?.metadata.name,
-      targetAmount: activePopup?.metadata.targetAmount,
-      createdAt: activePopup?.metadata.createdAt,
-      deadline: activePopup?.metadata.deadline,
-  }});
+      priority: "",
+      name: "",
+      targetAmount: "",
+      createdAt: "",
+      deadline: "",
+    },});
 
+  useEffect(() => {
+    if (activePopup && activePopup.metadata) {
+      reset({
+        priority: activePopup.metadata.data.priority || "",
+        name: activePopup.metadata.data.name || "",
+        targetAmount: activePopup.metadata.data.targetAmount || "",
+        createdAt: activePopup.metadata.data.createdAt || "",
+        deadline: activePopup.metadata.data.deadline || "",
+      });
+    }
+  }, [activePopup, reset]);
 
 
   const onSubmit = () => {
