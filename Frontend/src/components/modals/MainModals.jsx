@@ -1,10 +1,15 @@
 import { LoadingModal } from '../common/Loading'
-import DataForm from '../common/DataForm'
+import DatosForm from '../common/DatosForm'
+import AhorrosForm from '../common/AhorrosForm'
+import DatosIngresosForm from '../common/DatosIngresosForm'
 import SavingsForm from '../common/SavingsForm'
 import { Login } from './Login'
 import { LoginContra } from './LoginContra'
 import { Register } from './Register'
 import DataSavedModal from '../common/DataSavedModal'
+import DatosEditadosModal from '../common/DatosEditadosModal'
+import DatosEliminadosModal from '../common/DatosEliminadosModal'
+import AhorrosEditForm from '../common/AhorrosEditForm'
 
 
 export function MainModals() {
@@ -14,9 +19,14 @@ export function MainModals() {
       <Login />
       <LoginContra/>
       <Register/>
-      <DataForm />
+      <DatosForm />
+      <AhorrosForm />
+      <DatosIngresosForm />
       <DataSavedModal />
+      <DatosEditadosModal />
+      <DatosEliminadosModal />
       <SavingsForm />
+      <AhorrosEditForm />
     </>
   )
 }

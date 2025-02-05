@@ -1,28 +1,24 @@
-
 import { Modal } from "../modals/Modal";
 import usePopups from "../../hooks/usePopups";
 import { nameModal } from "../../config/nameModals";
 
-
-
-function DataSavedModal() {
-  const { DataSavedModalID } = nameModal
+function DatosEditadosModal() {
+  const { DatosEditadosModalID } = nameModal;
   const { hide } = usePopups();
 
   const handleClose = () => {
     hide({
-      popUpId: DataSavedModalID,
-      metadataId: DataSavedModalID,
-    })
-  }
+      popUpId: DatosEditadosModalID,
+      metadataId: DatosEditadosModalID,
+    });
+  };
 
   return (
     <Modal
-      id="data-saved-modal"
+      id={DatosEditadosModalID}
       className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-50 z-50">
-
-      <div className="bg-white p-6 rounded-3xl shadow-lg text-center space-y-4 w-full max-w-sm">
-      <div className="flex justify-end">
+      <div className="bg-white p-6 rounded-3xl shadow-lg text-center space-y-4 w-full max-w-sm font-onest">
+        <div className="flex justify-end">
           <button
             type="button"
             className="text-gray-500 hover:text-gray-800 text-lg"
@@ -30,9 +26,9 @@ function DataSavedModal() {
             ✕
           </button>
         </div>
-        <h2 className="text-3xl font-medium">¡Datos agregados con éxito!</h2>
+        <h2 className="text-2xl font-medium">¡Datos editados!</h2>
         <p className="text-gray-600">
-          La información se ha agregado correctamente en la tabla.
+          La información se ha editado en la tabla.
         </p>
         <button
           onClick={handleClose}
@@ -57,6 +53,4 @@ function DataSavedModal() {
   );
 }
 
-export default DataSavedModal
-
-;
+export default DatosEditadosModal;

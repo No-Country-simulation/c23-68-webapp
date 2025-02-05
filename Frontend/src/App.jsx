@@ -11,7 +11,7 @@ function App() {
     let routes = useRoutes([
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
-      { path: "/savings", element: <Savings /> },
+      { path: "/ahorros", element: <Savings /> },
     ]);
     return routes;
   };

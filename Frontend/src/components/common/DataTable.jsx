@@ -2,6 +2,8 @@ import SearchInput from "./SearchInput";
 import { Badge } from "../common/Badge";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
+import { nameModal } from "../../config/nameModals";
+import usePopups from "../../hooks/usePopups";
 
 const DataTable = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -9,6 +11,32 @@ const DataTable = ({ data }) => {
   const [priorityFilter, setPriorityFilter] = useState("");
   const itemsPerPage = 5;
 
+  const { show } = usePopups();
+  const { AhorrosFormModalID, DatosEliminadosModalID, AhorrosEditFormModalID } = nameModal;
+
+  const handleClick = () => {
+    show({
+      popUpId: AhorrosFormModalID,
+      metadata: { id: AhorrosFormModalID, },
+      pushMethod: "prepend",
+    });
+  };
+
+  const handleCloseDelete = (idModal) => {
+    show({
+      popUpId: DatosEliminadosModalID,
+      metadata: { id: DatosEliminadosModalID, idModal: idModal },
+      pushMethod: "prepend",
+    });
+  };
+
+  const handleEdit = (data) => {
+    show({
+      popUpId: AhorrosEditFormModalID,
+      metadata: { id: AhorrosEditFormModalID, data: data },
+      pushMethod: "prepend",
+    });
+  }
   useEffect(() => {
 
     setFilteredData(data);
@@ -16,7 +44,7 @@ const DataTable = ({ data }) => {
 
   const handleSearch = (searchTerm) => {
     const filtered = data.filter((item) =>
-      item.Objetivo.toLowerCase().includes(searchTerm.toLowerCase())
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredData(filtered);
     setCurrentPage(1);
@@ -29,7 +57,7 @@ const DataTable = ({ data }) => {
 
 
     const filtered = data.filter(
-      (item) => selectedPriority === "" || item.Prioridad === selectedPriority
+      (item) => selectedPriority === "" || item.priority === selectedPriority
     );
     setFilteredData(filtered);
     setCurrentPage(1);
@@ -63,7 +91,7 @@ const DataTable = ({ data }) => {
       </div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-normal text-gris">Historial</h2>
-        <button className="bg-verde text-white px-6 py-2 rounded-lg flex items-center gap-2">
+        <button className="bg-verde text-white px-6 py-2 rounded-lg flex items-center gap-2" onClick={handleClick}>
           <svg
             width="20"
             height="21"
@@ -98,21 +126,22 @@ const DataTable = ({ data }) => {
                 <Badge
                   className="p-2 text-center"
                   variant={
-                    data.Prioridad === "Alta"
+                    data.priority === "Alta"
                       ? "error"
-                      : data.Prioridad === "Media"
+                      : data.priority === "Media"
                       ? "warning"
                       : "info"
                   }>
-                  {data.Prioridad}
+                  {data.priority}
                 </Badge>
               </td>
-              <td className="p-2 text-center pb-4">{data.Objetivo}</td>
-              <td className="p-2 text-center pb-4">${data.Monto}.00</td>
-              <td className="p-2 text-center pb-4">{data.fecha_inicio}</td>
-              <td className="p-2 text-center pb-4">{data.fecha_fin}</td>
+              <td className="p-2 text-center pb-4">{data.name}</td>
+              <td className="p-2 text-center pb-4">${data.targetAmount}.00</td>
+              <td className="p-2 text-center pb-4">{data.createdAt}</td>
+              <td className="p-2 text-center pb-4">{data.deadline}</td>
               <td className="p-2 flex gap-2 justify-center pb-4">
-                <button className="bg-yellow-500 text-white px-2 py-1 rounded flex items-center gap-2">
+                <button className="bg-yellow-500 text-white px-2 py-1 rounded flex items-center gap-2"
+                onClick={()=>handleEdit(data)}>
                   <svg
                     width="21"
                     height="20"
@@ -132,7 +161,9 @@ const DataTable = ({ data }) => {
                   </svg>
                   <span>Editar</span>
                 </button>
-                <button className="bg-[#FF4049] text-white px-2 py-1 rounded flex items-center gap-2">
+                <button
+                className="bg-[#FF4049] text-white px-2 py-1 rounded flex items-center gap-2"
+                onClick={()=>handleCloseDelete(data.id)}>
                   <svg
                     width="21"
                     height="20"
@@ -197,11 +228,11 @@ DataTable.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      prioridad: PropTypes.string.isRequired,
-      objetivo: PropTypes.string.isRequired,
-      monto: PropTypes.number.isRequired,
-      fecha_inicio: PropTypes.string.isRequired,
-      fecha_final: PropTypes.string.isRequired,
+      priority: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      targetAmount: PropTypes.number.isRequired,
+      createdAt: PropTypes.string.isRequired,
+      deadline: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
