@@ -16,33 +16,42 @@ const Navbar = () => {
   ];
 
   const currentRoute = routes.find((route) => route.path === location.pathname);
-  const parentRoute = routes.find((route) => route.path === currentRoute?.parent);
+  const parentRoute = routes.find(
+    (route) => route.path === currentRoute?.parent
+  );
 
   return (
     <div className="flex items-center justify-between mt-4 mb-4 w-100 px-8">
       <h1>
         <NavLink to="/">
-          <img src="/images/logo.png" alt="Logo" className="h-auto w-auto ml-[50%] my-4" />
+          <img
+            src="/images/logo.png"
+            alt="Logo"
+            className="h-auto w-auto ml-[50%] my-4"
+          />
         </NavLink>
       </h1>
       <div className="flex text-left gap-4 -ml-[33%]">
-      <h2>
-        {parentRoute ? (
-          <>
+        <h2>
+          {parentRoute ? (
+            <>
+              <NavLink
+                to={parentRoute.path}
+                className="font-onest font-semibold text-xl text-gris4 hover:text-negro"
+              >
+                {parentRoute.name} &gt;{" "}
+              </NavLink>
 
-          <NavLink
-          to={parentRoute.path}
-          className="font-onest font-semibold text-xl text-gris4 hover:text-negro"
-          >
-          {parentRoute.name} &gt;{" "}
-          </NavLink>
-
-            <span className=" font-onest font-semibold text-xl text-negro">{currentRoute?.name}</span>
-          </>
-        ) : (
-          <span className=" font-onest font-semibold text-xl text-negro">{currentRoute?.name}</span>
-        )}
-      </h2>
+              <span className=" font-onest font-semibold text-xl text-negro">
+                {currentRoute?.name}
+              </span>
+            </>
+          ) : (
+            <span className=" font-onest font-semibold text-xl text-negro">
+              {currentRoute?.name}
+            </span>
+          )}
+        </h2>
       </div>
 
       <button
