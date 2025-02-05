@@ -10,6 +10,7 @@ import Datos from "./pages/Datos";
 import Ingresos from "./pages/Ingresos";
 import Gastos from "./pages/Gastos";
 
+
 // // Layout público (solo Navbar)
 // const PublicLayout = ({ children }) => (
 //   <div>

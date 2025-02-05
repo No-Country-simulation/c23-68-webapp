@@ -1,6 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+
+module.exports ={
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: false,
   theme: {
     extend: {
       fontFamily:{
@@ -20,15 +21,20 @@ export default {
         'gris4':'#868B93', 
         'negro':'#1E1E1E',
         'amarillo':'#FFC107CC',
-        'amarilloclaro':'#FFC10780',
-        'amarillomasclaro':'#FFC1074D', 
+        'amarilloclaro':'#FFC10780', 
+        'amarillomasclaro':'#FFC1074D',
+        'amarillooscuro':'#FFC107',
         'rosa':'#FF007FB2',
+        'rosa2':'#FF007F',
         'rosaclaro':'#FF007F80',
         'celeste':'#4285F4CC',
         'celeste2':  '#4285F4',
       },
       
     },
+  },
+  variants: {
+    extend: {},
   },
   plugins: [],
 }

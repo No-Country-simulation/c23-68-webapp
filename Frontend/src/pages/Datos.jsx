@@ -43,7 +43,7 @@ const Datos = () => {
             Ver mis ingresos
           </p>
           <svg className="w-[12px] h-auto" width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2.75 2.91675L13.8333 14.0001L2.75 25.0834" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2.75 2.91675L13.8333 14.0001L2.75 25.0834" stroke="#1E1E1E" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
       </NavLink>
@@ -58,7 +58,7 @@ const Datos = () => {
             Ver mis gastos
           </p>
           <svg className="w-[12px] h-auto" width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2.75 2.91675L13.8333 14.0001L2.75 25.0834" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2.75 2.91675L13.8333 14.0001L2.75 25.0834" stroke="#1E1E1E" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
       </NavLink>

@@ -1,6 +1,6 @@
-@import './styles/Home.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
+@import './styles/Home.css';
+@import "@tremor/react/dist/tremor.css";
