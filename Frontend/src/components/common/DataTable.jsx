@@ -135,12 +135,12 @@ const DataTable = ({ data }) => {
                   {data.priority}
                 </Badge>
               </td>
-              <td className="p-2 text-center pb-4">{data.name}</td>
-              <td className="p-2 text-center pb-4">${data.targetAmount}.00</td>
-              <td className="p-2 text-center pb-4">{data.createdAt}</td>
-              <td className="p-2 text-center pb-4">{data.deadline}</td>
-              <td className="p-2 flex gap-2 justify-center pb-4">
-                <button className="bg-amarillo text-white px-2 py-1 rounded-lg flex items-center gap-2 hover:bg-amarillooscuro"
+              <td className="px-2 text-center ">{data.name}</td>
+              <td className="px-2 text-center ">${data.targetAmount}.00</td>
+              <td className="px-2 text-center ">{data.createdAt}</td>
+              <td className="px-2 text-center ">{data.deadline}</td>
+              <td className="px-2  flex gap-2 items-center justify-center">
+                <button className="w-[112px] h-[39px] bg-amarillo text-white px-2 rounded-lg flex justify-center items-center gap-2 hover:bg-amarillooscuro"
                 onClick={()=>handleEdit(data)}>
                   <svg
                     width="21"
@@ -162,7 +162,7 @@ const DataTable = ({ data }) => {
                   <span>Editar</span>
                 </button>
                 <button
-                className="bg-rojo text-white px-2 py-1 rounded-lg flex items-center gap-2 hover:bg-rojooscuro"
+                className="w-[112px] h-[39px] bg-rojo text-white px-2 rounded-lg flex justify-center items-center gap-2 hover:bg-rojooscuro"
                 onClick={()=>handleCloseDelete(data.id)}>
                   <svg
                     width="21"
