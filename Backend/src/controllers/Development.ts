@@ -25,6 +25,7 @@ export async function poblateBD(req: Request, res: Response) {
         status: false,
         message: 'Endpoint no valido en production',
       })
+      return
     }
 
     console.log('poblando base de datos')
