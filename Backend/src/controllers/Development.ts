@@ -18,7 +18,6 @@ export async function poblateBD(req: Request, res: Response) {
       })
     }
 
-    console.log({ NODE_ENV })
     const isProduction = NODE_ENV === 'production'
 
     if (isProduction) {
