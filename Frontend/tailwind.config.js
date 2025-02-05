@@ -23,7 +23,7 @@ export default {
         'rosa':'#FF007FB2',
         'celeste':'#4285F4CC',
         'rojo':'#FF4049',
-        'rojooscuro':'##CA373E',
+        'rojooscuro':'#CA373E',
       },
 
     },

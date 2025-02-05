@@ -91,7 +91,7 @@ const DataTable = ({ data }) => {
       </div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-normal text-gris">Historial</h2>
-        <button className="bg-verde text-white px-6 py-2 rounded-lg flex items-center gap-2" onClick={handleClick}>
+        <button className="bg-verde hover:bg-verdeoscuro text-white px-6 py-2 rounded-lg flex items-center gap-2" onClick={handleClick}>
           <svg
             width="20"
             height="21"
@@ -140,7 +140,7 @@ const DataTable = ({ data }) => {
               <td className="p-2 text-center pb-4">{data.createdAt}</td>
               <td className="p-2 text-center pb-4">{data.deadline}</td>
               <td className="p-2 flex gap-2 justify-center pb-4">
-                <button className="bg-yellow-500 text-white px-2 py-1 rounded flex items-center gap-2"
+                <button className="bg-amarillo text-white px-2 py-1 rounded-lg flex items-center gap-2 hover:bg-amarillooscuro"
                 onClick={()=>handleEdit(data)}>
                   <svg
                     width="21"
@@ -162,7 +162,7 @@ const DataTable = ({ data }) => {
                   <span>Editar</span>
                 </button>
                 <button
-                className="bg-[#FF4049] text-white px-2 py-1 rounded flex items-center gap-2"
+                className="bg-rojo text-white px-2 py-1 rounded-lg flex items-center gap-2 hover:bg-rojooscuro"
                 onClick={()=>handleCloseDelete(data.id)}>
                   <svg
                     width="21"
