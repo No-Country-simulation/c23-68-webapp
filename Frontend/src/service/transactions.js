@@ -1,14 +1,14 @@
 import { backendUrl } from "../config/constants";
 
 // 📌 Crear transacción
-export const createTransaction = async (amount, type, category, description = "") => {
+export const createTransaction = async (amount, type, category, description = "", time) => {
     try {
         const response = await fetch(`${backendUrl}/api/transaction/create`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ amount, type, category, description }),
+            body: JSON.stringify({ amount, type, category, description, time }),
         });
 
         if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);

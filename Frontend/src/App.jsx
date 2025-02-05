@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Datos from "./pages/Datos";
 import Ingresos from "./pages/Ingresos";
 import Gastos from "./pages/Gastos";
+import Ahorros from "./pages/Ahorros";
 
 // // Layout público (solo Navbar)
 // const PublicLayout = ({ children }) => (
@@ -41,6 +42,7 @@ function App() {
           { path: "/datos", element: <PrivateLayout><Datos/></PrivateLayout> },
           { path: "/datos/ingresos", element: <PrivateLayout><Ingresos/></PrivateLayout> },
           { path: "/datos/gastos", element: <PrivateLayout><Gastos /></PrivateLayout> },
+          { path: "/ahorros", element: <PrivateLayout><Ahorros /></PrivateLayout> },
 
 
         

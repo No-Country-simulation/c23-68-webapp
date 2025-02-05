@@ -42,6 +42,7 @@ const Navbar = () => {
     { path: "/datos/ingresos", name: "Ingresos", parent: "/datos" },
     { path: "/datos/gastos", name: "Gastos", parent: "/datos" },
     { path: "/dashboard", name: "Dashboard" },
+    
   ];
 
   const currentRoute = routes.find((route) => route.path === location.pathname);
@@ -118,23 +119,7 @@ const Navbar = () => {
           </svg>
         </button>
       )}
-      {/* <button
-        type="button"
-        className="flex items-center justify-center px-6 py-3 bg-green-500 font-onest text-white text-lg rounded-full shadow-lg hover:bg-green-600"
-      >
-        Iniciar Sesión
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="size-6"
-        >
-          <path
-            fillRule="evenodd"
-            d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
-          />
-        </svg>
-      </button> */}
+      
     </div>
   );
 };
