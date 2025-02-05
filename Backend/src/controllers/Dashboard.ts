@@ -1,5 +1,4 @@
 import { Request, Response } from 'express'
-import mongoose from 'mongoose'
 import { TransactionModel } from '../models/Transaction'
 import { getIdUser } from '../helpers/auth'
 import { TransactionExpense, TransactionIncome } from '../interface/categorys'

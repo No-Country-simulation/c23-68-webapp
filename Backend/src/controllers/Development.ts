@@ -1,13 +1,11 @@
 import { Request, Response } from 'express'
 import { UserModel } from '../models/User'
-import { CategoryModel } from '../models/Category'
-import { TransactionModel } from '../models/Transaction'
-import { SavingsGoalModel } from '../models/SavingsGoal'
 import bcrypt from 'bcrypt'
 import { createCategory } from '../database/Category'
 import { createTransaction } from '../database/Transactions'
 import { TransactionType } from '../interface/categorys'
 import { createSavingGoals } from '../database/SavingsGoal'
+import { NODE_ENV } from '../config/config'
 
 export async function poblateBD(req: Request, res: Response) {
   try {
@@ -19,6 +17,17 @@ export async function poblateBD(req: Request, res: Response) {
         message: 'Este endpoint esta deshabilitado.',
       })
     }
+
+    console.log({ NODE_ENV })
+    const isProduction = NODE_ENV === 'production'
+
+    if (isProduction) {
+      res.status(400).json({
+        status: false,
+        message: 'Endpoint no valido en production',
+      })
+    }
+
     console.log('poblando base de datos')
 
     const password = 'Hola1234*'
