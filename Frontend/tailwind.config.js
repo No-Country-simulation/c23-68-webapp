@@ -112,11 +112,6 @@ export default {
       'dark-tremor-dropdown':
         '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
     },
-    borderRadius: {
-      'tremor-small': '0.375rem',
-      'tremor-default': '0.5rem',
-      'tremor-full': '9999px',
-    },
     fontSize: {
       'tremor-label': ['0.75rem', { lineHeight: '1rem' }],
       'tremor-default': ['0.875rem', { lineHeight: '1.25rem' }],
@@ -159,5 +154,5 @@ export default {
     extend: {},
   },
   // eslint-disable-next-line no-undef
-  plugins: [require('@headlessui/tailwindcss', require('@tailwindcss/forms'))],
+  plugins: [require('@headlessui/tailwindcss'), require('@tailwindcss/forms')],
 }
