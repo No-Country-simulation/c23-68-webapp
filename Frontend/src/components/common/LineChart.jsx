@@ -1,16 +1,10 @@
 import { Card, LineChart, List, ListItem } from '@tremor/react'
+import { useEffect, useState } from 'react'
+import { compareIncomeExpense } from '../../service/dashboard'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-
-const data = [
-  {
-    date: '2025-02-05',
-    income: 4745,
-    expense: 2467,
-  },
-]
 
 const summary = [
   {
@@ -32,6 +26,14 @@ const statusColor = {
 }
 
 export default function Example() {
+  const [dataCompareIncomeExpense, setDataCompareIncomeExpense] = useState([])
+  useEffect(() => {
+    const getElements = async () => {
+      const data = await compareIncomeExpense()
+      setDataCompareIncomeExpense(data.data)
+    }
+    getElements()
+  }, [])
   return (
     <>
       <Card className=' pl-12 pr-16 py-8 w-[60%] h-auto bg-white rounded-3xl shadow-lg font-onest'>
@@ -39,7 +41,7 @@ export default function Example() {
           Comparación entre gastos e ingresos
         </h3>
         <LineChart
-          data={data}
+          data={dataCompareIncomeExpense}
           index='date'
           categories={['income', 'expense']}
           colors={['emerald-500', 'pink-600']}

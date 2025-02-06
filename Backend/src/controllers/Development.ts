@@ -105,6 +105,7 @@ export async function poblateBD(req: Request, res: Response) {
         type: data.type,
         category: data.category,
         description: data.description,
+        date: data.date,
       })
     })
     console.log('Ingresos Creados')
@@ -116,6 +117,7 @@ export async function poblateBD(req: Request, res: Response) {
         type: data.type,
         category: data.category,
         description: data.description,
+        date: data.date,
       })
     })
 

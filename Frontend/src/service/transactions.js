@@ -9,6 +9,13 @@ export const createTransaction = async (
   time
 ) => {
   try {
+    console.log({
+      amount,
+      type,
+      category,
+      description,
+      date: time,
+    })
     const response = await fetch(`${backendUrl}/api/transaction/create`, {
       method: 'POST',
       credentials: 'include',
@@ -16,11 +23,16 @@ export const createTransaction = async (
         'Content-Type': 'application/json',
         'x-api-key': SecretKey,
       },
-      body: JSON.stringify({ amount, type, category, description, time }),
+      body: JSON.stringify({ amount, type, category, description, date: time }),
     })
 
-    if (!response.ok)
+    console.log({ response })
+
+    if (!response.ok) {
+      const text = await response.text()
+      console.log(text)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
+    }
     return await response.json()
   } catch (error) {
     console.error('Error al crear transacción:', error.message)
@@ -42,9 +54,11 @@ export const getTransactions = async (type) => {
         },
       }
     )
-
-    if (!response.ok)
+    if (!response.ok) {
+      const text = await response.text()
+      console.log(text)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
+    }
     return await response.json()
   } catch (error) {
     console.error('Error al obtener transacciones:', error.message)

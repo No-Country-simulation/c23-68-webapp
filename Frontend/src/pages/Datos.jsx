@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { nameModal } from '../config/nameModals'
 import usePopups from '../hooks/usePopups'
@@ -17,7 +16,7 @@ const Datos = () => {
   }
 
   return (
-    <div className='min-h-screen pt-6 font-sans bg-gris3'>
+    <div className='min-h-screen pt-6 font-sans bg-gris3 '>
       {/* Contenedor principal */}
       <div className='bg-white shadow-lg rounded-3xl border-b-2  w-[90%]  max-w-[1000px] my-6 mx-auto pl-12 pr-32'>
         <div className='flex items-center justify-between '>
@@ -39,10 +38,10 @@ const Datos = () => {
       </div>
 
       {/* Botón "Agregar datos" */}
-      <div className='flex justify-end pl-[20%] pt-6 pb-6'>
+      <div className='flex justify-end w-[90%] mx-auto max-w-[1000px]'>
         <button
           onClick={handleAddData}
-          className='flex items-center justify-center gap-2 px-6 py-3 mx-64 text-xl text-white bg-green-500 rounded-full shadow-lg font-onest hover:bg-green-600'
+          className='flex items-center justify-center gap-2 px-6 py-3 text-xl text-white bg-green-500 rounded-full shadow-lg font-onest hover:bg-green-600'
         >
           <svg
             width='17'
