@@ -80,13 +80,13 @@ const DataTable = ({ data }) => {
   };
 
   return (
-    <div className="p-10 w-full bg-gray-200 font-onest font-normal text-lg">
+    <div className="p-10 w-full bg-gris3 font-onest font-normal text-lg">
       <div className="flex justify-between mb-4">
         <SearchInput onSearch={handleSearch} />
         <select
           value={priorityFilter}
           onChange={handlePriorityFilterChange}
-          className="w-[120px] border p-2 mb-4 rounded-lg text-gris2 font-bold">
+          className="border-none w-[120px] p-2 mb-4 rounded-lg shadow-lg text-gris2 font-bold cursor-pointer">
           <option value="">Etiqueta</option>
           <option className="text-black" value="Alta">Alta</option>
           <option className="text-black" value="Media">Media</option>
@@ -112,7 +112,7 @@ const DataTable = ({ data }) => {
           <span>Agregar</span>
         </button>
       </div>
-      <table className="w-full border-collapse bg-white rounded-xl">
+      <table className="w-full border-collapse bg-white rounded-xl shadow-lg">
         <thead>
           <tr className="text-xl">
             <th className="p-2 pt-4">Prioridad</th>
@@ -123,7 +123,7 @@ const DataTable = ({ data }) => {
             <th className="p-2 pt-4"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {currentItems.map((data) => (
             <tr key={data.id} className="hover:bg-gray-50">
               <td className="p-2 text-center">

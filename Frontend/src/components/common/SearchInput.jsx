@@ -17,7 +17,7 @@ const SearchInput = ({ onSearch }) => {
         className="absolute left-3 top-[24px] transform -translate-y-1/2 text-gray-400"
         width="20"
         height="20"
-        viewBox="0 0 20 20"
+        viewBox="0 0 20 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path
@@ -34,7 +34,7 @@ const SearchInput = ({ onSearch }) => {
         placeholder="Buscador"
         value={searchValue} // Valor controlado por el estado
         onChange={handleInputChange} // Maneja el cambio en el input
-        className="border p-2 pl-10 w-full mb-4 rounded-lg  focus:ring-2 focus:ring-g"
+        className="border-none p-2 pl-10 w-full mb-4 rounded-lg  focus:ring-2 focus:ring-gris2 shadow-lg"
       />
     </div>
   );

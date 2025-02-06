@@ -89,7 +89,7 @@ const SideBar = () => {
               to='/datos'
               className={({ isActive }) =>
                 isActive
-                  ? 'block px-5 mx-3 py-3 bg-amarillo rounded-lg font-onest font-normal text-xl text-negro'
+                  ? 'block px-5 mx-3 py-3 bg-amarillo rounded-lg font-onest font-normal text-xl text-negro shadow-lg'
                   : 'block px-5 mx-3 py-3 hover:bg-amarillomasclaro rounded-lg font-onest font-normal text-xl text-negro'
               }
             >
@@ -118,7 +118,7 @@ const SideBar = () => {
               to='/savings'
               className={({ isActive }) =>
                 isActive
-                  ? 'block px-5 mx-3 py-3 bg-amarillo rounded-lg font-onest font-normal text-xl text-negro'
+                  ? 'block px-5 mx-3 py-3 bg-amarillo rounded-lg font-onest font-normal text-xl text-negro shadow-lg'
                   : 'block px-5 mx-3 py-3 hover:bg-amarillomasclaro rounded-lg font-onest font-normal text-xl text-negro'
               }
             >

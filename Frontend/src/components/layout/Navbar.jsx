@@ -43,7 +43,7 @@ const Navbar = () => {
   )
 
   return (
-    <div className='flex items-center justify-between px-8 mt-4 mb-4 w-100'>
+    <div className='flex items-center justify-between px-8 w-100'>
       <h1>
         <NavLink to='/'>
           <img
