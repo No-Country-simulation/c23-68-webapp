@@ -7,7 +7,7 @@ import { cx } from "../../lib/utils";
 
 const badgeVariants = tv({
   base: cx(
-    "inline-flex items-center justify-center gap-x-1 whitespace-nowrap rounded-md text-xs font-medium ring-1 ring-inset",
+    "inline-flex items-center justify-center gap-x-1 whitespace-nowrap rounded-md text-xs font-medium ring-inset",
     "w-[95px] h-[32px]"
   ),
   variants: {
@@ -37,7 +37,7 @@ const badgeVariants = tv({
 
 interface BadgeProps
   extends React.ComponentPropsWithoutRef<"span">,
-    VariantProps<typeof badgeVariants> {}
+  VariantProps<typeof badgeVariants> { }
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   ({ className, variant, ...props }: BadgeProps, forwardedRef) => {
