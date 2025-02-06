@@ -19,7 +19,7 @@ const DatosForm = () => {
   const typeValue = watch("type");
 
   const onSubmit = () => {
-    console.log("Form submitted");
+
     show({
       popUpId: DataSavedModalID,
       metadata: { id: DataSavedModalID },
@@ -32,7 +32,7 @@ const DatosForm = () => {
   };
 
   const handleCancel = () => {
-    console.log("Form cancelled");
+
     reset();
     hide({
       popUpId: DataFormModalID,

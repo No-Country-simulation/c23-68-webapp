@@ -9,7 +9,7 @@ const DatosIngresosEditForm = () => {
   const { show, hide } = usePopups()
   const { DataSavedModalID, DatosIngresosEditFormModalID } = nameModal
   const { activePopup } = usePopup(DatosIngresosEditFormModalID)
-  console.log(activePopup?.metadata)
+
   const {
     register,
     handleSubmit,
@@ -36,7 +36,7 @@ const DatosIngresosEditForm = () => {
   }, [activePopup, reset])
 
   const onSubmit = () => {
-    console.log('Form submitted')
+
     show({
       popUpId: DataSavedModalID,
       metadata: { id: DataSavedModalID },
@@ -49,7 +49,7 @@ const DatosIngresosEditForm = () => {
   }
 
   const handleCancel = () => {
-    console.log('Form cancelled')
+
     reset()
     hide({
       popUpId: DatosIngresosEditFormModalID,

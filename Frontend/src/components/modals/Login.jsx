@@ -45,7 +45,7 @@ export function Login() {
     event.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    console.log({ email, password });
+
 
     if (!email || !password) {
       console.error("Email y password son obligatorios");
@@ -105,7 +105,7 @@ export function Login() {
               Contraseña
             </label>
 
-           
+
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}

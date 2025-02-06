@@ -15,7 +15,7 @@ const DatosIngresosForm = () => {
   } = useForm();
 
   const onSubmit = () => {
-    console.log("Form submitted");
+
     show({
       popUpId: DataSavedModalID,
       metadata: { id: DataSavedModalID },
@@ -28,7 +28,7 @@ const DatosIngresosForm = () => {
   };
 
   const handleCancel = () => {
-    console.log("Form cancelled");
+
     reset();
     hide({
       popUpId: DatosIngresosFormModalID,

@@ -1,14 +1,14 @@
 import { Modal } from "../modals/Modal";
 import usePopups from "../../hooks/usePopups";
 import { nameModal } from "../../config/nameModals";
-import usePopup from "../../hooks/usePopup";
+// import usePopup from "../../hooks/usePopup";
 
 function DatosEliminadosModal() {
   const { DatosEliminadosModalID } = nameModal;
   const { hide } = usePopups();
 
-  const { activePopup } = usePopup(DatosEliminadosModalID);
-  console.log(activePopup?.metadata?.idModal);
+  // const { activePopup } = usePopup(DatosEliminadosModalID);
+
   const handleClose = () => {
     hide({
       popUpId: DatosEliminadosModalID,

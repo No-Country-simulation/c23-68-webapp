@@ -18,7 +18,7 @@ const AhorrosForm = () => {
 
 
   const onSubmit = () => {
-    console.log("Form submitted");
+
     show({
       popUpId: DataSavedModalID,
       metadata: { id: DataSavedModalID },
@@ -31,7 +31,7 @@ const AhorrosForm = () => {
   };
 
   const handleCancel = () => {
-    console.log("Form cancelled");
+
     reset();
     hide({
       popUpId: AhorrosFormModalID,

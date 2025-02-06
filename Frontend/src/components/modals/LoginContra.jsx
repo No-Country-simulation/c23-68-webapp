@@ -33,7 +33,6 @@ export function LoginContra() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = document.getElementById("email").value;
-    console.log({ email });
 
     if (!email == null) {
       console.error("Email es obligatorio");

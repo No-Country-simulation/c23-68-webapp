@@ -43,7 +43,7 @@ export function Register() {
     const nombre = document.getElementById("nombre").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    console.log({ nombre, email, password });
+
 
     if (!nombre || !email || !password) {
       console.error("Nombre, Email y password son obligatorios");

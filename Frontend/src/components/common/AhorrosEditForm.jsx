@@ -9,7 +9,7 @@ const AhorrosEditForm = () => {
   const { show, hide } = usePopups()
   const { DataSavedModalID, AhorrosEditFormModalID } = nameModal
   const { activePopup } = usePopup(AhorrosEditFormModalID)
-  console.log('metadata', activePopup?.metadata)
+
   const {
     register,
     handleSubmit,
@@ -38,7 +38,7 @@ const AhorrosEditForm = () => {
   }, [activePopup, reset])
 
   const onSubmit = () => {
-    console.log('Form submitted')
+
     show({
       popUpId: DataSavedModalID,
       metadata: { id: DataSavedModalID },
@@ -51,7 +51,7 @@ const AhorrosEditForm = () => {
   }
 
   const handleCancel = () => {
-    console.log('Form cancelled')
+
     reset()
     hide({
       popUpId: AhorrosEditFormModalID,
