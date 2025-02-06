@@ -61,7 +61,6 @@ const DataTable = ({ data = []}) => {
 
 
 
-
     // Componente Badge definido dentro del mismo archivo
     const Badge = ({ variant, children }) => {
         let colorClass;
@@ -85,8 +84,6 @@ const DataTable = ({ data = []}) => {
           </span>
         );
       };
-
-
 
 
 
@@ -260,9 +257,6 @@ const DataTable = ({ data = []}) => {
   );
 };
 
-DataTable.defaultProps = {
-    data: [] // ✅ Valor por defecto explícito
-  };
 
 
 export default DataTable;
