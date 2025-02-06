@@ -27,10 +27,10 @@ const DatosIngresosEditForm = () => {
   useEffect(() => {
     if (activePopup && activePopup?.metadata) {
       reset({
-        name: activePopup?.metadata?.data?.name || '',
         targetAmount: activePopup?.metadata?.data?.targetAmount || '',
+        category: activePopup?.metadata?.data?.category || '',
+        description: activePopup?.metadata?.data?.description || '',
         createdAt: activePopup?.metadata?.data?.createdAt || '',
-        deadline: activePopup?.metadata?.data?.deadline || '',
       })
     }
   }, [activePopup, reset])
