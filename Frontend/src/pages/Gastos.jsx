@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { format } from '@formkit/tempo'
 import { getTransactions } from '../service/transactions'
+import usePopups from "../hooks/usePopups";
+import { nameModal } from "../config/nameModals";
 
 const Gastos = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -50,6 +52,32 @@ const Gastos = () => {
     BiFontFamily: 'Onest',
   }
 
+  const { show } = usePopups();
+  const { DatosGastosFormModalID, DatosGastosEditFormModalID, DatosEliminadosModalID } = nameModal;
+  const handleClick = () => {
+    show({
+      popUpId: DatosGastosFormModalID,
+      metadata: { id: DatosGastosFormModalID, },
+      pushMethod: "prepend",
+    });
+  };
+
+  const handleEdit = (data) => {
+    show({
+      popUpId: DatosGastosEditFormModalID,
+      metadata: { id: DatosGastosEditFormModalID, data: data },
+      pushMethod: "prepend",
+    });
+  }
+
+  const handleCloseDelete = (idModal) => {
+    show({
+      popUpId: DatosEliminadosModalID,
+      metadata: { id: DatosEliminadosModalID, idModal: idModal },
+      pushMethod: "prepend",
+    });
+  };
+
   return (
     <div className='flex flex-col min-h-screen pt-3 font-onest bg-gris3'>
       <div className='flex items-center justify-between relative ml-[5%] my-9 w-[90%] max-w-[1400px]'>
@@ -95,7 +123,8 @@ const Gastos = () => {
 
       <div className='flex items-center justify-between w-[95%] max-w-[1400px] mt-11'>
         <h2 className=' ml-[6%] text-3xl text-gris'>Historial</h2>
-        <button className='px-5 py-2 text-lg text-white rounded-lg shadow-lg bg-verde font-onest hover:bg-green-600'>
+        <button className='px-5 py-2 text-lg text-white rounded-lg shadow-lg bg-verde font-onest hover:bg-green-600'
+        onClick={handleClick}>
           <svg
             className='inline-block mr-2'
             width='20'
@@ -156,7 +185,8 @@ const Gastos = () => {
                     {format(new Date(item.date), 'DD/MM/YYYY')}
                   </td>
                   <td className='flex justify-center gap-2 p-2 pb-4'>
-                    <button className='px-4 py-2 text-white bg-yellow-500 rounded'>
+                    <button className='px-4 py-2 text-white bg-yellow-500 rounded'
+                    onClick={() => handleEdit(data)}>
                       <svg
                         className='inline-block mr-2'
                         width='21'
@@ -179,7 +209,8 @@ const Gastos = () => {
                       Editar
                     </button>
 
-                    <button className='px-3 py-2 text-white bg-red-500 rounded'>
+                    <button className='px-3 py-2 text-white bg-red-500 rounded'
+                    onClick={() => handleCloseDelete(data.id)}>
                       <svg
                         className='inline-block mr-2'
                         width='20'

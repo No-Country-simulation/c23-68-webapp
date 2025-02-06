@@ -12,5 +12,6 @@ export const nameModal = {
   DatosEliminadosModalID: 'datos-eliminados-modal',
   AhorrosEditFormModalID: 'ahorros-edit-form-modal',
   DatosIngresosEditFormModalID: 'datos-ingresos-edit-form-modal',
-
+  DatosGastosFormModalID: 'datos-gastos-form-modal',
+  DatosGastosEditFormModalID: 'datos-gastos-edit-form-modal',
 }

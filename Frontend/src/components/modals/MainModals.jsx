@@ -11,6 +11,8 @@ import DatosEditadosModal from '../common/DatosEditadosModal'
 import DatosEliminadosModal from '../common/DatosEliminadosModal'
 import AhorrosEditForm from '../common/AhorrosEditForm'
 import DatosIngresosEditForm from '../common/DatosIngresosEditForm'
+import DatosGastosForm from '../common/DatosGastosForm'
+import DatosGastosEditForm from '../common/DatosGastosEditForm'
 
 
 export function MainModals() {
@@ -26,9 +28,10 @@ export function MainModals() {
       <DataSavedModal />
       <DatosEditadosModal />
       <DatosEliminadosModal />
-
+      <DatosGastosForm />
       <AhorrosEditForm />
       <DatosIngresosEditForm />
+      <DatosGastosEditForm />
     </>
   )
 }
