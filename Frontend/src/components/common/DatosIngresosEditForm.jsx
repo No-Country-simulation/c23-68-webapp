@@ -17,20 +17,21 @@ const DatosIngresosEditForm = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: "",
       targetAmount: "",
+      category: "",
+      description: "",
       createdAt: "",
-      deadline: "",
+
     },
   });
 
   useEffect(() => {
     if (activePopup && activePopup.metadata) {
       reset({
-        name: activePopup.metadata.data.name || "",
-        targetAmount: activePopup.metadata.data.targetAmount || "",
-        createdAt: activePopup.metadata.data.createdAt || "",
-        deadline: activePopup.metadata.data.deadline || "",
+        name: activePopup.metadata.data.targetAmount || "",
+        targetAmount: activePopup.metadata.data.category || "",
+        createdAt: activePopup.metadata.data.description || "",
+        deadline: activePopup.metadata.data.createdAt || "",
       });
     }
   }, [activePopup, reset]);
