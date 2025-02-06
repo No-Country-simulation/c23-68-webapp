@@ -14,11 +14,11 @@ const data = [
 
 const summary = [
   {
-    name: 'income',
+    name: 'Ingresos',
     value: 3273,
   },
   {
-    name: 'expense',
+    name: 'Gastos',
     value: 120,
   },
 ]
@@ -27,8 +27,8 @@ const valueFormatter = (number) =>
   `${Intl.NumberFormat('us').format(number).toString()}`
 
 const statusColor = {
-  income: 'bg-emerald-500',
-  expense: 'bg-pink-600',
+  Ingresos: 'bg-emerald-500',
+  Gastos: 'bg-pink-600',
 }
 
 export default function Example() {

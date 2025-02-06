@@ -8,6 +8,8 @@ export default {
   ],
   darkMode: false,
   theme: {
+    transparent: 'transparent',
+    current: 'currentColor',
     extend: {
       fontFamily: {
         anybody: ['Anybody', 'sans-serif'],
