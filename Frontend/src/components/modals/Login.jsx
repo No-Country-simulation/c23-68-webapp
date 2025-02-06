@@ -3,7 +3,10 @@ import { Modal } from './Modal'
 import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import { fetchLogin } from '../../service/login'
+import { authStore } from '../../store/auth.store'
+import { useNavigate } from 'react-router-dom'
 
+// eslint-disable-next-line react/prop-types
 function SimpleInputIcon({ label, icon, placeholder, ...props }) {
   const setPlaceholder = placeholder || 'Input con icono'
   return (
@@ -28,10 +31,10 @@ function SimpleInputIcon({ label, icon, placeholder, ...props }) {
 export function Login() {
   const { LoadingModalID, LoginModalID, LoginContraModalID, RegisterModalID } =
     nameModal
-
+  const navigate = useNavigate()
+  const { login } = authStore()
   const { show, hide } = usePopups()
   const [showPassword, setShowPassword] = useState(false)
-
   const handleShowModal = (idModal) => {
     show({
       popUpId: idModal,
@@ -39,23 +42,6 @@ export function Login() {
       pushMethod: 'prepend',
     })
   }
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const email = document.getElementById("email").value;
-  //   const password = document.getElementById("password").value;
-  //   console.log({ email, password });
-
-  //   if (!email || !password) {
-  //     console.error("Email y password son obligatorios");
-  //   }
-
-  //   show({
-  //     popUpId: LoadingModalID,
-  //     metadata: { id: LoadingModalID },
-  //     pushMethod: "prepend",
-  //   });
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -67,22 +53,24 @@ export function Login() {
       return
     }
 
-    show({ popUpId: LoadingModalID })
+    show({
+      popUpId: LoadingModalID,
+      metadata: { id: LoadingModalID },
+    })
 
     try {
-      const data = await fetchLogin(email, password)
+      const data = await fetchLogin(email, password, login)
       if (data) {
-        // Cerrar todos los modales
-        ;[LoginModalID, LoadingModalID].forEach((modalId) =>
-          hide({ popUpId: modalId })
-        )
-        console.log('Login exitoso')
+        hide({ popUpId: LoadingModalID, metadataId: LoadingModalID })
+        hide({ popUpId: LoginModalID, metadataId: LoginModalID })
+
+        navigate('/dashboard')
       }
     } catch (error) {
       console.error('Error:', error.message)
       // Mostrar error al usuario
     } finally {
-      hide({ popUpId: LoadingModalID })
+      hide({ popUpId: LoadingModalID, metadataId: LoadingModalID })
     }
   }
 
@@ -117,7 +105,7 @@ export function Login() {
             id='email'
             type='email'
             label={
-              <span className='relative left-0 text-lg font-normal text-justify text-black  -bottom-16 font-onest'>
+              <span className='relative left-0 text-lg font-normal text-justify text-black -bottom-16 font-onest'>
                 Correo electrónico
               </span>
             }
@@ -142,7 +130,7 @@ export function Login() {
               />
               <button
                 type='button'
-                className='h-full px-3 py-2  hover:bg-transparent'
+                className='h-full px-3 py-2 hover:bg-transparent'
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
@@ -156,7 +144,7 @@ export function Login() {
                     strokeWidth='2'
                     strokeLinecap='round'
                     strokeLinejoin='round'
-                    className='relative  -bottom-9 left-80 icon icon-tabler icons-tabler-outline icon-tabler-eye'
+                    className='relative -bottom-9 left-80 icon icon-tabler icons-tabler-outline icon-tabler-eye'
                   >
                     <path
                       d='M11 3C6.522 3 2.732 5.943 1.457 10C2.732 14.057 6.522 17 11 17C15.478 17 19.268 14.057 20.543 10C19.268 5.943 15.478 3 11 3ZM11 7C9.343 7 8 8.343 8 10C8 11.657 9.343 13 11 13C12.657 13 14 11.657 14 10C14 8.343 12.657 7 11 7Z'
@@ -202,7 +190,7 @@ export function Login() {
 
           <button
             onClick={(event) => handleSubmit(event)}
-            className='relative px-32 py-3 text-lg font-bold text-white transition duration-300 ease-in-out rounded-md  -bottom-12 font-onest bg-verde focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-verde focus:ring-verde'
+            className='relative px-32 py-3 text-lg font-bold text-white transition duration-300 ease-in-out rounded-md -bottom-12 font-onest bg-verde focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-verde focus:ring-verde'
           >
             Iniciar Sesión
           </button>
@@ -212,12 +200,13 @@ export function Login() {
             <label className='relative mx-2 -my-2 text-lg font-normal text-black -bottom-20 font-onest'>
               o
             </label>
-            <hr className='relative flex-grow mr-10 -mb-40  border-gris2' />
+            <hr className='relative flex-grow mr-10 -mb-40 border-gris2' />
           </div>
           <div className='flex items-center'>
             <button
+              disabled
               onClick={(event) => handleSubmit(event)}
-              className='relative flex-grow px-32 py-6 text-lg font-normal transition duration-300 ease-in-out rounded-md  -bottom-28 font-onest text-gris bg-plomo focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-plomo focus:ring-plomo'
+              className='relative flex-grow px-32 py-6 text-lg font-normal transition duration-300 ease-in-out rounded-md -bottom-28 font-onest text-gris bg-plomo focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-plomo focus:ring-plomo'
             >
               <img
                 src='https://img.icons8.com/?size=512&id=17949&format=png'

@@ -68,7 +68,9 @@ export async function createUser(userData: ICreateUser) {
     }
 
     if (
-      !userData.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/)
+      !userData.password.match(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\W]{6,}$/
+      )
     ) {
       return {
         status: false,
