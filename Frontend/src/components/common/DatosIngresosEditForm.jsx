@@ -17,10 +17,10 @@ const DatosIngresosEditForm = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: '',
       targetAmount: '',
+      category: '',
+      description: '',
       createdAt: '',
-      deadline: '',
     },
   })
 
