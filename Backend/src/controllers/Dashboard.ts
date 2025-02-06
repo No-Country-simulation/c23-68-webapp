@@ -89,21 +89,32 @@ export async function compareIncomeExpenseController(
     }
 
     const id = dataUser.data?.dataID
-
     const transactions = await TransactionModel.find({ user: id }).sort({
       date: 1,
     })
 
-    const comparison = transactions.map((transaction) => ({
-      date: transaction.date,
-      type: transaction.type,
-      amount: transaction.amount,
-    }))
+    const groupedTransactions = transactions.reduce((acc, transaction) => {
+      const date = transaction.date.toISOString().split('T')[0] // Formato YYYY-MM-DD
+
+      if (!acc[date]) {
+        acc[date] = { date, income: 0, expense: 0 }
+      }
+
+      if (transaction.type === 'Ingreso') {
+        acc[date].income += transaction.amount
+      } else if (transaction.type === 'Gasto') {
+        acc[date].expense += transaction.amount
+      }
+
+      return acc
+    }, {} as Record<string, { date: string; income: number; expense: number }>)
+
+    const formattedTransactions = Object.values(groupedTransactions)
 
     res.status(200).json({
       status: true,
       message: 'Datos obtenidos correctamente',
-      data: comparison,
+      data: formattedTransactions,
     })
   } catch (error) {
     res.status(500).json({
@@ -141,6 +152,7 @@ export async function getExpensePercentageController(
     const percentageByCategory = expenses.map((expense) => ({
       category: expense._id,
       percentage: ((expense.total / totalExpense) * 100).toFixed(2),
+      amount: expense.total,
     }))
 
     res.status(200).json({
