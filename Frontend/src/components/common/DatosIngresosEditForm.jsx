@@ -5,10 +5,10 @@ import usePopups from "../../hooks/usePopups";
 import usePopup from "../../hooks/usePopup";
 import { useEffect } from "react";
 
-const DatosIngresosEditFormModalID = () => {
+const DatosIngresosEditForm = () => {
   const { show, hide } = usePopups();
-  const { DataSavedModalID, DatosIngresosEditFormModalIDModalID } = nameModal;
-  const { activePopup } = usePopup(DatosIngresosEditFormModalIDModalID);
+  const { DataSavedModalID, DatosIngresosEditFormModalID } = nameModal;
+  const { activePopup } = usePopup(DatosIngresosEditFormModalID);
   console.log(activePopup?.metadata);
   const {
     register,
@@ -43,8 +43,8 @@ const DatosIngresosEditFormModalID = () => {
       pushMethod: "prepend",
     });
     hide({
-      popUpId: DatosIngresosEditFormModalIDModalID,
-      metadataId: DatosIngresosEditFormModalIDModalID,
+      popUpId: DatosIngresosEditFormModalID,
+      metadataId: DatosIngresosEditFormModalID,
     });
   };
 
@@ -52,14 +52,14 @@ const DatosIngresosEditFormModalID = () => {
     console.log("Form cancelled");
     reset();
     hide({
-      popUpId: DatosIngresosEditFormModalIDModalID,
-      metadataId: DatosIngresosEditFormModalIDModalID,
+      popUpId: DatosIngresosEditFormModalID,
+      metadataId: DatosIngresosEditFormModalID,
     });
   };
 
   return (
     <Modal
-      id={DatosIngresosEditFormModalIDModalID}
+      id={DatosIngresosEditFormModalID}
       className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-50 z-50">
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -158,4 +158,4 @@ const DatosIngresosEditFormModalID = () => {
   );
 };
 
-export default DatosIngresosEditFormModalID;
+export default DatosIngresosEditForm;
