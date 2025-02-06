@@ -1,6 +1,7 @@
 import { Schema, model, Document } from 'mongoose'
+import crypto from 'crypto'
 
-interface User extends Document {
+export interface User extends Document {
   userId: string
   name: string
   email: string
@@ -10,7 +11,7 @@ interface User extends Document {
 }
 
 const UserSchema = new Schema<User>({
-  userId: { type: String, default: crypto.randomUUID(), unique: true },
+  userId: { type: String, default: crypto.randomUUID, unique: true },
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -18,7 +19,6 @@ const UserSchema = new Schema<User>({
   currency: { type: String, default: 'USD' },
 })
 
-export const UserModel = model<User>('User', UserSchema)
-UserSchema.index({ email: 1 }, { unique: true })
-UserSchema.index({ userId: 1 }, { unique: true })
 UserSchema.index({ registrationDate: -1 })
+
+export const UserModel = model<User>('User', UserSchema)

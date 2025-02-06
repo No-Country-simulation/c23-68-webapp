@@ -1,15 +1,19 @@
 import { Schema, model, Document } from 'mongoose'
+import { TransactionType } from '../interface/categorys'
 
 interface Category extends Document {
-  name: string
-  type: 'income' | 'expense'
+  type: TransactionType
+  subcategories: string[]
 }
 
 const CategorySchema = new Schema<Category>({
-  name: { type: String, required: true },
-  type: { type: String, enum: ['income', 'expense'], required: true },
+  type: {
+    type: String,
+    enum: ['Ingreso', 'Gasto'],
+    required: true,
+    unique: true,
+  },
+  subcategories: { type: [String], default: [] },
 })
 
 export const CategoryModel = model<Category>('Category', CategorySchema)
-
-CategorySchema.index({ name: 1, type: 1 }, { unique: true })

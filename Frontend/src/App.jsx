@@ -1,31 +1,32 @@
-import { BrowserRouter, useRoutes } from "react-router-dom";
-import Navbar from "./components/layout/Navbar";
-import SideBar from "./components/layout/SideBar";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Team from "./pages/Team";
-import FinBlog from "./pages/FinBlog";
-import Dashboard from "./pages/Dashboard";
-import Datos from "./pages/Datos";
-import Ingresos from "./pages/Ingresos";
-import Gastos from "./pages/Gastos";
+import Navbar from './components/layout/Navbar'
+import { BrowserRouter, useRoutes } from 'react-router-dom'
+import SideBar from './components/layout/SideBar'
+import Home from './pages/Home'
+import About from './pages/About'
+import Team from './pages/Team'
+import FinBlog from './pages/FinBlog'
+import Dashboard from './pages/Dashboard'
+import Datos from './pages/Datos'
+import Ingresos from './pages/Ingresos'
+import Gastos from './pages/Gastos'
+import Savings from './pages/Savings'
 
 const PrivateLayout = ({ children }) => (
-  <div className="flex min-h-screen">
+  <div className='flex min-h-screen'>
     <SideBar />
-    <main className="flex-1  ">{children}</main>
+    <main className='flex-1 '>{children}</main>
   </div>
-);
+)
 
 function App() {
   const AppRoutes = () => {
     let routes = useRoutes([
-      { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> },
-      { path: "/team", element: <Team /> },
-      { path: "/finblog", element: <FinBlog /> },
+      { path: '/', element: <Home /> },
+      { path: '/about', element: <About /> },
+      { path: '/team', element: <Team /> },
+      { path: '/finblog', element: <FinBlog /> },
       {
-        path: "/dashboard",
+        path: '/dashboard',
         element: (
           <PrivateLayout>
             <Dashboard />
@@ -33,7 +34,7 @@ function App() {
         ),
       },
       {
-        path: "/datos",
+        path: '/datos',
         element: (
           <PrivateLayout>
             <Datos />
@@ -41,7 +42,7 @@ function App() {
         ),
       },
       {
-        path: "/datos/ingresos",
+        path: '/datos/ingresos',
         element: (
           <PrivateLayout>
             <Ingresos />
@@ -49,24 +50,27 @@ function App() {
         ),
       },
       {
-        path: "/datos/gastos",
+        path: '/datos/gastos',
         element: (
           <PrivateLayout>
             <Gastos />
           </PrivateLayout>
         ),
       },
-    ]);
-
-    return routes;
-  };
+      { path: '/about', element: <About /> },
+      { path: '/savings', element: <Savings /> },
+    ])
+    return routes
+  }
 
   return (
-    <BrowserRouter>
-      <Navbar />
-      <AppRoutes />
-    </BrowserRouter>
-  );
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <AppRoutes />
+      </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App

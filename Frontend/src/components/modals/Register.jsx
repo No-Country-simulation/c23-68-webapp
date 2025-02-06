@@ -182,11 +182,11 @@ export function Register() {
           </button>
 
           <div className="flex items-center">
-            <hr class="flex-grow border-gris2 relative -mb-40 ml-10" />
+            <hr className="flex-grow border-gris2 relative -mb-40 ml-10" />
             <label className="relative -bottom-20 -my-2 text-lg  mx-2 font-normal font-onest text-black">
               o
             </label>
-            <hr class=" flex-grow border-gris2 relative -mb-40 mr-10" />
+            <hr className=" flex-grow border-gris2 relative -mb-40 mr-10" />
           </div>
           <div className="flex items-center">
             <button
@@ -196,9 +196,9 @@ export function Register() {
               <img
                 src="https://img.icons8.com/?size=512&id=17949&format=png"
                 alt=""
-                class="absolute bottom-3 left-20  w-5 h-5"
+                className="absolute bottom-3 left-20  w-5 h-5"
               />
-              <span class="font-onest font-normal text-gris text-lg flex-grow absolute bottom-2 right-16 ">
+              <span className="font-onest font-normal text-gris text-lg flex-grow absolute bottom-2 right-16 ">
                 Inicia sesión con Google
               </span>
             </button>
