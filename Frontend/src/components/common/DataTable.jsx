@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { nameModal } from "../../config/nameModals";
 import usePopups from "../../hooks/usePopups";
+import { format } from '@formkit/tempo'
 
 const DataTable = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -85,16 +86,16 @@ const DataTable = ({ data }) => {
         <select
           value={priorityFilter}
           onChange={handlePriorityFilterChange}
-          className="border p-2 mb-4 rounded-lg text-gris2 font-bold">
+          className="w-[120px] border p-2 mb-4 rounded-lg text-gris2 font-bold">
           <option value="">Etiqueta</option>
-          <option value="Alta">Alta</option>
-          <option value="Media">Media</option>
-          <option value="Baja">Baja</option>
+          <option className="text-black" value="Alta">Alta</option>
+          <option className="text-black" value="Media">Media</option>
+          <option className="text-black" value="Baja">Baja</option>
         </select>
       </div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-normal text-gris">Historial</h2>
-        <button className="bg-verde hover:bg-verdeoscuro text-white px-6 py-2 rounded-lg flex items-center gap-2" onClick={handleClick}>
+        <button className="bg-verde hover:bg-verdeoscuro text-white px-6 py-2 shadow-lg rounded-lg flex items-center gap-2" onClick={handleClick}>
           <svg
             width="20"
             height="21"
@@ -124,7 +125,7 @@ const DataTable = ({ data }) => {
         </thead>
         <tbody>
           {currentItems.map((data) => (
-            <tr key={data.id}>
+            <tr key={data.id} className="hover:bg-gray-50">
               <td className="p-2 text-center">
                 <Badge
                   className="p-2 text-center"
@@ -140,8 +141,8 @@ const DataTable = ({ data }) => {
               </td>
               <td className="px-2 text-center ">{data.name}</td>
               <td className="px-2 text-center ">${data.targetAmount}.00</td>
-              <td className="px-2 text-center ">{data.createdAt}</td>
-              <td className="px-2 text-center ">{data.deadline}</td>
+              <td className="px-2 text-center ">{format(new Date(data.createdAt), 'DD/MM/YYYY')}</td>
+              <td className="px-2 text-center ">{format(new Date(data.deadline), 'DD/MM/YYYY')}</td>
               <td className="px-2  flex gap-2 items-center justify-center">
                 <button className="w-[112px] h-[39px] bg-amarillo text-white px-2 rounded-lg flex justify-center items-center gap-2 hover:bg-amarillooscuro"
                 onClick={()=>handleEdit(data)}>

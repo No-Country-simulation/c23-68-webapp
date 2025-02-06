@@ -28,10 +28,10 @@ const Ingresos = () => {
   const filteredData = data?.filter(
     (item) =>
       item.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.amount.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.amount.toString().includes(searchTerm) ||
       item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.date.toLowerCase().includes(searchTerm.toLowerCase())
+      item.date.toString().includes(searchTerm)
   )
 
   const offset = currentPage * itemsPerPage
