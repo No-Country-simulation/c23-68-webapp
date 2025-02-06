@@ -7,6 +7,13 @@ interface Category {
 
 export async function createCategory({ type, subcategories }: Category) {
   try {
+    if (!type || !subcategories) {
+      return {
+        status: false,
+        message: 'Envie los datos correctamente falta un campo',
+      }
+    }
+
     const category = await CategoryModel.findOneAndUpdate(
       { type },
       {
@@ -30,7 +37,14 @@ export async function createCategory({ type, subcategories }: Category) {
 
 export async function getCategories(type: string) {
   try {
-    const category = await CategoryModel.find({ type })
+    if (!type) {
+      return {
+        status: false,
+        message: 'Ingrese el tipo bien de la categoria',
+      }
+    }
+
+    const category = await CategoryModel.findOne({ type })
 
     if (!category) {
       return {

@@ -1,4 +1,6 @@
+import { getUserByEmail } from '../database/User'
 import { IResponse } from '../interface/reponse'
+import { getDataToken } from './jwt'
 
 export function validationsLogin(
   email: string,
@@ -58,5 +60,36 @@ export function validationsRegister(
   return {
     status: true,
     message: 'OK',
+  }
+}
+
+export async function getIdUser(token: string) {
+  const dataToken = getDataToken(token)
+
+  if (!dataToken.data) {
+    return {
+      status: false,
+      message: dataToken.message,
+    }
+  }
+
+  const { email } = dataToken.data
+
+  const dataUser = await getUserByEmail(email)
+  if (!dataUser.data) {
+    return {
+      status: false,
+      message: dataUser.message,
+    }
+  }
+
+  const { _id } = dataUser.data
+
+  return {
+    status: true,
+    message: 'Usuario encontrado',
+    data: {
+      dataID: _id,
+    },
   }
 }
