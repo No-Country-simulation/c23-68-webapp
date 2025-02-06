@@ -115,7 +115,7 @@ const SideBar = () => {
 
           <li>
             <NavLink
-              to='/ahorros'
+              to='/savings'
               className={({ isActive }) =>
                 isActive
                   ? 'block px-5 mx-3 py-3 bg-amarillo rounded-lg font-onest font-normal text-xl text-negro'
