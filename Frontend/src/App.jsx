@@ -59,7 +59,14 @@ function App() {
         ),
       },
       { path: '/about', element: <About /> },
-      { path: '/savings', element: <Savings /> },
+      {
+        path: '/savings',
+        element: (
+          <PrivateLayout>
+            <Savings />
+          </PrivateLayout>
+        ),
+      },
     ])
     return routes
   }
