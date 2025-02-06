@@ -64,7 +64,8 @@ export const getExpensePercentage = async () => {
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
-    return await response.json()
+    const data = await response.json()
+    return data
   } catch (error) {
     console.error('Error al obtener porcentaje de gastos:', error.message)
     return null
