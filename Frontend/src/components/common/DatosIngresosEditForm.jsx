@@ -64,7 +64,7 @@ const DatosIngresosEditForm = () => {
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='bg-white  sm:px-12 py-6 rounded-3xl shadow-lg w-[542px] h-[546px] sm:max-w-2xl space-y-6 font-onest'
+        className='bg-white  sm:px-12 py-6 rounded-3xl shadow-lg w-[542px] h-[526px] sm:max-w-2xl space-y-6 font-onest'
       >
         {/* Botón de Cerrar */}
         <div className='flex justify-end'>
@@ -144,17 +144,17 @@ const DatosIngresosEditForm = () => {
         </div>
 
         {/* Botones */}
-        <div className='flex flex-col gap-3 font-bold sm:flex-row sm:justify-center'>
+        <div className='h-[60px] py-2 flex flex-col gap-5 font-bold sm:flex-row sm:justify-center'>
           <button
             type='submit'
-            className='w-full sm:w-auto px-4 py-2 text-white bg-amarillo rounded-[30px] shadow-md hover:bg-gradient-to-r from-amarillo to-amarillooscuro'
+            className='w-full sm:w-[143px] px-4 py-2 text-white bg-amarillo rounded-[30px] shadow-md hover:bg-gradient-to-r from-amarillo to-amarillooscuro'
           >
             Guardar
           </button>
           <button
             type='button'
             onClick={handleCancel}
-            className='w-full sm:w-auto px-4 py-2 text-grisclaro bg-transparent border-2 border-grisclaro rounded-[30px] hover:bg-grisclaro hover:text-white hover:border-grisclaro'
+            className='w-full sm:w-[143px] px-4 py-2 text-grisclaro bg-transparent border-2 border-grisclaro rounded-[30px] hover:bg-grisclaro hover:text-white hover:border-none'
           >
             Cancelar
           </button>

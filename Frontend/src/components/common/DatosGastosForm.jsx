@@ -42,7 +42,7 @@ const DatosGastosForm = () => {
       className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-50 z-50">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white  sm:px-12 py-6 rounded-3xl shadow-lg w-[542px] h-[546px] sm:max-w-2xl space-y-6 font-onest">
+        className="bg-white  sm:px-12 py-6 rounded-3xl shadow-lg w-[542px] h-[536px] sm:max-w-2xl space-y-6 font-onest">
         {/* Botón de Cerrar */}
         <div className="flex justify-end">
           <button
@@ -129,13 +129,13 @@ const DatosGastosForm = () => {
         <div className="flex flex-col sm:flex-row sm:justify-center gap-3 font-bold">
           <button
             type="submit"
-            className="w-full sm:w-auto px-4 py-2 text-white bg-verde rounded-[30px] shadow-md hover:bg-gradient-to-r from-verde to-verdeoscuro">
+            className="h-[45px] w-full sm:w-auto px-4 py-2 text-white bg-verde rounded-[30px] shadow-md hover:bg-gradient-to-r from-verde to-verdeoscuro">
             Guardar Datos
           </button>
           <button
             type="button"
             onClick={handleCancel}
-            className="w-full sm:w-auto px-4 py-2 text-grisclaro bg-transparent border-2 border-grisclaro rounded-[30px] hover:bg-grisclaro hover:text-white hover:border-grisclaro">
+            className="w-full sm:w-[143px] px-4 py-2 text-grisclaro bg-transparent border-2 border-grisclaro rounded-[30px] hover:bg-grisclaro hover:text-white hover:border-none">
             Cancelar
           </button>
         </div>
