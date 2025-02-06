@@ -2,7 +2,7 @@ import { LoadingModal } from '../common/Loading'
 import DatosForm from '../common/DatosForm'
 import AhorrosForm from '../common/AhorrosForm'
 import DatosIngresosForm from '../common/DatosIngresosForm'
-import SavingsForm from '../common/SavingsForm'
+
 import { Login } from './Login'
 import { LoginContra } from './LoginContra'
 import { Register } from './Register'
@@ -26,7 +26,7 @@ export function MainModals() {
       <DataSavedModal />
       <DatosEditadosModal />
       <DatosEliminadosModal />
-      <SavingsForm />
+
       <AhorrosEditForm />
       <DatosIngresosEditForm />
     </>
