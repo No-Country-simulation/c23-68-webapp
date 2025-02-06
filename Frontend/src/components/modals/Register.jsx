@@ -3,8 +3,8 @@ import { Modal } from './Modal'
 import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import { fetchRegister } from '../../service/register'
-import useAuthStore from '../../store/useAuth.store'
 
+// eslint-disable-next-line react/prop-types
 function SimpleInputIcon({ label, icon, placeholder, ...props }) {
   const setPlaceholder = placeholder || 'Input con icono'
   return (
@@ -40,8 +40,6 @@ export function Register() {
     })
   }
 
-  const login = useAuthStore((state) => state.login) // Función de Zustand
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     const name = document.getElementById('name').value
@@ -60,15 +58,22 @@ export function Register() {
     })
 
     const data = await fetchRegister(email, password, name)
+
+    if (data) {
+      hide({
+        popUpId: RegisterModalID,
+        metadataId: RegisterModalID,
+      })
+    }
+
+    hide({
+      popUpId: LoadingModalID,
+      metadataId: LoadingModalID,
+    })
   }
 
   const handleClose = () => {
-    ;[
-      LoginModalID,
-      LoginContraModalID,
-      RegisterModalID,
-      LoadingModalID,
-    ].forEach((modalId) => {
+    ;[LoginModalID, RegisterModalID, LoadingModalID].forEach((modalId) => {
       hide({
         popUpId: modalId,
         metadataId: modalId,

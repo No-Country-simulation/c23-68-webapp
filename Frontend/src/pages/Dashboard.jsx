@@ -5,6 +5,14 @@ import DonutChart from '../components/common/DonutChart'
 import BarChart from '../components/common/BarChart'
 
 const Dashboard = () => {
+  useEffect(() => {
+    const getElements = async () => {
+      const data = await getTotalIncome()
+      console.log(data)
+    }
+    getElements()
+  }, [])
+
   return (
     <div className='flex flex-col min-h-screen px-6 pt-3 bg-gray-100 font-onest'>
       {/* Encabezado */}
@@ -45,5 +53,8 @@ const Dashboard = () => {
     </div>
   )
 }
+  )
+}
 
+export default Dashboard
 export default Dashboard

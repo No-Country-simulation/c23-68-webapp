@@ -1,5 +1,5 @@
 import Navbar from './components/layout/Navbar'
-import { BrowserRouter, useRoutes } from 'react-router-dom'
+import { Navigate, useRoutes } from 'react-router-dom'
 import SideBar from './components/layout/SideBar'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -10,14 +10,20 @@ import Datos from './pages/Datos'
 import Ingresos from './pages/Ingresos'
 import Gastos from './pages/Gastos'
 import Savings from './pages/Savings'
+import { authStore } from './store/auth.store'
 
 // eslint-disable-next-line react/prop-types
-const PrivateLayout = ({ children }) => (
-  <div className='flex min-h-screen'>
-    <SideBar />
-    <main className='flex-1 '>{children}</main>
-  </div>
-)
+const PrivateLayout = ({ children }) => {
+  const { isAuthenticated } = authStore()
+  return isAuthenticated ? (
+    <div className='flex min-h-screen'>
+      <SideBar />
+      <main className='flex-1 '>{children}</main>
+    </div>
+  ) : (
+    <Navigate to='/' />
+  )
+}
 
 function App() {
   const AppRoutes = () => {
@@ -73,10 +79,8 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <AppRoutes />
-      </BrowserRouter>
+      <Navbar />
+      <AppRoutes />
     </>
   )
 }

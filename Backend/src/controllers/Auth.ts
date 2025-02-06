@@ -61,7 +61,8 @@ export async function login(req: Request, res: Response) {
     .cookie('acces_token', token, {
       httpOnly: true,
       secure: NODE_ENV === 'production',
-      sameSite: 'none',
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     })
     .status(200)
     .json(response)
@@ -74,9 +75,7 @@ export async function register(req: Request, res: Response) {
     res.status(400).json(validate)
     return
   }
-
   const UserResponse = await createUser({ email, password, name, currency })
-
   if (!UserResponse.status) {
     res.status(400).json(UserResponse.message)
     return
