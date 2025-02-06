@@ -2,147 +2,135 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { BiFontFamily } from "react-icons/bi";
 import { RiFontFamily } from "react-icons/ri";
+import { format } from "@formkit/tempo"
 
 const Ingresos = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 4;
+  const itemsPerPage = 7;
 
   const [data, setData] = useState([
     {
-      tipo: "Ingreso",
-      monto: "$500",
-      categoria: "Sueldo",
-      descripcion: "Sin descripción",
-      fecha: "13/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$100",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$100",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$200",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$200",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    {
-      tipo: "Ingreso",
-      monto: "$900",
-      categoria: "Emprendim.",
-      descripcion: "Sin descripción",
-      fecha: "14/01/2025",
-    },
-    // Agrega más datos aquí
+      "_id": "67a2f32527ed8f9d7e543774",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 172,
+      "type": "Ingreso",
+      "category": "Inversiones",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.498Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543775",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 376,
+      "type": "Ingreso",
+      "category": "Inversiones",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.499Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543778",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 148,
+      "type": "Ingreso",
+      "category": "Inversiones",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.500Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543777",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 547,
+      "type": "Ingreso",
+      "category": "Bonos",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.499Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543776",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 495,
+      "type": "Ingreso",
+      "category": "Freelance",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.499Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543779",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 525,
+      "type": "Ingreso",
+      "category": "Salario",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.500Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e54377a",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 219,
+      "type": "Ingreso",
+      "category": "Freelance",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.500Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e54377b",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 333,
+      "type": "Ingreso",
+      "category": "Freelance",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.500Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e54377c",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 554,
+      "type": "Ingreso",
+      "category": "Inversiones",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.501Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e54377d",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 538,
+      "type": "Ingreso",
+      "category": "Freelance",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.501Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e54377e",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 293,
+      "type": "Ingreso",
+      "category": "Freelance",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.501Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e54377f",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 545,
+      "type": "Ingreso",
+      "category": "Salario",
+      "description": "Ingreso generado automáticamente",
+      "date": "2025-02-05T05:12:05.501Z",
+      "__v": 0
+  },
+
   ]);
 
   const handleSearch = (event) => {
@@ -151,11 +139,11 @@ const Ingresos = () => {
 
   const filteredData = data.filter(
     (item) =>
-      item.tipo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.monto.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.categoria.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.descripcion.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.fecha.toLowerCase().includes(searchTerm.toLowerCase())
+      item.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.amount.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.date.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const offset = currentPage * itemsPerPage;
@@ -166,12 +154,19 @@ const Ingresos = () => {
     setCurrentPage(selected);
   };
 
+  const getTotalAmount = () => {
+    return currentItems.reduce((total, item) => total + item.amount, 0);
+  };
+
+
   const optionStyles = {
     backgroundColor: "#ffffff",
     color: "#1E1E1E",
     fontSize: "12px",
     BiFontFamily: "Onest",
   };
+
+  
 
   return (
     <div className="font-onest bg-gris3 flex flex-col min-h-screen pt-3">
@@ -261,22 +256,22 @@ const Ingresos = () => {
               </tr>
             </thead>
             <tbody>
-              {currentItems.map((item, index) => (
-                <tr key={index} className="hover:bg-gray-50">
+              {currentItems.map((item) => (
+                <tr key={item._id} className="hover:bg-gray-50">
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.tipo}
+                    {item.type}
                   </td>
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.monto}
+                    ${item.amount}
                   </td>
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.categoria}
+                    {item.category}
                   </td>
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.descripcion}
+                    {item.description}
                   </td>
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.fecha}
+                    {format(new Date(item.date), "DD/MM/YYYY")}
                   </td>
                   <td className="p-2 flex gap-2 justify-center pb-4">
                     <button className="bg-yellow-500 text-white px-4 py-2 rounded">
@@ -328,8 +323,8 @@ const Ingresos = () => {
         </div>
       </div>
       <div className="flex justify-between items-center w-[90%] max-w-[1400px] mt-[1%] mb-[4%] ml-[5%]">
-        <div className="bg-white shadow-lg rounded-xl border-b-2 p-3 w-[22%] max-w-[1400px]  font-onest text-negro text-lg font-normal">
-          Ingreso Total: $9,500
+        <div className="bg-white shadow-lg rounded-xl border-b-2 p-3 w-[22%] max-w-[1400px]  font-onest text-negro text-lg">
+        <strong className="text-black font-light">Ingreso Total: ${getTotalAmount()}</strong>
         </div>
         <ReactPaginate
           previousLabel={null}

@@ -2,37 +2,115 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { BiFontFamily } from "react-icons/bi";
 import { RiFontFamily } from "react-icons/ri";
+import { format } from "@formkit/tempo"
 
 const Gastos = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 4;
+  const itemsPerPage = 7;
 
   const [data, setData] = useState([
-    { tipo: 'Gasto', monto: '$500', categoria: 'Hogar', descripcion: 'Compré un TV', fecha: '13/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$800', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '13/01/2025' },
-    { tipo: 'Gasto', monto: '$700', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el internet', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el internet', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el internet', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el internet', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$800', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '13/01/2025' },
-    { tipo: 'Gasto', monto: '$700', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el internet', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el internet', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$500', categoria: 'Hogar', descripcion: 'Compré un TV', fecha: '13/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$800', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
-    { tipo: 'Gasto', monto: '$900', categoria: 'Servicio', descripcion: 'Pagué el agua', fecha: '14/01/2025' },
+    {
+      "_id": "67a2f32527ed8f9d7e543785",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 363,
+      "type": "Gasto",
+      "category": "Comida",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543786",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 310,
+      "type": "Gasto",
+      "category": "Ocio",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543787",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 394,
+      "type": "Gasto",
+      "category": "Salud",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543788",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 130,
+      "type": "Gasto",
+      "category": "Transporte",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543789",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 390,
+      "type": "Gasto",
+      "category": "Transporte",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543784",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 473,
+      "type": "Gasto",
+      "category": "Salud",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543780",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 96,
+      "type": "Gasto",
+      "category": "Alquiler",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.501Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543781",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 36,
+      "type": "Gasto",
+      "category": "Salud",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543782",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 99,
+      "type": "Gasto",
+      "category": "Salud",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  },
+  {
+      "_id": "67a2f32527ed8f9d7e543783",
+      "user": "67a2f32527ed8f9d7e543772",
+      "amount": 176,
+      "type": "Gasto",
+      "category": "Transporte",
+      "description": "Gasto generado automáticamente",
+      "date": "2025-02-05T05:12:05.502Z",
+      "__v": 0
+  }
 
-    // Agrega más datos aquí
   ]);
 
   const handleSearch = (event) => {
@@ -41,11 +119,11 @@ const Gastos = () => {
 
   const filteredData = data.filter(
     (item) =>
-      item.tipo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.monto.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.categoria.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.descripcion.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.fecha.toLowerCase().includes(searchTerm.toLowerCase())
+      item.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.amount.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.date.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const offset = currentPage * itemsPerPage;
@@ -54,6 +132,10 @@ const Gastos = () => {
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
+  };
+
+  const getTotalAmount = () => {
+    return currentItems.reduce((total, item) => total + item.amount, 0);
   };
 
   const optionStyles = {
@@ -154,19 +236,19 @@ const Gastos = () => {
               {currentItems.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.tipo}
+                    {item.type}
                   </td>
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.monto}
+                    ${item.amount}
                   </td>
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.categoria}
+                    {item.category}
                   </td>
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.descripcion}
+                    {item.description}
                   </td>
                   <td className="font-onest font-normal text-negro text-lg p-2 text-center pb-4">
-                    {item.fecha}
+                    {format(new Date(item.date), "DD/MM/YYYY")}
                   </td>
                   <td className="p-2 flex gap-2 justify-center pb-4">
                     <button className="bg-yellow-500 text-white px-4 py-2 rounded">
@@ -218,8 +300,8 @@ const Gastos = () => {
         </div>
       </div>
       <div className="flex justify-between items-center w-[90%] max-w-[1400px] mt-[1%] mb-[4%] ml-[5%]">
-        <div className="bg-white shadow-lg rounded-xl border-b-2 p-3 w-[22%] max-w-[1400px]  font-onest text-negro text-lg font-normal">
-          Gasto Total: $9,500
+      <div className="bg-white shadow-lg rounded-xl border-b-2 p-3 w-[22%] max-w-[1400px]  font-onest text-negro text-lg">
+        <strong className="text-black font-light">Gasto Total: ${getTotalAmount()}</strong>
         </div>
         <ReactPaginate
           previousLabel={null}
