@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "priority": "Alta",
+    "name": "Ahorrar para comprar una laptop",
+    "targetAmount": 9850,
+    "createdAt": "2025-01-10",
+    "deadline": "2025-01-20",
+    "currentAmount": 10
+  },
+  {
+    "id": 2,
+    "priority": "Media",
+    "name": "Ahorrar para un viaje a Colombia",
+    "targetAmount": 2750,
+    "createdAt": "2025-02-01",
+    "deadline": "2025-02-10",
+    "currentAmount": 10
+  },
+  {
+    "id": 3,
+    "priority": "Baja",
+    "name": "Ahorrar para un nuevo smartphone",
+    "targetAmount": 1500,
+    "createdAt": "2025-03-05",
+    "deadline": "2025-03-15",
+    "currentAmount": 10
+  },
+  {
+    "id": 4,
+    "priority": "Alta",
+    "name": "Ahorrar para remodelar la casa",
+    "targetAmount": 7200,
+    "createdAt": "2025-04-01",
+    "deadline": "2025-04-20",
+    "currentAmount": 10
+  },
+  {
+    "id": 5,
+    "priority": "Media",
+    "name": "Ahorrar para la educación de los hijos",
+    "targetAmount": 3800,
+    "createdAt": "2025-05-10",
+    "deadline": "2025-05-20",
+    "currentAmount": 10
+  },
+  {
+    "id": 6,
+    "priority": "Baja",
+    "name": "Ahorrar para un curso de cocina",
+    "targetAmount": 2200,
+    "createdAt": "2025-06-01",
+    "deadline": "2025-06-05",
+    "currentAmount": 10
+  },
+  {
+    "id": 7,
+    "priority": "Alta",
+    "name": "Ahorrar para un fondo de emergencia",
+    "targetAmount": 9500,
+    "createdAt": "2025-07-15",
+    "deadline": "2025-07-30",
+    "currentAmount": 10
+  },
+  {
+    "id": 8,
+    "priority": "Media",
+    "name": "Ahorrar para una boda",
+    "targetAmount": 3000,
+    "createdAt": "2025-08-01",
+    "deadline": "2025-08-10",
+    "currentAmount": 10
+  },
+  {
+    "id": 9,
+    "priority": "Baja",
+    "name": "Ahorrar para renovar la licencia de conducir",
+    "targetAmount": 1800,
+    "createdAt": "2025-09-05",
+    "deadline": "2025-09-15",
+    "currentAmount": 10
+  }
+]

@@ -1,33 +1,35 @@
-import { Schema, model, Document, Types } from 'mongoose'
+import mongoose, { Schema, Document, model } from 'mongoose'
 
-interface SavingsGoal extends Document {
-  user: Types.ObjectId
+export interface ISavingGoal extends Document {
   name: string
   targetAmount: number
-  savedAmount: number
+  currentAmount: number
   deadline: Date
-  progress: number
+  userId: mongoose.Types.ObjectId
+  priority: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
-const SavingsGoalSchema = new Schema<SavingsGoal>({
-  user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  name: { type: String, required: true },
-  targetAmount: { type: Number, required: true },
-  savedAmount: { type: Number, default: 0 },
-  deadline: { type: Date, required: true },
-  progress: { type: Number, default: 0 },
-})
+export const typeCategory = 'Ahorro'
 
-SavingsGoalSchema.pre('save', function (next) {
-  this.progress = (this.savedAmount / this.targetAmount) * 100
-  next()
-})
+const SavingsGoalSchema: Schema = new Schema(
+  {
+    name: { type: String, required: true, trim: true },
+    targetAmount: { type: Number, required: true, min: 1 },
+    currentAmount: { type: Number, default: 0, min: 0 },
+    deadline: { type: Date, required: true },
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    priority: { type: String, required: true },
+  },
+  { timestamps: true }
+)
 
-export const SavingsGoalModel = model<SavingsGoal>(
+export const SavingsGoalModel = model<ISavingGoal>(
   'SavingsGoal',
   SavingsGoalSchema
 )
 
-SavingsGoalSchema.index({ user: 1 })
+SavingsGoalSchema.index({ userId: 1 })
 SavingsGoalSchema.index({ deadline: 1 })
-SavingsGoalSchema.index({ user: 1, progress: -1 })
+SavingsGoalSchema.index({ userId: 1, deadline: 1 })
