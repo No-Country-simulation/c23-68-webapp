@@ -64,12 +64,12 @@ const AhorrosForm = () => {
             Prioridad <span className="text-red-500">*</span>
           </label>
           <select
-            {...register("type", { required: true })}
+            {...register("priority", { required: true })}
             className="text-grisclaro w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm">
             <option value="">Elegir</option>
-            <option value="Ingreso">Alta</option>
-            <option value="Gasto">Media</option>
-            <option value="Gasto">Baja</option>
+            <option value="Alta">Alta</option>
+            <option value="Media">Media</option>
+            <option value="Baja">Baja</option>
           </select>
         </div>
 
@@ -80,7 +80,7 @@ const AhorrosForm = () => {
           </label>
           <input
             type="text"
-            {...register("description", {required: true})}
+            {...register("name", {required: true})}
             placeholder="Una laptop marca X"
             className="w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm"
           />
@@ -93,7 +93,7 @@ const AhorrosForm = () => {
           </label>
           <input
             type="number"
-            {...register("amount", { required: true, min: 0.01 })}
+            {...register("targetAmount", { required: true, min: 0.01 })}
             placeholder="$1000.00"
             className="w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm"
           />
@@ -107,7 +107,7 @@ const AhorrosForm = () => {
           </label>
           <input
             type="date"
-            {...register("start_date", { required: true })}
+            {...register("createdAt", { required: true })}
             className="text-grisclaro -[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm"
           />
         </div>
@@ -119,7 +119,7 @@ const AhorrosForm = () => {
           </label>
           <input
             type="date"
-            {...register("end_date", { required: true })}
+            {...register("deadline", { required: true })}
             className="text-grisclaro w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm"
           />
         </div>
