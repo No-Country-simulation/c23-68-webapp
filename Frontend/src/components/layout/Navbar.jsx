@@ -1,5 +1,4 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import { useState } from 'react'
 import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import useAuthStore from '../../store/useAuth.store'
@@ -7,13 +6,11 @@ import { fetchLogout } from '../../service/logout'
 import profileImage from '../../assets/images/foto-perfil.png'
 
 const Navbar = () => {
-  const { user, isAuthenticated, logout } = useAuthStore()
+  const { user, isAuthenticated } = useAuthStore()
+  const location = useLocation()
+  const { LoginModalID } = nameModal
 
-  const { LoadingModalID, LoginModalID, LoginContraModalID, RegisterModalID } =
-    nameModal
-
-  const { show, hide } = usePopups()
-  const [showPassword, setShowPassword] = useState(false)
+  const { show } = usePopups()
 
   const handleShowModal = (idModal) => {
     show({
@@ -26,9 +23,6 @@ const Navbar = () => {
   const handleLogout = () => {
     fetchLogout()
   }
-
-  // const Navbar = () => {
-  //   const location = useLocation();
 
   const routes = [
     { path: '/', name: '' },
@@ -57,7 +51,7 @@ const Navbar = () => {
           />
         </NavLink>
       </h1>
-      {/*   <div className='flex text-left gap-4 -ml-[33%]'>
+      <div className='flex text-left gap-4 -ml-[33%]'>
         <h2>
           {parentRoute ? (
             <>
@@ -68,13 +62,17 @@ const Navbar = () => {
                 {parentRoute.name} &gt;{' '}
               </NavLink>
 
-            <span className="text-xl font-semibold  font-onest text-negro">{currentRoute?.name}</span>
-          </>
-        ) : (
-          <span className="text-xl font-semibold  font-onest text-negro">{currentRoute?.name}</span>
-        )}
-      </h2> 
-      </div>*/}
+              <span className='text-xl font-semibold font-onest text-negro'>
+                {currentRoute?.name}
+              </span>
+            </>
+          ) : (
+            <span className='text-xl font-semibold font-onest text-negro'>
+              {currentRoute?.name}
+            </span>
+          )}
+        </h2>
+      </div>
 
       {isAuthenticated ? (
         <div className='flex items-center gap-4'>
