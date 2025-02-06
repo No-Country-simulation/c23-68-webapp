@@ -1,9 +1,10 @@
-import colors from "tailwindcss/colors";
-module.exports = {
+import colors from 'tailwindcss/colors'
+
+export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@tremor/*/.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@tremor/*/.{js,ts,jsx,tsx}',
   ],
   darkMode: false,
   theme: {
@@ -13,10 +14,12 @@ module.exports = {
         onest: ['Onest', 'sans-serif'],
       },
       colors: {
+        rojo: '#FF4049',
+        rojooscuro: '#CA373E',
+        verdeoscuro: '#109B4B',
         verde: '#2ECC71',
         verdeclaro: '#2ECC7180',
         verdesemioscuro: '#2ECC71C9',
-        verdeoscuro: '#109B4B',
         plomo: '#1E1E1E26',
         grisclaro: '#1E1E1E80',
         gris2: '#1E1E1E4D',
@@ -27,39 +30,12 @@ module.exports = {
         amarillo: '#FFC107CC',
         amarilloclaro: '#FFC10780',
         amarillomasclaro: '#FFC1074D',
-        amarillooscuro: '#E3AB00',
+        amarillooscuro: '#FFC107',
         rosa: '#FF007FB2',
+        rosa2: '#FF007F',
         rosaclaro: '#FF007F80',
         celeste: '#4285F4CC',
         celeste2: '#4285F4',
-        rojo: '#FF4049',
-        rojooscuro: '#CA373E',
-      },
-    },
-  },
-  plugins: [],
-}
-
-      colors: {
-        verde: "#2ECC71",
-        verdeclaro: "#2ECC7180",
-        verdesemioscuro: "#2ECC71C9",
-        plomo: "#1E1E1E26",
-        grisclaro: "#1E1E1E80",
-        gris2: "#1E1E1E4D",
-        gris: "#1E1E1ECC",
-        gris3: "#EEEEEE",
-        gris4: "#868B93",
-        negro: "#1E1E1E",
-        amarillo: "#FFC107CC",
-        amarilloclaro: "#FFC10780",
-        amarillomasclaro: "#FFC1074D",
-        amarillooscuro: "#FFC107",
-        rosa: "#FF007FB2",
-        rosa2: "#FF007F",
-        rosaclaro: "#FF007F80",
-        celeste: "#4285F4CC",
-        celeste2: "#4285F4",
         // light mode
         tremor: {
           brand: {
@@ -91,9 +67,9 @@ module.exports = {
           },
         },
         // dark mode
-        "dark-tremor": {
+        'dark-tremor': {
           brand: {
-            faint: "#0B1229",
+            faint: '#0B1229',
             muted: colors.blue[950],
             subtle: colors.blue[800],
             DEFAULT: colors.blue[500],
@@ -101,7 +77,7 @@ module.exports = {
             inverted: colors.blue[950],
           },
           background: {
-            muted: "#131A2B",
+            muted: '#131A2B',
             subtle: colors.gray[800],
             DEFAULT: colors.gray[900],
             emphasis: colors.gray[300],
@@ -121,31 +97,31 @@ module.exports = {
           },
         },
       },
-      boxShadow: {
-        // light
-        "tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        "tremor-card":
-          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-        "tremor-dropdown":
-          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-        // dark
-        "dark-tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        "dark-tremor-card":
-          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-        "dark-tremor-dropdown":
-          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-      },
-      borderRadius: {
-        "tremor-small": "0.375rem",
-        "tremor-default": "0.5rem",
-        "tremor-full": "9999px",
-      },
-      fontSize: {
-        "tremor-label": ["0.75rem", { lineHeight: "1rem" }],
-        "tremor-default": ["0.875rem", { lineHeight: "1.25rem" }],
-        "tremor-title": ["1.125rem", { lineHeight: "1.75rem" }],
-        "tremor-metric": ["1.875rem", { lineHeight: "2.25rem" }],
-      },
+    },
+    boxShadow: {
+      // light
+      'tremor-input': '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+      'tremor-card':
+        '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+      'tremor-dropdown':
+        '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+      // dark
+      'dark-tremor-input': '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+      'dark-tremor-card':
+        '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+      'dark-tremor-dropdown':
+        '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+    },
+    borderRadius: {
+      'tremor-small': '0.375rem',
+      'tremor-default': '0.5rem',
+      'tremor-full': '9999px',
+    },
+    fontSize: {
+      'tremor-label': ['0.75rem', { lineHeight: '1rem' }],
+      'tremor-default': ['0.875rem', { lineHeight: '1.25rem' }],
+      'tremor-title': ['1.125rem', { lineHeight: '1.75rem' }],
+      'tremor-metric': ['1.875rem', { lineHeight: '2.25rem' }],
     },
   },
 
@@ -153,17 +129,17 @@ module.exports = {
     {
       pattern:
         /^(bg-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
-      variants: ["hover", "ui-selected"],
+      variants: ['hover', 'ui-selected'],
     },
     {
       pattern:
         /^(text-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
-      variants: ["hover", "ui-selected"],
+      variants: ['hover', 'ui-selected'],
     },
     {
       pattern:
         /^(border-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
-      variants: ["hover", "ui-selected"],
+      variants: ['hover', 'ui-selected'],
     },
     {
       pattern:
@@ -182,5 +158,6 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@headlessui/tailwindcss", require("@tailwindcss/forms"))],
-};
+  // eslint-disable-next-line no-undef
+  plugins: [require('@headlessui/tailwindcss', require('@tailwindcss/forms'))],
+}
