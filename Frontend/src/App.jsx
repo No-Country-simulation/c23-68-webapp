@@ -11,6 +11,7 @@ import Ingresos from './pages/Ingresos'
 import Gastos from './pages/Gastos'
 import Savings from './pages/Savings'
 
+// eslint-disable-next-line react/prop-types
 const PrivateLayout = ({ children }) => (
   <div className='flex min-h-screen'>
     <SideBar />
