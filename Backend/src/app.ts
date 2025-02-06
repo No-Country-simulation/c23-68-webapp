@@ -4,10 +4,11 @@ import bodyParser from 'body-parser'
 import routes from './routes'
 import { validateApiKey } from './helpers/validator'
 import cookieParser from 'cookie-parser'
+import { URL_FRONT } from './config/config'
 
 const app: Application = express()
 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174']
+const allowedOrigins = [URL_FRONT]
 
 app.use(
   cors({
@@ -21,6 +22,7 @@ app.use(
     credentials: true,
   })
 )
+
 app.use(bodyParser.json())
 app.use(cookieParser())
 

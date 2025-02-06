@@ -57,7 +57,7 @@ export async function createCategoryController(req: Request, res: Response) {
 
 export async function getCategoriesController(req: Request, res: Response) {
   try {
-    const { type } = req.query
+    const { type } = req.body
 
     const categories = await getCategories(type as string)
 
@@ -69,10 +69,8 @@ export async function getCategoriesController(req: Request, res: Response) {
       return
     }
 
-    const cleanedCategories = categories.data.map((category) => {
-      const { _id, type, subcategories } = category
-      return { id: _id, type, subcategories }
-    })
+    const cleanedCategories = categories.data
+
     res.status(200).json({
       status: true,
       message: 'categorías obtenidas exitosamente',

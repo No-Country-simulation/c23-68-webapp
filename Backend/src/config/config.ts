@@ -7,4 +7,5 @@ export const {
   JWT_SECRET = 'SecretToken',
   API_KEY = '',
   NODE_ENV,
+  URL_FRONT,
 } = process.env

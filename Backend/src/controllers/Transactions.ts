@@ -56,9 +56,7 @@ export async function createControllerTransaction(req: Request, res: Response) {
     return
   }
 
-  const subCategories = responseCategories.data
-    .filter((item) => item.type === typeCategory)
-    .flatMap((item) => item.subcategories)
+  const subCategories = responseCategories.data.subcategories
 
   if (!subCategories.includes(category)) {
     res.status(400).json({
