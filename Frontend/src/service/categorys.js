@@ -1,9 +1,9 @@
 import { backendUrl, SecretKey } from '../config/constants'
 
-export const fetchLogout = async (logout) => {
+export const getAllCategories = async () => {
   try {
-    const response = await fetch(`${backendUrl}/api/auth/logout`, {
-      method: 'POST',
+    const response = await fetch(`${backendUrl}/api/category/getAll`, {
+      method: 'GET',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
@@ -11,13 +11,11 @@ export const fetchLogout = async (logout) => {
       },
     })
 
-    if (!response.ok) {
+    if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
-    }
-
-    logout()
+    return await response.json()
   } catch (error) {
-    console.error('Error al cerrar sesión:', error.message)
-    return false
+    console.error('Error al obtener las categorias:', error.message)
+    return null
   }
 }

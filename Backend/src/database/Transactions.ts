@@ -7,6 +7,7 @@ interface ITransaction {
   amount: number
   type: TransactionType
   category: string
+  date: Date
   description?: string
 }
 
@@ -16,8 +17,9 @@ export async function createTransaction({
   type,
   category,
   description,
+  date,
 }: ITransaction) {
-  if (!amount || !type || !category) {
+  if (!amount || !type || !category || !date) {
     return {
       status: false,
       message: 'Por favor, complete todos los campos',
@@ -30,6 +32,7 @@ export async function createTransaction({
       type,
       category,
       description,
+      date,
     })
 
     return {
@@ -41,6 +44,7 @@ export async function createTransaction({
         type: response.type,
         category: response.category,
         description: response.description,
+        date: response.date,
       },
     }
   } catch (_error) {

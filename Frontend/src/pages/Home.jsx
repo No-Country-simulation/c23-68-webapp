@@ -2,15 +2,15 @@ import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { NavLink, useNavigate } from 'react-router-dom'
 import '../styles/Home.css'
 import { useEffect, useState } from 'react'
-import useAuthStore from '../store/useAuth.store'
 import { Modal } from '../components/modals/Modal'
 import { Login } from '../components/modals/Login'
 import usePopups from '../hooks/usePopups'
 import { nameModal } from '../config/nameModals'
+import { authStore } from '../store/auth.store'
 
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false)
-  const isLoggedIn = useAuthStore((state) => state.isAuthenticated)
+  const isLoggedIn = authStore((state) => state.isAuthenticated)
   const navigate = useNavigate()
 
   const { LoginModalID } = nameModal

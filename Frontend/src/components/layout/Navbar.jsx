@@ -1,13 +1,14 @@
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
-import useAuthStore from '../../store/useAuth.store'
 import { fetchLogout } from '../../service/logout'
 import profileImage from '../../assets/images/foto-perfil.png'
+import { authStore } from '../../store/auth.store'
 
 const Navbar = () => {
-  const { user, isAuthenticated } = useAuthStore()
+  const { user, isAuthenticated, logout } = authStore()
   const location = useLocation()
+  const navigate = useNavigate()
   const { LoginModalID } = nameModal
 
   const { show } = usePopups()
@@ -21,7 +22,8 @@ const Navbar = () => {
   }
 
   const handleLogout = () => {
-    fetchLogout()
+    fetchLogout(logout)
+    navigate('/')
   }
 
   const routes = [
@@ -82,7 +84,10 @@ const Navbar = () => {
               alt='Foto de perfil'
               className='w-10 h-10 rounded-full'
             />
-            <span className='font-onest'>{user?.name}</span>
+            <span className='capitalize font-onest'>{user?.name}</span>
+            <span className='font-onest'>
+              <strong>{user?.currency}</strong>
+            </span>
           </div>
           <button
             onClick={handleLogout}

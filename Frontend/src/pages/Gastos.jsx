@@ -1,147 +1,46 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
-import { BiFontFamily } from 'react-icons/bi'
-import { RiFontFamily } from 'react-icons/ri'
 import { format } from '@formkit/tempo'
+import { getTransactions } from '../service/transactions'
 
 const Gastos = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPerPage = 7
 
-  const [data, setData] = useState([
-    {
-      _id: '67a2f32527ed8f9d7e543785',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 363,
-      type: 'Gasto',
-      category: 'Comida',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543786',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 310,
-      type: 'Gasto',
-      category: 'Ocio',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543787',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 394,
-      type: 'Gasto',
-      category: 'Salud',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543788',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 130,
-      type: 'Gasto',
-      category: 'Transporte',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543789',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 390,
-      type: 'Gasto',
-      category: 'Transporte',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543784',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 473,
-      type: 'Gasto',
-      category: 'Salud',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543780',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 96,
-      type: 'Gasto',
-      category: 'Alquiler',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.501Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543781',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 36,
-      type: 'Gasto',
-      category: 'Salud',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543782',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 99,
-      type: 'Gasto',
-      category: 'Salud',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-    {
-      _id: '67a2f32527ed8f9d7e543783',
-      user: '67a2f32527ed8f9d7e543772',
-      amount: 176,
-      type: 'Gasto',
-      category: 'Transporte',
-      description: 'Gasto generado automáticamente',
-      date: '2025-02-05T05:12:05.502Z',
-      __v: 0,
-    },
-  ])
+  const [data, setData] = useState([])
 
-
- const uniqueDates = [...new Set(data.map(item => format(new Date(item.date), "DD/MM/YYYY")))];
+  useEffect(() => {
+    const getElements = async () => {
+      const data = await getTransactions('Gasto')
+      setData(data.data)
+    }
+    getElements()
+  }, [])
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value)
   }
 
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-  };
-
-  const filteredData = data.filter(
+  const filteredData = data?.filter(
     (item) =>
       item.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.amount.toString().includes(searchTerm) ||
+      item.amount.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.date.toString().includes(searchTerm)
+      item.date.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
   const offset = currentPage * itemsPerPage
-  const currentItems = filteredData.slice(offset, offset + itemsPerPage)
-  const pageCount = Math.ceil(filteredData.length / itemsPerPage)
+  const currentItems = filteredData?.slice(offset, offset + itemsPerPage)
+  const pageCount = Math.ceil(filteredData?.length / itemsPerPage)
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected)
   }
 
   const getTotalAmount = () => {
-    return currentItems.reduce((total, item) => total + item.amount, 0)
+    return currentItems?.reduce((total, item) => total + item.amount, 0)
   }
 
   const optionStyles = {
@@ -178,17 +77,25 @@ const Gastos = () => {
             />
           </svg>
         </div>
-        <select onChange={handleDateChange} className=" w-[18%] ml-4 text-gris4 text-lg px-6 py-3 border rounded-lg">
-        <option  value="">Fecha</option>
-        {uniqueDates.map((date) => (
-          <option  className="text-black" key={date} value={date}>{date}</option>
-        ))}
+        <select className=' w-[18%] ml-4 text-gris4 text-lg px-6 py-3 border rounded-lg'>
+          <option style={optionStyles} value=''>
+            Fecha
+          </option>
+          <option style={optionStyles} value='opcion1'>
+            13/01/2025
+          </option>
+          <option style={optionStyles} value='opcion2'>
+            14/01/2025
+          </option>
+          <option style={optionStyles} value='opcion3'>
+            15/01/2025
+          </option>
         </select>
       </div>
 
       <div className='flex items-center justify-between w-[95%] max-w-[1400px] mt-11'>
         <h2 className=' ml-[6%] text-3xl text-gris'>Historial</h2>
-        <button className='px-5 py-2 text-lg text-white rounded-lg shadow-lg  bg-verde font-onest hover:bg-green-600'>
+        <button className='px-5 py-2 text-lg text-white rounded-lg shadow-lg bg-verde font-onest hover:bg-green-600'>
           <svg
             className='inline-block mr-2'
             width='20'
@@ -231,7 +138,7 @@ const Gastos = () => {
               </tr>
             </thead>
             <tbody>
-              {currentItems.map((item, index) => (
+              {currentItems?.map((item, index) => (
                 <tr key={index} className='hover:bg-gray-50'>
                   <td className='p-2 pb-4 text-lg font-normal text-center font-onest text-negro'>
                     {item.type}

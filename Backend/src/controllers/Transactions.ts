@@ -11,7 +11,15 @@ import { TransactionType } from '../interface/categorys'
 import { getCategories } from '../database/Category'
 
 export async function createControllerTransaction(req: Request, res: Response) {
-  const { amount, type, category, description } = req.body
+  const { amount, type, category, description, date } = req.body
+
+  console.log({
+    amount,
+    type,
+    category,
+    description,
+    date,
+  })
   const token = req.cookies.acces_token
 
   const dataToken = getDataToken(token)
@@ -37,7 +45,7 @@ export async function createControllerTransaction(req: Request, res: Response) {
 
   const { _id } = dataUser.data
 
-  if (!amount || !type || !category) {
+  if (!amount || !type || !category || !date) {
     res.status(400).json({
       status: false,
       message: 'Por favor, complete todos los campos',
@@ -74,6 +82,7 @@ export async function createControllerTransaction(req: Request, res: Response) {
     type,
     category,
     description,
+    date,
   })
 
   if (!response) {
@@ -104,7 +113,7 @@ export async function createControllerTransaction(req: Request, res: Response) {
 }
 
 export async function getControllerTransaction(req: Request, res: Response) {
-  const { type } = req.body
+  const { type } = req.query
   const token = req.cookies.acces_token
 
   const dataToken = getDataToken(token)

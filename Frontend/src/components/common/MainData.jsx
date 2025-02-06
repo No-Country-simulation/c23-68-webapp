@@ -1,19 +1,19 @@
-
-import { useEffect, useState } from "react";
-import DataTable from "./DataTable";
+import { useEffect, useState } from 'react'
+import DataTable from './DataTable'
+import { getSavingsGoals } from '../../service/savingGoals'
 
 const MainData = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
 
   useEffect(() => {
-    fetch("/savingdata.json")
-      .then((response) => response.json())
-      .then((data) => setData(data));
-  }, []);
+    const getElements = async () => {
+      const data = await getSavingsGoals()
+      setData(data.data)
+    }
+    getElements()
+  }, [])
 
-  return (
-    <DataTable data={data}/>
-  );
-};
+  return <DataTable data={data} />
+}
 
-export default MainData;
+export default MainData

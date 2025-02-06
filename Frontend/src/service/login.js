@@ -1,35 +1,25 @@
-import {backendUrl} from "../config/constants";
-import  useAuthStore  from "../store/useAuth.store";
+import { backendUrl, SecretKey } from '../config/constants'
 
-export const fetchLogin = async (email, password) => {
+export const fetchLogin = async (email, password, login) => {
   try {
     const response = await fetch(`${backendUrl}/api/auth/login`, {
-      method: "POST",
-      credentials: "include",
+      method: 'POST',
+      credentials: 'include',
       headers: {
-        "Content-Type": "application/json",
-        "x-api-key": "secret_key1234",
+        'Content-Type': 'application/json',
+        'x-api-key': SecretKey,
       },
       body: JSON.stringify({ email, password }),
-    });
+    })
 
     if (!response.ok) {
-      throw new Error(`Error ${response.status}: ${response.statusText}`);
+      throw new Error(`Error ${response.status}: ${response.statusText}`)
     }
-
-    const data = await response.json();
-
-    console.log(response);
-    console.log("Login exitoso:", data);
-
-    // Guardar datos en Zustand y localStorage
-    // localStorage.setItem("authToken", data.token);
-     useAuthStore.getState().login(data.user);
-    // console.log("Usuario autenticado:", data.user);
-
-    return data; // Devuelve la respuesta del backend (probablemente un token)
+    const data = await response.json()
+    login(data.data)
+    return data
   } catch (error) {
-    console.error("Error en el login:", error.message);
-    return null; // Retorna null en caso de error
+    console.error('Error en el login:', error.message)
+    return null // Retorna null en caso de error
   }
-};
+}

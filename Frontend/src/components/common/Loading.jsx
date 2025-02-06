@@ -2,12 +2,8 @@ import { nameModal } from '../../config/nameModals'
 import usePopup from '../../hooks/usePopup'
 export function LoadingModal() {
   const { LoadingModalID } = nameModal
-  const { isActive, hide } = usePopup(LoadingModalID)
+  const { isActive } = usePopup(LoadingModalID)
   if (!isActive) return null
-  //TODO: Eliminar este setTimeout y hacer que el modal se cierre cuando se termine de cargar la información
-  setTimeout(() => {
-    hide()
-  }, 1500)
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
