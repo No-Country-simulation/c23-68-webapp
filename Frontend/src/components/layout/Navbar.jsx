@@ -84,7 +84,10 @@ const Navbar = () => {
               alt='Foto de perfil'
               className='w-10 h-10 rounded-full'
             />
-            <span className='font-onest'>{user?.name}</span>
+            <span className='capitalize font-onest'>{user?.name}</span>
+            <span className='font-onest'>
+              <strong>{user?.currency}</strong>
+            </span>
           </div>
           <button
             onClick={handleLogout}
