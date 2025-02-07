@@ -74,7 +74,7 @@ const Home = () => {
           <div className='grid max-w-full max-h-full grid-cols-1 col-span-2 grid-rows-2 row-span-1 p-6 overflow-hidden bg-center bg-cover shadow-md rounded-2xl about-bg'>
             <div>
               <button className='p-2 text-lg bg-white font-onest bg-opacity-70 rounded-2xl'>
-                <NavLink to='/'>Acerca de</NavLink>
+                <NavLink to='/about'>Acerca de</NavLink>
               </button>
               <p className='p-2 mt-2 text-white font-onest'>
                 Logo Finanzas, creada para simplificar la gestión de tus
@@ -94,7 +94,7 @@ const Home = () => {
           <div className='grid grid-cols-1 grid-rows-2 p-6 overflow-hidden bg-center bg-cover shadow-md rounded-2xl finblog-bg '>
             <div>
               <button className='px-6 py-2 text-lg transition-opacity bg-white font-onest bg-opacity-70 rounded-2xl hover:bg-opacity-90'>
-                <NavLink to='/'>Finblog</NavLink>
+                <NavLink to='/finblog'>Finblog</NavLink>
               </button>
               <p className='p-2 mt-2 text-white font-onest'>
                 Consejos prácticos para gestionar tu dinero, ahorrar y alcanzar
