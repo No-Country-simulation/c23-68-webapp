@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { format } from '@formkit/tempo'
 import { getTransactions } from '../service/transactions'
-import usePopups from "../hooks/usePopups";
-import { nameModal } from "../config/nameModals";
-
+import usePopups from '../hooks/usePopups'
+import { nameModal } from '../config/nameModals'
 
 const Ingresos = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -53,32 +52,36 @@ const Ingresos = () => {
     BiFontFamily: 'Onest',
   }
 
-  const { show } = usePopups();
-  const { DatosIngresosFormModalID, DatosIngresosEditFormModalID, DatosEliminadosModalID } = nameModal;
+  const { show } = usePopups()
+  const {
+    DatosIngresosFormModalID,
+    DatosIngresosEditFormModalID,
+    DatosEliminadosModalID,
+  } = nameModal
 
   const handleClick = () => {
     show({
       popUpId: DatosIngresosFormModalID,
-      metadata: { id: DatosIngresosFormModalID, },
-      pushMethod: "prepend",
-    });
-  };
+      metadata: { id: DatosIngresosFormModalID },
+      pushMethod: 'prepend',
+    })
+  }
 
   const handleEdit = (data) => {
     show({
       popUpId: DatosIngresosEditFormModalID,
       metadata: { id: DatosIngresosEditFormModalID, data: data },
-      pushMethod: "prepend",
-    });
+      pushMethod: 'prepend',
+    })
   }
 
   const handleCloseDelete = (idModal) => {
     show({
       popUpId: DatosEliminadosModalID,
       metadata: { id: DatosEliminadosModalID, idModal: idModal },
-      pushMethod: "prepend",
-    });
-  };
+      pushMethod: 'prepend',
+    })
+  }
 
   return (
     <div className='flex flex-col min-h-screen pt-3 font-onest bg-gris3'>
@@ -125,8 +128,10 @@ const Ingresos = () => {
 
       <div className='flex items-center justify-between w-[95%] max-w-[1400px] mt-11'>
         <h2 className=' ml-[6%] text-3xl text-gris'>Historial</h2>
-        <button className='px-5 py-2 text-lg text-white rounded-lg shadow-lg bg-verde font-onest hover:bg-green-600'
-        onClick={handleClick}>
+        <button
+          className='px-5 py-2 text-lg text-white rounded-lg shadow-lg bg-verde font-onest hover:bg-green-600'
+          onClick={handleClick}
+        >
           <svg
             className='inline-block mr-2'
             width='20'
@@ -187,8 +192,10 @@ const Ingresos = () => {
                     {format(new Date(item.date), 'DD/MM/YYYY')}
                   </td>
                   <td className='flex justify-center gap-2 p-2 pb-4'>
-                    <button className='px-4 py-2 text-white bg-yellow-500 rounded'
-                    onClick={()=>handleEdit(data)}>
+                    <button
+                      className='px-4 py-2 text-white bg-yellow-500 rounded'
+                      onClick={() => handleEdit(item)}
+                    >
                       <svg
                         className='inline-block mr-2'
                         width='21'
@@ -211,8 +218,10 @@ const Ingresos = () => {
                       Editar
                     </button>
 
-                    <button className='px-3 py-2 text-white bg-red-500 rounded'
-                    onClick={()=>handleCloseDelete(data.id)}>
+                    <button
+                      className='px-3 py-2 text-white bg-red-500 rounded'
+                      onClick={() => handleCloseDelete(item._id)}
+                    >
                       <svg
                         className='inline-block mr-2'
                         width='20'

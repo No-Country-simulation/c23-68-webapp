@@ -3,12 +3,14 @@ import { Modal } from '../modals/Modal'
 import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import usePopup from '../../hooks/usePopup'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { getCategories, updateTransaction } from '../../service/transactions'
 
 const DatosIngresosEditForm = () => {
   const { show, hide } = usePopups()
   const { DataSavedModalID, DatosIngresosEditFormModalID } = nameModal
   const { activePopup } = usePopup(DatosIngresosEditFormModalID)
+  const [categories, setCategories] = useState([])
 
   const {
     register,
@@ -25,6 +27,14 @@ const DatosIngresosEditForm = () => {
   })
 
   useEffect(() => {
+    const getElements = async () => {
+      const data = await getCategories('Ingreso')
+      setCategories(data.data)
+    }
+    getElements()
+  }, [])
+
+  useEffect(() => {
     if (activePopup && activePopup?.metadata) {
       reset({
         targetAmount: activePopup?.metadata?.data?.targetAmount || '',
@@ -35,21 +45,31 @@ const DatosIngresosEditForm = () => {
     }
   }, [activePopup, reset])
 
-  const onSubmit = () => {
-
-    show({
-      popUpId: DataSavedModalID,
-      metadata: { id: DataSavedModalID },
-      pushMethod: 'prepend',
+  const onSubmit = async (data) => {
+    const { targetAmount, category, description, createdAt } = data
+    const id = activePopup?.metadata?.data._id
+    const response = await updateTransaction(id, {
+      amount: parseFloat(targetAmount),
+      type: 'Ingreso',
+      category,
+      description,
+      date: createdAt,
     })
-    hide({
-      popUpId: DatosIngresosEditFormModalID,
-      metadataId: DatosIngresosEditFormModalID,
-    })
+    if (response) {
+      show({
+        popUpId: DataSavedModalID,
+        metadata: { id: DataSavedModalID },
+        pushMethod: 'prepend',
+      })
+      hide({
+        popUpId: DatosIngresosEditFormModalID,
+        metadataId: DatosIngresosEditFormModalID,
+      })
+    }
+    reset()
   }
 
   const handleCancel = () => {
-
     reset()
     hide({
       popUpId: DatosIngresosEditFormModalID,
@@ -80,12 +100,12 @@ const DatosIngresosEditForm = () => {
         {/* Campo Monto */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Monto <span className='text-red-500'>*</span>
+            Monto
           </label>
           <input
             type='number'
             id='targetAmount'
-            {...register('targetAmount', { required: true, min: 0.01 })}
+            {...register('targetAmount', { min: 0.01 })}
             placeholder='$1000.00'
             className='w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
@@ -94,17 +114,20 @@ const DatosIngresosEditForm = () => {
         {/* Campo Categoría */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Categoría <span className='text-red-500'>*</span>
+            Categoría
           </label>
           <select
-            {...register('category', { required: true })}
+            {...register('category')}
             className='text-grisclaro w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           >
             <option value=''>Elegir</option>
-            <option value='Sueldo'>Sueldo</option>
-            <option value='Emprendimiento'>Emprendimiento</option>
-            <option value='Bono'>Bono</option>
-            <option value='Negocio'>Negocio</option>
+            {categories?.subcategories?.map((item) => {
+              return (
+                <option key={item._id} value={item}>
+                  {item}
+                </option>
+              )
+            })}
           </select>
         </div>
 
@@ -124,12 +147,12 @@ const DatosIngresosEditForm = () => {
         {/* Campo Fecha de Inicio */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Fecha Inicio<span className='text-red-500'>*</span>
+            Fecha Inicio
           </label>
           <input
             type='date'
             id='createdAt'
-            {...register('createdAt', { required: true })}
+            {...register('createdAt')}
             className='text-grisclaro -[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
         </div>

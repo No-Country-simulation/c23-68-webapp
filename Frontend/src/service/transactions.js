@@ -10,13 +10,6 @@ export const createTransaction = async (
   time
 ) => {
   try {
-    console.log({
-      amount,
-      type,
-      category,
-      description,
-      date: time,
-    })
     const response = await fetchWithWrapper(
       `${backendUrl}/api/transaction/create`,
       {
@@ -35,8 +28,6 @@ export const createTransaction = async (
         }),
       }
     )
-
-    console.log({ response })
 
     if (!response.ok) {
       const text = await response.text()
@@ -79,7 +70,7 @@ export const getTransactions = async (type) => {
 // 📌 Editar transacción
 export const updateTransaction = async (
   id,
-  { amount, type, category, description }
+  { amount, type, category, description, date }
 ) => {
   try {
     const response = await fetchWithWrapper(
@@ -91,12 +82,22 @@ export const updateTransaction = async (
           'Content-Type': 'application/json',
           'x-api-key': SecretKey,
         },
-        body: JSON.stringify({ id, amount, type, category, description }),
+        body: JSON.stringify({
+          id,
+          amount,
+          type,
+          category,
+          description,
+          date,
+        }),
       }
     )
 
-    if (!response.ok)
+    if (!response.ok) {
+      const text = await response.text()
+      console.log(text)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
+    }
     return await response.json()
   } catch (error) {
     console.error('Error al actualizar transacción:', error.message)

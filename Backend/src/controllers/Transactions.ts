@@ -13,13 +13,6 @@ import { getCategories } from '../database/Category'
 export async function createControllerTransaction(req: Request, res: Response) {
   const { amount, type, category, description, date } = req.body
 
-  console.log({
-    amount,
-    type,
-    category,
-    description,
-    date,
-  })
   const token = req.cookies.acces_token
 
   const dataToken = getDataToken(token)
@@ -170,7 +163,7 @@ export async function getControllerTransaction(req: Request, res: Response) {
 }
 
 export async function editControllerTransaction(req: Request, res: Response) {
-  const { amount, type, category, description, id } = req.body
+  const { amount, type, category, description, id, date } = req.body
   const token = req.cookies.acces_token
 
   if (!id) {
@@ -196,6 +189,7 @@ export async function editControllerTransaction(req: Request, res: Response) {
     type,
     category,
     description,
+    date,
   })
 
   if (!transaction.data) {

@@ -57,7 +57,7 @@ export async function createCategoryController(req: Request, res: Response) {
 
 export async function getCategoriesController(req: Request, res: Response) {
   try {
-    const { type } = req.body
+    const { type } = req.query
 
     const categories = await getCategories(type as string)
 

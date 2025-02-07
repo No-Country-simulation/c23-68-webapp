@@ -110,6 +110,7 @@ export async function editTransaction(
     type: TransactionType
     category: string
     description: string
+    date: Date
   }>
 ) {
   try {
@@ -119,7 +120,6 @@ export async function editTransaction(
         message: 'ID de transacción inválido',
       }
     }
-
     const allowedFields = ['amount', 'type', 'category', 'description']
     const filteredUpdates: Record<string, unknown> = {}
 

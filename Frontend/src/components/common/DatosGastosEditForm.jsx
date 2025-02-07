@@ -3,13 +3,23 @@ import { Modal } from '../modals/Modal'
 import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import usePopup from '../../hooks/usePopup'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { getCategories, updateTransaction } from '../../service/transactions'
 
 const DatosGastosEditForm = () => {
   const { show, hide } = usePopups()
   const { DataSavedModalID, DatosGastosEditFormModalID } = nameModal
   const { activePopup } = usePopup(DatosGastosEditFormModalID)
+  const type = 'Gasto'
+  const [categories, setCategories] = useState([])
 
+  useEffect(() => {
+    const getElements = async () => {
+      const data = await getCategories(type)
+      setCategories(data.data)
+    }
+    getElements()
+  }, [])
   const {
     register,
     handleSubmit,
@@ -35,21 +45,31 @@ const DatosGastosEditForm = () => {
     }
   }, [activePopup, reset])
 
-  const onSubmit = () => {
-
-    show({
-      popUpId: DataSavedModalID,
-      metadata: { id: DataSavedModalID },
-      pushMethod: 'prepend',
+  const onSubmit = async (data) => {
+    const { targetAmount, category, description, createdAt } = data
+    const id = activePopup?.metadata?.data._id
+    const response = await updateTransaction(id, {
+      amount: parseFloat(targetAmount),
+      type: type,
+      category,
+      description,
+      date: createdAt,
     })
-    hide({
-      popUpId: DatosGastosEditFormModalID,
-      metadataId: DatosGastosEditFormModalID,
-    })
+    if (response) {
+      show({
+        popUpId: DataSavedModalID,
+        metadata: { id: DataSavedModalID },
+        pushMethod: 'prepend',
+      })
+      hide({
+        popUpId: DatosGastosEditFormModalID,
+        metadataId: DatosGastosEditFormModalID,
+      })
+    }
+    reset()
   }
 
   const handleCancel = () => {
-
     reset()
     hide({
       popUpId: DatosGastosEditFormModalID,
@@ -80,12 +100,12 @@ const DatosGastosEditForm = () => {
         {/* Campo Monto */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Monto <span className='text-red-500'>*</span>
+            Monto
           </label>
           <input
             type='number'
             id='targetAmount'
-            {...register('targetAmount', { required: true, min: 0.01 })}
+            {...register('targetAmount', { min: 0.01 })}
             placeholder='$1000.00'
             className='w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
@@ -94,19 +114,20 @@ const DatosGastosEditForm = () => {
         {/* Campo Categoría */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Categoría <span className='text-red-500'>*</span>
+            Categoría
           </label>
           <select
-            {...register('category', { required: true })}
+            {...register('category')}
             className='text-grisclaro w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           >
             <option value=''>Elegir</option>
-            <option value='Alquiler'>Alquiler</option>
-            <option value='Comida'>Comida</option>
-            <option value='Transporte'>Transporte</option>
-            <option value='Ocio'>Ocio</option>
-            <option value='Salud'>Salud</option>
-            <option value='Educación'>Educación</option>
+            {categories?.subcategories?.map((item) => {
+              return (
+                <option key={item._id} value={item}>
+                  {item}
+                </option>
+              )
+            })}
           </select>
         </div>
 
@@ -126,12 +147,12 @@ const DatosGastosEditForm = () => {
         {/* Campo Fecha de Inicio */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Fecha Inicio<span className='text-red-500'>*</span>
+            Fecha Inicio
           </label>
           <input
             type='date'
             id='createdAt'
-            {...register('createdAt', { required: true })}
+            {...register('createdAt')}
             className='text-grisclaro -[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
         </div>
