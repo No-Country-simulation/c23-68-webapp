@@ -64,9 +64,11 @@ const Home = () => {
               </svg>
             </button>
 
-            <button className='text-lg font-medium text-gray-700 cursor-pointer hover:underline font-onest ml-14'>
+            <NavLink
+            className='text-lg font-medium text-gray-700 cursor-pointer hover:underline font-onest ml-14'
+            to='/about'>
               Conócenos
-            </button>
+            </NavLink>
           </div>
         </div>
 

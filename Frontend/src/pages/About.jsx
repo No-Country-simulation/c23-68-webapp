@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 const About = () => {
   return (
     <div className='min-h-screen font-sans bg-white'>
@@ -162,7 +164,7 @@ const About = () => {
               />
             </svg>
           </div>
-          <div className=' border-[0.5px] border-negro  rounded-3xl w-1/2 pt-4 pl-10 cursor-pointer'>
+          <NavLink to='/team' className=' border-[0.5px] border-negro  rounded-3xl w-1/2 pt-4 pl-10 cursor-pointer'>
             <h4 className='pr-32 text-lg font-semibold text-left font-anybody text-negro'>
               ¿Quieres saber quienes crearon esta increíble herramienta?
             </h4>
@@ -186,7 +188,7 @@ const About = () => {
                 strokeLinejoin='round'
               />
             </svg>
-          </div>
+          </NavLink>
         </div>
       </div>
     </div>
