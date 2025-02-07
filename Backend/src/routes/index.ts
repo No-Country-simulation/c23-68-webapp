@@ -7,6 +7,7 @@ import Category from './Category'
 import SavingsGoal from './SavingsGoal'
 import Dashboard from './Dashboard'
 import { poblateBD } from '../controllers/Development'
+import { generateCategory } from '../controllers/GenerateCategory'
 
 const router: Router = Router()
 router.get('/health', (_req, res) => {
@@ -14,6 +15,7 @@ router.get('/health', (_req, res) => {
 })
 
 router.get('/development/poblateBD', poblateBD)
+router.get('/development/poblateCategory', generateCategory)
 
 router.use(routes.auth.base, Auth)
 router.use(routes.transaction.base, Transaction)
