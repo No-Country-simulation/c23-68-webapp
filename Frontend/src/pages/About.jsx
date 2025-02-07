@@ -19,7 +19,7 @@ const About = () => {
             Acerca de
           </button>
           <h2 className='py-4 mt-4 text-4xl font-semibold font-anybody'>
-            Logo Finanzas
+            <span className='text-5xl'>F</span>IPE
           </h2>
           <p className='max-w-4xl pt-1 mx-auto mt-4 text-base font-normal font-onest text-negro'>
             Bienvenido a nuestra plataforma de gestión financiera personal,
@@ -138,7 +138,7 @@ const About = () => {
         </div>
 
         <div className='flex flex-row mt-5 -ml-8 gap-14'>
-          <div className='border-[0.5px] border-negro  rounded-3xl w-1/2 pt-5 pr-10 cursor-pointer'>
+          <NavLink to="/" className='border-[0.5px] border-negro  rounded-3xl w-1/2 pt-5 pr-10 cursor-pointer'>
             <h4 className='text-lg font-semibold text-right font-anybody text-negro'>
               ¿Listo para tomar el control de tus finanzas?
             </h4>
@@ -163,7 +163,7 @@ const About = () => {
                 strokeLinejoin='round'
               />
             </svg>
-          </div>
+          </NavLink>
           <NavLink
             to='/team'
             className=' border-[0.5px] border-negro  rounded-3xl w-1/2 pt-4 pl-10 cursor-pointer'
