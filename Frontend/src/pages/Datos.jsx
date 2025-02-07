@@ -30,7 +30,7 @@ const Datos = () => {
             los datos de tus ingresos y gastos
           </p>
           <img
-            src='/images/datos.png'
+            src='/datos.png'
             className='w-[150px] ' // Tamaño de la imagen
             alt='datos'
           />

@@ -33,11 +33,7 @@ const Dashboard = () => {
         <h2 className='ml-[6%] text-3xl text-negro font-normal'>
           ¡Buenos Días, <strong>{user.name}!</strong>
         </h2>
-        <img
-          src='/images/dashboard.png'
-          alt='Logo'
-          className='inline-block ml-3'
-        />
+        <img src='/dashboard.png' alt='Logo' className='inline-block ml-3' />
       </div>
 
       {/* Tarjetas de resumen */}

@@ -18,9 +18,7 @@
     "@formkit/tempo": "^0.1.2",
     "@headlessui/react": "^2.2.0",
     "@headlessui/tailwindcss": "^0.2.1",
-    "@remixicon/react": "^4.6.0",
     "@tremor/react": "^3.18.7",
-    "clsx": "^2.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.2",
@@ -31,7 +29,6 @@
     "tailwind-merge": "^3.0.1",
     "tailwind-variants": "^0.3.1",
     "tempo": "^0.2.7",
-    "tailwind-variants": "^0.3.1",
     "yup": "^1.6.1",
     "zustand": "^5.0.3"
   },

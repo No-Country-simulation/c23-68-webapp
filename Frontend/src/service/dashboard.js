@@ -1,16 +1,20 @@
 import { backendUrl, SecretKey } from '../config/constants'
+import { fetchWithWrapper } from './wrapper'
 
 // 📌 Obtener ingreso total
 export const getTotalIncome = async () => {
   try {
-    const response = await fetch(`${backendUrl}/api/dashboard/getTotalIncome`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/dashboard/getTotalIncome`,
+      {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+      }
+    )
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
 
@@ -26,7 +30,7 @@ export const getTotalIncome = async () => {
 // 📌 Obtener gasto total
 export const getTotalExpense = async () => {
   try {
-    const response = await fetch(
+    const response = await fetchWithWrapper(
       `${backendUrl}/api/dashboard/getTotalExpense`,
       {
         method: 'GET',
@@ -50,7 +54,7 @@ export const getTotalExpense = async () => {
 // 📌 Obtener porcentaje de gastos por categoría
 export const getExpensePercentage = async () => {
   try {
-    const response = await fetch(
+    const response = await fetchWithWrapper(
       `${backendUrl}/api/dashboard/getExpensePercentage`,
       {
         method: 'GET',
@@ -75,7 +79,7 @@ export const getExpensePercentage = async () => {
 // 📌 Obtener ingresos por categoría
 export const getIncomeByCategory = async () => {
   try {
-    const response = await fetch(
+    const response = await fetchWithWrapper(
       `${backendUrl}/api/dashboard/getIncomeByCategory`,
       {
         method: 'GET',
@@ -99,7 +103,7 @@ export const getIncomeByCategory = async () => {
 // 📌 Comparar ingresos y gastos
 export const compareIncomeExpense = async () => {
   try {
-    const response = await fetch(
+    const response = await fetchWithWrapper(
       `${backendUrl}/api/dashboard/compareIncomeExpense`,
       {
         method: 'GET',
