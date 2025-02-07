@@ -47,7 +47,7 @@ const Navbar = () => {
       <h1>
         <NavLink to='/'>
           <img
-            src='/images/logo.png'
+            src='/logo.png'
             alt='Logo'
             className='h-auto w-auto ml-[50%] my-4'
           />
