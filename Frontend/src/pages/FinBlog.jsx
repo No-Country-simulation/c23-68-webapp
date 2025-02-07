@@ -1,27 +1,24 @@
-import React from "react";
-
 const FinBlog = () => {
   return (
-    <div className="font-sans bg-white min-h-screen">
-
-      <div className="bg-white shadow-lg rounded-3xl border-b-8  border-r-8 border-l-2 border-t-2 border-black py-12 p-24 w-[89%] max-w-[1400px] my-16 mx-auto">
-        <div className="text-center">
-          <button className="bg-amarilloclaro font-normal font-onest text-xl px-7 py-2 rounded-full border border-black ">
+    <div className='min-h-screen font-sans bg-white'>
+      <div className='bg-white shadow-lg rounded-3xl border-b-8  border-r-8 border-l-2 border-t-2 border-black py-12 p-24 w-[89%] max-w-[1400px] my-16 mx-auto'>
+        <div className='text-center'>
+          <button className='py-2 text-xl font-normal border border-black rounded-full bg-amarilloclaro font-onest px-7 '>
             Finblog
           </button>
-          <h2 className="text-4xl py-4 font-semibold font-anybody mt-4">
-          Logo Finanzas 
+          <h2 className='py-4 mt-4 text-4xl font-semibold font-anybody'>
+            Logo Finanzas
           </h2>
 
- {/*         <p className="mt-4 max-w-4xl pt-1 mx-auto font-onest font-normal text-base text-negro">
+          {/*         <p className="max-w-4xl pt-1 mx-auto mt-4 text-base font-normal font-onest text-negro">
           En Logo Finanzas, estamos orgullosos de presentar al equipo que convirtió esta idea en realidad. Somos un grupo multidisciplinario de desarrolladores y diseñadores que compartimos una visión común: ayudarte a tomar el control de tus finanzas de manera sencilla y eficiente.
           Cada detalle, desde el diseño de la plataforma hasta las funcionalidades que utilizas, es el resultado del esfuerzo, la creatividad y la pasión de nuestro equipo. Conoce a las personas que hicieron esto posible y descubre cómo trabajamos para brindarte una experiencia única.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 max-w-7xl mr-6 mt-5">
-          <div className="text-left bg-verdesemioscuro pt-6 pl-3 rounded-2xl shadow-md hover:shadow-verdesemioscuro -mx-10 my-7">
-            <h3 className=" text-2xl text-negro font-semibold ml-2 mr-24 font-anybody leading-6">
+        <div className="grid grid-cols-1 gap-24 mt-5 mr-6 md:grid-cols-2 lg:grid-cols-4 max-w-7xl">
+          <div className="pt-6 pl-3 -mx-10 text-left shadow-md bg-verdesemioscuro rounded-2xl hover:shadow-verdesemioscuro my-7">
+            <h3 className="ml-2 mr-24 text-2xl font-semibold leading-6  text-negro font-anybody">
               Registrar y organizar tus ingresos y gastos diarios
             </h3>
             <svg
@@ -41,13 +38,13 @@ const FinBlog = () => {
               />
             </svg>
 
-            <p className="my-4 ml-2 mr-12 font-onest font-normal text-base text-negro leading-none">
+            <p className="my-4 ml-2 mr-12 text-base font-normal leading-none font-onest text-negro">
               de forma rápida, eficiente y fácil, ayudándote a alcanzar tus
               metas financieras.
             </p>
           </div>
-          <div className="text-left bg-amarillo pt-6 pb-2 pl-3 rounded-2xl shadow-md hover:shadow-amarillo -mx-10 my-7">
-            <h3 className=" text-2xl text-negro font-semibold ml-2 mr-24 font-anybody leading-6">
+          <div className="pt-6 pb-2 pl-3 -mx-10 text-left shadow-md bg-amarillo rounded-2xl hover:shadow-amarillo my-7">
+            <h3 className="ml-2 mr-24 text-2xl font-semibold leading-6  text-negro font-anybody">
               Analizar tus patrones de gasto
             </h3>
 
@@ -68,13 +65,13 @@ const FinBlog = () => {
               />
             </svg>
 
-            <p className="mt-16 ml-2 mr-16 font-onest font-normal text-sm text-negro leading-tight">
+            <p className="mt-16 ml-2 mr-16 text-sm font-normal leading-tight font-onest text-negro">
               a través de gráficas interactivas, categorizadas y fáciles de
               interpretar.
             </p>
           </div>
-          <div className="text-left bg-rosa pt-6 pb-2 pl-3 rounded-2xl shadow-md hover:shadow-rosa -mx-10 my-6">
-            <h3 className=" text-2xl text-negro font-semibold ml-2 mr-24 font-anybody leading-6">
+          <div className="pt-6 pb-2 pl-3 my-6 -mx-10 text-left shadow-md bg-rosa rounded-2xl hover:shadow-rosa">
+            <h3 className="ml-2 mr-24 text-2xl font-semibold leading-6  text-negro font-anybody">
               Establecer y monitorear objetivos de ahorro
             </h3>
             <svg
@@ -94,13 +91,13 @@ const FinBlog = () => {
               />
             </svg>
 
-            <p className="mt-11 ml-2 mr-16 font-onest font-normal text-sm text-negro leading-tight">
+            <p className="ml-2 mr-16 text-sm font-normal leading-tight mt-11 font-onest text-negro">
               adaptados a tus metas, necesidades específicas y estilo de vida
               único.
             </p>
           </div>
-          <div className="text-left bg-celeste pt-6 pb-2 pl-3 rounded-2xl shadow-md hover:shadow-celeste -mx-10 my-6">
-            <h3 className=" text-2xl text-negro font-semibold ml-2 mr-24 font-anybody leading-6">
+          <div className="pt-6 pb-2 pl-3 my-6 -mx-10 text-left shadow-md bg-celeste rounded-2xl hover:shadow-celeste">
+            <h3 className="ml-2 mr-24 text-2xl font-semibold leading-6  text-negro font-anybody">
               Consejos para mejorar tu gestión financiera
             </h3>
             <svg
@@ -120,18 +117,18 @@ const FinBlog = () => {
               />
             </svg>
 
-            <p className="mt-5 ml-2 mr-16 font-onest font-normal text-sm text-negro leading-tight">
+            <p className="mt-5 ml-2 mr-16 text-sm font-normal leading-tight font-onest text-negro">
               ayudándote a reducir gastos innecesarios y fomentar el ahorro.
             </p>
           </div>
         </div>
 
-        <div className="flex flex-row gap-14 mt-5 -ml-8">
+        <div className="flex flex-row mt-5 -ml-8 gap-14">
           <div className="border-[0.5px] border-negro  rounded-3xl w-1/2 pt-5 pr-10 ">
-            <h4 className="font-semibold text-lg font-anybody text-negro text-right">
+            <h4 className="text-lg font-semibold text-right font-anybody text-negro">
               ¿Listo para tomar el control de tus finanzas?
             </h4>
-            <p className="font-onest font-normal text-grisclaro text-xs text-right pl-32 mt-2">
+            <p className="pl-32 mt-2 text-xs font-normal text-right font-onest text-grisclaro">
               En FinBlog encontrarás guías claras, consejos prácticos y
               herramientas para mejorar tu bienestar financiero. ¡Empieza a
               aprender hoy y da el primer paso hacia un futuro más seguro!
@@ -154,10 +151,10 @@ const FinBlog = () => {
             </svg>
           </div>
           <div className=" border-[0.5px] border-negro  rounded-3xl w-1/2 pt-4 pl-10">
-            <h4 className="font-semibold text-lg font-anybody text-negro text-left pr-32">
+            <h4 className="pr-32 text-lg font-semibold text-left font-anybody text-negro">
               ¿Quieres saber quienes crearon esta increíble herramienta?
             </h4>
-            <p className="font-onest font-normal text-grisclaro text-xs text-left pr-32 mt-2">
+            <p className="pr-32 mt-2 text-xs font-normal text-left font-onest text-grisclaro">
               Descubre a los apasionados que la hicieron posible. ¡Conoce a
               nuestro equipo!
             </p>
@@ -181,7 +178,7 @@ const FinBlog = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FinBlog;
+export default FinBlog
