@@ -1,6 +1,20 @@
 import { NavLink } from 'react-router-dom'
+import { nameModal } from "../../config/nameModals";
+import usePopups from "../../hooks/usePopups";
 
 const SideBar = () => {
+
+  const { show } = usePopups();
+  const { AyudaModalID } = nameModal;
+
+  const handleClick = () => {
+    show({
+      popUpId: AyudaModalID,
+      metadata: { id: AyudaModalID },
+      pushMethod: "prepend",
+    });
+  };
+
   return (
     <div className=' bg-white min-h-screen flex flex-col w-[22%] py-11'>
       <nav>
@@ -216,10 +230,10 @@ const SideBar = () => {
 
           <li>
             <NavLink
-              to='/ayuda'
+              onClick={handleClick}
               className={({ isActive }) =>
                 isActive
-                  ? 'block px-5 mx-3 py-3 bg-amarillo rounded-lg font-onest font-normal text-xl text-negro'
+                  ? 'block px-5 mx-3 py-3 hover:bg-amarillomasclaro rounded-lg font-onest font-normal text-xl text-negro'
                   : 'block px-5 mx-3 py-3 hover:bg-amarillomasclaro rounded-lg font-onest font-normal text-xl text-negro'
               }
             >

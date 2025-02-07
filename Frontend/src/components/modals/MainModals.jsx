@@ -14,6 +14,7 @@ import DatosIngresosEditForm from '../common/DatosIngresosEditForm'
 import DatosGastosForm from '../common/DatosGastosForm'
 import DatosGastosEditForm from '../common/DatosGastosEditForm'
 import { LogoutModal } from './Logout'
+import AyudaModal from '../common/AyudaModal'
 
 export function MainModals() {
   return (
@@ -33,6 +34,8 @@ export function MainModals() {
       <DatosIngresosEditForm />
       <DatosGastosEditForm />
       <LogoutModal />
+      <AyudaModal />
+
     </>
   )
 }
