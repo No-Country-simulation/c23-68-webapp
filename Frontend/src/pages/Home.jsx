@@ -110,7 +110,7 @@ const Home = () => {
 
           <div className='flex flex-col items-start justify-between p-6 bg-pink-100 bg-center bg-cover shadow-md rounded-2xl team-bg'>
             <button className='p-2 text-lg bg-white font-onest bg-opacity-70 rounded-2xl'>
-              <NavLink to='/'>Equipo</NavLink>
+              <NavLink to='/team'>Equipo</NavLink>
             </button>
             <p className='font-semibold text-white font-onest text-8xl '>06</p>
             <p className='p-2 text-white font-onest'>

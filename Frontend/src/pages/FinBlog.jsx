@@ -1,5 +1,3 @@
-import React from "react";
-
 const FinBlog = () => {
   return (
     <div className="font-sans bg-white min-h-screen">
@@ -10,7 +8,7 @@ const FinBlog = () => {
             Finblog
           </button>
           <h2 className="text-4xl py-4 font-semibold font-anybody mt-4">
-          Logo Finanzas 
+          Logo Finanzas
           </h2>
 
  {/*         <p className="mt-4 max-w-4xl pt-1 mx-auto font-onest font-normal text-base text-negro">
