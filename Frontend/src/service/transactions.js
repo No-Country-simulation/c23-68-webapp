@@ -1,4 +1,5 @@
 import { backendUrl, SecretKey } from '../config/constants'
+import { fetchWithWrapper } from './wrapper'
 
 // 📌 Crear transacción
 export const createTransaction = async (
@@ -16,15 +17,24 @@ export const createTransaction = async (
       description,
       date: time,
     })
-    const response = await fetch(`${backendUrl}/api/transaction/create`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({ amount, type, category, description, date: time }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/transaction/create`,
+      {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({
+          amount,
+          type,
+          category,
+          description,
+          date: time,
+        }),
+      }
+    )
 
     console.log({ response })
 
@@ -43,7 +53,7 @@ export const createTransaction = async (
 // 📌 Obtener transacciones por tipo
 export const getTransactions = async (type) => {
   try {
-    const response = await fetch(
+    const response = await fetchWithWrapper(
       `${backendUrl}/api/transaction/get?type=${type}`,
       {
         method: 'GET',
@@ -72,15 +82,18 @@ export const updateTransaction = async (
   { amount, type, category, description }
 ) => {
   try {
-    const response = await fetch(`${backendUrl}/api/transaction/update`, {
-      method: 'PATCH',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({ id, amount, type, category, description }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/transaction/update`,
+      {
+        method: 'PATCH',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({ id, amount, type, category, description }),
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
@@ -94,15 +107,18 @@ export const updateTransaction = async (
 // 📌 Eliminar transacción
 export const deleteTransaction = async (id) => {
   try {
-    const response = await fetch(`${backendUrl}/api/transaction/delete`, {
-      method: 'DELETE',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({ id }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/transaction/delete`,
+      {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({ id }),
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
@@ -116,15 +132,18 @@ export const deleteTransaction = async (id) => {
 // 📌 Crear categoría
 export const createCategory = async (type, subcategories) => {
   try {
-    const response = await fetch(`${backendUrl}/api/category/create`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({ type, subcategories }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/category/create`,
+      {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({ type, subcategories }),
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
@@ -138,7 +157,7 @@ export const createCategory = async (type, subcategories) => {
 // 📌 Obtener categorías por tipo
 export const getCategories = async (type) => {
   try {
-    const response = await fetch(
+    const response = await fetchWithWrapper(
       `${backendUrl}/api/category/get?type=${type}`,
       {
         method: 'GET',
@@ -162,14 +181,17 @@ export const getCategories = async (type) => {
 // 📌 Obtener todas las categorías
 export const getAllCategories = async () => {
   try {
-    const response = await fetch(`${backendUrl}/api/category/getAll`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/category/getAll`,
+      {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
@@ -183,15 +205,18 @@ export const getAllCategories = async () => {
 // 📌 Editar categoría
 export const updateCategory = async (type, subcategories) => {
   try {
-    const response = await fetch(`${backendUrl}/api/category/update`, {
-      method: 'PATCH',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({ type, subcategories }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/category/update`,
+      {
+        method: 'PATCH',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({ type, subcategories }),
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
@@ -205,15 +230,18 @@ export const updateCategory = async (type, subcategories) => {
 // 📌 Eliminar categoría
 export const deleteCategory = async (type) => {
   try {
-    const response = await fetch(`${backendUrl}/api/category/delete`, {
-      method: 'DELETE',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({ type }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/category/delete`,
+      {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({ type }),
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)

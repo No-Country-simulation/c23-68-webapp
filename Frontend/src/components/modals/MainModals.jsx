@@ -13,15 +13,15 @@ import AhorrosEditForm from '../common/AhorrosEditForm'
 import DatosIngresosEditForm from '../common/DatosIngresosEditForm'
 import DatosGastosForm from '../common/DatosGastosForm'
 import DatosGastosEditForm from '../common/DatosGastosEditForm'
-
+import { LogoutModal } from './Logout'
 
 export function MainModals() {
   return (
     <>
       <LoadingModal />
       <Login />
-      <LoginContra/>
-      <Register/>
+      <LoginContra />
+      <Register />
       <DatosForm />
       <AhorrosForm />
       <DatosIngresosForm />
@@ -32,6 +32,7 @@ export function MainModals() {
       <AhorrosEditForm />
       <DatosIngresosEditForm />
       <DatosGastosEditForm />
+      <LogoutModal />
     </>
   )
 }

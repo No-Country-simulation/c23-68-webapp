@@ -1,7 +1,7 @@
 export const nameModal = {
   LoadingModalID: 'loading-modal',
   LoginModalID: 'login-modal',
-  LoginContraModalID:'logincontra-modal',
+  LoginContraModalID: 'logincontra-modal',
   RegisterModalID: 'register-modal',
   DataFormModalID: 'data-form-modal',
   AhorrosFormModalID: 'ahorros-form-modal',
@@ -14,4 +14,5 @@ export const nameModal = {
   DatosIngresosEditFormModalID: 'datos-ingresos-edit-form-modal',
   DatosGastosFormModalID: 'datos-gastos-form-modal',
   DatosGastosEditFormModalID: 'datos-gastos-edit-form-modal',
+  AlertLogut: 'alert-logout-modal',
 }

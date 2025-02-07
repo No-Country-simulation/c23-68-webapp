@@ -6,7 +6,6 @@ import PopupsProvider from '../src/components/modals/PopupsProvider.jsx'
 import { MainModals } from '../src/components/modals/MainModals.jsx'
 import { BrowserRouter } from 'react-router-dom'
 
-
 createRoot(document.getElementById('root')).render(
   <PopupsProvider>
     <BrowserRouter>

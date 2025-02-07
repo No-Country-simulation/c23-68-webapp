@@ -4,7 +4,7 @@ import { IDataLogin } from '../controllers/Auth'
 
 export function createToken(payload: any) {
   const token = jwt.sign(payload, JWT_SECRET, {
-    expiresIn: '12h',
+    expiresIn: '1m',
   })
 
   return token

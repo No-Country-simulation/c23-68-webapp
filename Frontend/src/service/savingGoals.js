@@ -1,4 +1,5 @@
 import { backendUrl, SecretKey } from '../config/constants'
+import { fetchWithWrapper } from './wrapper'
 
 // 📌 Crear meta de ahorro
 export const createSavingsGoal = async (
@@ -9,21 +10,24 @@ export const createSavingsGoal = async (
   currentAmount = 0
 ) => {
   try {
-    const response = await fetch(`${backendUrl}/api/savingsGoal/create`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({
-        name,
-        targetAmount,
-        deadline,
-        priority,
-        currentAmount,
-      }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/savingsGoal/create`,
+      {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({
+          name,
+          targetAmount,
+          deadline,
+          priority,
+          currentAmount,
+        }),
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
@@ -37,14 +41,17 @@ export const createSavingsGoal = async (
 // 📌 Obtener todas las metas de ahorro
 export const getSavingsGoals = async () => {
   try {
-    const response = await fetch(`${backendUrl}/api/savingsGoal/get`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/savingsGoal/get`,
+      {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
@@ -61,22 +68,25 @@ export const updateSavingsGoal = async (
   { name, targetAmount, deadline, priority, currentAmount }
 ) => {
   try {
-    const response = await fetch(`${backendUrl}/api/savingsGoal/update`, {
-      method: 'PATCH',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({
-        id,
-        name,
-        targetAmount,
-        deadline,
-        priority,
-        currentAmount,
-      }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/savingsGoal/update`,
+      {
+        method: 'PATCH',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({
+          id,
+          name,
+          targetAmount,
+          deadline,
+          priority,
+          currentAmount,
+        }),
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
@@ -90,15 +100,18 @@ export const updateSavingsGoal = async (
 // 📌 Eliminar meta de ahorro
 export const deleteSavingsGoal = async (id) => {
   try {
-    const response = await fetch(`${backendUrl}/api/savingsGoal/delete`, {
-      method: 'DELETE',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': SecretKey,
-      },
-      body: JSON.stringify({ id }),
-    })
+    const response = await fetchWithWrapper(
+      `${backendUrl}/api/savingsGoal/delete`,
+      {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': SecretKey,
+        },
+        body: JSON.stringify({ id }),
+      }
+    )
 
     if (!response.ok)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
