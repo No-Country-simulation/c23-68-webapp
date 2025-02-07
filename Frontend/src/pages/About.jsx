@@ -29,7 +29,7 @@ const About = () => {
         </div>
 
         <div className='grid grid-cols-1 gap-24 mt-5 mr-6 md:grid-cols-2 lg:grid-cols-4 max-w-7xl'>
-          <div className='relative pt-6 pl-3 -mx-10 text-left shadow-lg ease-in duration-200 hover:scale-105 bg-verdesemioscuro rounded-2xl hover:shadow-verdesemioscuro my-7'>
+          <div className='flex flex-col items-center justify-between relative py-6 pl-3 -mx-10 text-left shadow-lg ease-in duration-200 hover:scale-105 bg-verdesemioscuro rounded-2xl hover:shadow-verdesemioscuro my-7'>
             <h3 className='ml-2 mr-24 text-2xl font-semibold leading-6 text-negro font-anybody'>
               Registrar y organizar tus ingresos y gastos diarios
             </h3>
@@ -55,7 +55,7 @@ const About = () => {
               metas financieras.
             </p>
           </div>
-          <div className='relative pt-6 pb-2 pl-3 -mx-10 text-left shadow-lg  ease-in duration-200 hover:scale-105 bg-amarillo rounded-2xl hover:shadow-amarillo my-7'>
+          <div className='flex flex-col items-center justify-between relative py-6 pl-3 -mx-10 text-left shadow-lg  ease-in duration-200 hover:scale-105 bg-amarillo rounded-2xl hover:shadow-amarillo my-7'>
             <h3 className='ml-2 mr-24 text-2xl font-semibold leading-6 text-negro font-anybody'>
               Analizar tus patrones de gasto
             </h3>
@@ -82,7 +82,7 @@ const About = () => {
               interpretar.
             </p>
           </div>
-          <div className='relative pt-6 pb-2 pl-3 my-6 -mx-10 text-left shadow-lg ease-in duration-200 hover:scale-105 bg-rosa rounded-2xl hover:shadow-rosa'>
+          <div className=' flex flex-col items-center justify-between relative py-6 pl-3 my-6 -mx-10 text-left shadow-lg ease-in duration-200 hover:scale-105 bg-rosa rounded-2xl hover:shadow-rosa'>
             <h3 className='ml-2 mr-24 text-2xl font-semibold leading-6 text-negro font-anybody'>
               Establecer y monitorear objetivos de ahorro
             </h3>
@@ -108,7 +108,7 @@ const About = () => {
               único.
             </p>
           </div>
-          <div className='relative pt-6 pb-2 pl-3 my-6 -mx-10 text-left shadow-lg ease-in duration-200 hover:scale-105 bg-celeste rounded-2xl hover:shadow-celeste'>
+          <div className='flex flex-col items-center justify-between relative py-6 pl-3 my-6 -mx-10 text-left shadow-lg ease-in duration-200 hover:scale-105 bg-celeste rounded-2xl hover:shadow-celeste'>
             <h3 className='ml-2 mr-24 text-2xl font-semibold leading-6 text-negro font-anybody'>
               Consejos para mejorar tu gestión financiera
             </h3>
