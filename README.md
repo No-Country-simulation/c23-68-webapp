@@ -12,7 +12,7 @@ Somos un equipo **multidisciplinario de desarrolladores y diseñadores** que com
 ## ⭐ Nuestro Proyecto
 
 <div align="center">
-<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/414shots_so.png" alt="portada" />
+<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/portadadefipee.png" alt="portada" />
 </div>
 
 **Nombre:** FIPE
@@ -53,7 +53,7 @@ Somos un equipo **multidisciplinario de desarrolladores y diseñadores** que com
 **Diseño UI**
 
 <div align="center">
-<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/63shots_so.png" alt="DiseñoUI" />
+<img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/portadas%20para%20github.png" alt="DiseñoUI" />
 </div>
 
 
