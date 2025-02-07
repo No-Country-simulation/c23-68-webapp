@@ -1,6 +1,19 @@
 import { NavLink } from 'react-router-dom'
+import { nameModal } from "../../config/nameModals";
+import usePopups from "../../hooks/usePopups";
 
 const SideBar = () => {
+
+  const { AyudaModalID } = nameModal
+  const { show } = usePopups();
+
+  const handleAyudaClick = () => {
+    show({
+      popUpId: AyudaModalID,
+      metadataId: AyudaModalID,
+    })
+  }
+
   return (
     <div className=' bg-white min-h-screen flex flex-col w-[22%] py-11'>
       <nav>
@@ -215,8 +228,8 @@ const SideBar = () => {
           </li>
 
           <li>
-            <NavLink
-              to='/ayuda'
+            <button
+              onClick={() => handleAyudaClick}
               className={({ isActive }) =>
                 isActive
                   ? 'block px-5 mx-3 py-3 bg-amarillo rounded-lg font-onest font-normal text-xl text-negro'
@@ -240,7 +253,7 @@ const SideBar = () => {
                 />
               </svg>
               Ayuda
-            </NavLink>
+            </button>
           </li>
         </ul>
       </nav>

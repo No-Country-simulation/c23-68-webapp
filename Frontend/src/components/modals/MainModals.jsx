@@ -13,6 +13,7 @@ import AhorrosEditForm from '../common/AhorrosEditForm'
 import DatosIngresosEditForm from '../common/DatosIngresosEditForm'
 import DatosGastosForm from '../common/DatosGastosForm'
 import DatosGastosEditForm from '../common/DatosGastosEditForm'
+import AyudaModal from '../common/AyudaModal'
 
 
 export function MainModals() {
@@ -32,6 +33,7 @@ export function MainModals() {
       <AhorrosEditForm />
       <DatosIngresosEditForm />
       <DatosGastosEditForm />
+      <AyudaModal />
     </>
   )
 }
