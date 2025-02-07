@@ -263,3 +263,52 @@ export async function deleteSavingGoalsController(req: Request, res: Response) {
     })
   }
 }
+
+export async function poblateSavings(req: Request, res: Response) {
+  const { userID } = req.body
+  const categories = [
+    {
+      type: 'Ingreso',
+      subcategories: ['Salario', 'Freelance', 'Inversiones', 'Bonos'],
+    },
+    {
+      type: 'Gasto',
+      subcategories: [
+        'Alquiler',
+        'Comida',
+        'Transporte',
+        'Ocio',
+        'Salud',
+        'Educación',
+      ],
+    },
+    { type: 'Ahorro', subcategories: ['Alta', 'Media', 'Baja'] },
+  ]
+
+  const ahorros = Array.from({ length: 15 }, () => ({
+    userId: userID,
+    name: `Ahorro ${Math.floor(Math.random() * 100)}`,
+    targetAmount: Math.floor(Math.random() * 1000) + 500,
+    currentAmount: Math.floor(Math.random() * 500),
+    deadline: new Date(
+      new Date().setMonth(
+        new Date().getMonth() + Math.floor(Math.random() * 12)
+      )
+    ),
+    priority:
+      categories[2].subcategories[
+        Math.floor(Math.random() * categories[2].subcategories.length)
+      ],
+  }))
+
+  ahorros.map(async (datos) => {
+    await createSavingGoals({
+      name: datos.name,
+      targetAmount: datos.targetAmount,
+      deadline: datos.deadline,
+      userId: datos.userId,
+      priority: datos.priority,
+      currentAmount: datos.currentAmount,
+    })
+  })
+}

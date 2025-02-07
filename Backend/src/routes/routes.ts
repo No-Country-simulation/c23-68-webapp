@@ -93,6 +93,10 @@ export const routes = {
       relative: '/delete',
       absolute: '/api/savingsGoal/delete',
     },
+    poblate: {
+      relative: '/poblate',
+      absolute: '/api/savingsGoal/poblate',
+    },
   },
   dashboard: {
     base: '/api/dashboard',
