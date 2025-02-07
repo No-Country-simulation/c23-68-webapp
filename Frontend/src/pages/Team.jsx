@@ -1,37 +1,37 @@
 const TeamInfo = [
   {
     id: 1,
-    src: '../../public/images/franco_espinoza.png',
+    src: '/franco_espinoza.png',
     name: 'Franco Espinoza',
     role: 'PM & Backend',
   },
   {
     id: 2,
-    src: '../../public/images/angel_quispe.png',
+    src: '/angel_quispe.png',
     name: 'Angel Quispe',
     role: 'Frontend',
   },
   {
     id: 3,
-    src: '../../public/images/fabricio_turrina.png',
+    src: '/fabricio_turrina.png',
     name: 'Fabricio Turrina',
     role: 'Frontend',
   },
   {
     id: 4,
-    src: '../../public/images/hugo_salazar.png',
+    src: '/hugo_salazar.png',
     name: 'Hugo Salazar',
     role: 'Frontend',
   },
   {
     id: 5,
-    src: '../../public/images/nayely_rodriguez.png',
+    src: '/nayely_rodriguez.png',
     name: 'Nayely Rodriguez',
     role: 'Designer UX/UI',
   },
   {
     id: 6,
-    src: '../../public/images/styfferson_castro.png',
+    src: '/styfferson_castro.png',
     name: 'Styfferson Castro',
     role: 'Quality Assurance',
   },
@@ -71,7 +71,7 @@ const Team = () => {
             >
               <img src={member.src} alt='' width={130} height={130} />
 
-              <h3 className='my-2 text-lg font-semibold leading-6  text-negro'>
+              <h3 className='my-2 text-lg font-semibold leading-6 text-negro'>
                 {member.name}
               </h3>
               <p className='px-2 py-1 font-semibold leading-6 text-white border-2 rounded-full font-onest bg-verdeoscuro border-verdeoscuro'>
