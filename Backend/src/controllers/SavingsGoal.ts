@@ -11,6 +11,7 @@ import {
   getSavingGoalsByUserID,
 } from '../database/SavingsGoal'
 import { getIdUser } from '../helpers/auth'
+import { getUserByID } from '../database/User'
 
 export async function createSavingGoalsController(req: Request, res: Response) {
   try {
@@ -267,6 +268,17 @@ export async function deleteSavingGoalsController(req: Request, res: Response) {
 export async function poblateSavings(req: Request, res: Response) {
   try {
     const { userID } = req.body
+
+    const user = await getUserByID(userID)
+
+    if (!user.data) {
+      res.status(400).json({
+        status: false,
+        message: user.message,
+      })
+      return
+    }
+
     const categories = [
       {
         type: 'Ingreso',
@@ -287,7 +299,7 @@ export async function poblateSavings(req: Request, res: Response) {
     ]
 
     const ahorros = Array.from({ length: 15 }, () => ({
-      userId: userID,
+      userId: user.data._id,
       name: `Ahorro ${Math.floor(Math.random() * 100)}`,
       targetAmount: Math.floor(Math.random() * 1000) + 500,
       currentAmount: Math.floor(Math.random() * 500),

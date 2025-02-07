@@ -226,3 +226,25 @@ export async function deleteUser(userId: string) {
     }
   }
 }
+
+export async function getUserByID(id: string) {
+  try {
+    const user = await UserModel.findById(id)
+    if (!user) {
+      return {
+        status: false,
+        message: 'Usuario no encontrado',
+      }
+    }
+    return {
+      status: true,
+      message: 'Usuario encontrado',
+      data: user,
+    }
+  } catch (error) {
+    return {
+      status: false,
+      message: 'Error al obtener el usuario',
+    }
+  }
+}
