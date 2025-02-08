@@ -2,13 +2,14 @@ import { Modal } from '../modals/Modal'
 import usePopups from '../../hooks/usePopups'
 import { nameModal } from '../../config/nameModals'
 import usePopup from '../../hooks/usePopup'
-import { deleteTransaction } from '../../service/transactions'
+import { deleteTransaction, getTransactions } from '../../service/transactions'
 // import usePopup from "../../hooks/usePopup";
 
 function DatosEliminadosModal() {
   const { DatosEliminadosModalID } = nameModal
   const { hide } = usePopups()
   const { activePopup } = usePopup(DatosEliminadosModalID)
+  const type = 'Gasto'
 
   const handleClose = () => {
     hide({
@@ -17,15 +18,19 @@ function DatosEliminadosModal() {
     })
   }
 
-  const handleDelteItem = () => {
+  const handleDelteItem = async () => {
     const id = activePopup?.metadata?.idModal
-    const response = deleteTransaction(id)
-    console.log({ idModal: id })
+    const setData = activePopup?.metadata?.change
+
+    const response = await deleteTransaction(id)
     if (response) {
       hide({
         popUpId: DatosEliminadosModalID,
         metadataId: DatosEliminadosModalID,
       })
+
+      const newData = await getTransactions(type)
+      setData(newData.data)
     }
   }
 

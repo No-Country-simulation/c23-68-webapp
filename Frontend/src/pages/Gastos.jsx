@@ -58,10 +58,12 @@ const Gastos = () => {
     DatosGastosEditFormModalID,
     DatosEliminadosModalID,
   } = nameModal
+
+  // TODO: Enviar el los datos por metada en el show para actualizar datos
   const handleClick = () => {
     show({
       popUpId: DatosGastosFormModalID,
-      metadata: { id: DatosGastosFormModalID },
+      metadata: { id: DatosGastosFormModalID, change: setData },
       pushMethod: 'prepend',
     })
   }
@@ -69,7 +71,7 @@ const Gastos = () => {
   const handleEdit = (data) => {
     show({
       popUpId: DatosGastosEditFormModalID,
-      metadata: { id: DatosGastosEditFormModalID, data: data },
+      metadata: { id: DatosGastosEditFormModalID, data: data, change: setData },
       pushMethod: 'prepend',
     })
   }
@@ -77,7 +79,11 @@ const Gastos = () => {
   const handleCloseDelete = (idModal) => {
     show({
       popUpId: DatosEliminadosModalID,
-      metadata: { id: DatosEliminadosModalID, idModal: idModal },
+      metadata: {
+        id: DatosEliminadosModalID,
+        idModal: idModal,
+        change: setData,
+      },
       pushMethod: 'prepend',
     })
   }

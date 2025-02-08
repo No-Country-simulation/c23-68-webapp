@@ -4,7 +4,11 @@ import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import usePopup from '../../hooks/usePopup'
 import { useEffect, useState } from 'react'
-import { getCategories, updateTransaction } from '../../service/transactions'
+import {
+  getCategories,
+  getTransactions,
+  updateTransaction,
+} from '../../service/transactions'
 
 const DatosGastosEditForm = () => {
   const { show, hide } = usePopups()
@@ -56,6 +60,8 @@ const DatosGastosEditForm = () => {
       date: createdAt,
     })
     if (response) {
+      const setData = activePopup?.metadata?.change
+
       show({
         popUpId: DataSavedModalID,
         metadata: { id: DataSavedModalID },
@@ -65,6 +71,9 @@ const DatosGastosEditForm = () => {
         popUpId: DatosGastosEditFormModalID,
         metadataId: DatosGastosEditFormModalID,
       })
+
+      const newData = await getTransactions(type)
+      setData(newData.data)
     }
     reset()
   }

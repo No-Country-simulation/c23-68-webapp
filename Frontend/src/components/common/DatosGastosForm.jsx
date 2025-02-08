@@ -3,12 +3,17 @@ import { Modal } from '../modals/Modal'
 import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import { useEffect, useState } from 'react'
-import { createTransaction, getCategories } from '../../service/transactions'
+import {
+  createTransaction,
+  getCategories,
+  getTransactions,
+} from '../../service/transactions'
+import usePopup from '../../hooks/usePopup'
 
 const DatosGastosForm = () => {
   const { show, hide } = usePopups()
   const { DataSavedModalID, DatosGastosFormModalID } = nameModal
-
+  const { activePopup } = usePopup(DatosGastosFormModalID)
   const {
     register,
     handleSubmit,
@@ -17,6 +22,7 @@ const DatosGastosForm = () => {
   } = useForm()
   const type = 'Gasto'
   const [categories, setCategories] = useState([])
+  const setData = activePopup?.metadata?.change
 
   useEffect(() => {
     const getElements = async () => {
@@ -47,7 +53,8 @@ const DatosGastosForm = () => {
         popUpId: DatosGastosFormModalID,
         metadataId: DatosGastosFormModalID,
       })
-
+      const newData = await getTransactions(type)
+      setData(newData.data)
       reset()
     }
   }

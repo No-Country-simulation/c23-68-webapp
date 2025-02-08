@@ -62,7 +62,7 @@ const Ingresos = () => {
   const handleClick = () => {
     show({
       popUpId: DatosIngresosFormModalID,
-      metadata: { id: DatosIngresosFormModalID },
+      metadata: { id: DatosIngresosFormModalID, change: setData },
       pushMethod: 'prepend',
     })
   }
@@ -70,7 +70,11 @@ const Ingresos = () => {
   const handleEdit = (data) => {
     show({
       popUpId: DatosIngresosEditFormModalID,
-      metadata: { id: DatosIngresosEditFormModalID, data: data },
+      metadata: {
+        id: DatosIngresosEditFormModalID,
+        data: data,
+        change: setData,
+      },
       pushMethod: 'prepend',
     })
   }
@@ -78,7 +82,11 @@ const Ingresos = () => {
   const handleCloseDelete = (idModal) => {
     show({
       popUpId: DatosEliminadosModalID,
-      metadata: { id: DatosEliminadosModalID, idModal: idModal },
+      metadata: {
+        id: DatosEliminadosModalID,
+        idModal: idModal,
+        change: setData,
+      },
       pushMethod: 'prepend',
     })
   }

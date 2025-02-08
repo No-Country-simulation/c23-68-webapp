@@ -2,14 +2,20 @@ import { useForm } from 'react-hook-form'
 import { Modal } from '../modals/Modal'
 import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
-import { createTransaction, getCategories } from '../../service/transactions'
+import {
+  createTransaction,
+  getCategories,
+  getTransactions,
+} from '../../service/transactions'
 import { useEffect, useState } from 'react'
+import usePopup from '../../hooks/usePopup'
 
 const DatosIngresosForm = () => {
   const { show, hide } = usePopups()
   const { DataSavedModalID, DatosIngresosFormModalID } = nameModal
-
+  const { activePopup } = usePopup(DatosIngresosFormModalID)
   const [categories, setCategories] = useState([])
+  const type = 'Ingreso'
 
   useEffect(() => {
     const getElements = async () => {
@@ -28,6 +34,7 @@ const DatosIngresosForm = () => {
 
   const onSubmit = async (data) => {
     const { amount, category, description, date } = data
+    const setData = activePopup?.metadata?.change
 
     const response = await createTransaction(
       parseFloat(amount),
@@ -47,6 +54,8 @@ const DatosIngresosForm = () => {
         popUpId: DatosIngresosFormModalID,
         metadataId: DatosIngresosFormModalID,
       })
+      const newData = await getTransactions(type)
+      setData(newData.data)
 
       reset()
     }

@@ -4,14 +4,18 @@ import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import usePopup from '../../hooks/usePopup'
 import { useEffect, useState } from 'react'
-import { getCategories, updateTransaction } from '../../service/transactions'
+import {
+  getCategories,
+  getTransactions,
+  updateTransaction,
+} from '../../service/transactions'
 
 const DatosIngresosEditForm = () => {
   const { show, hide } = usePopups()
   const { DataSavedModalID, DatosIngresosEditFormModalID } = nameModal
   const { activePopup } = usePopup(DatosIngresosEditFormModalID)
   const [categories, setCategories] = useState([])
-
+  const type = 'Ingreso'
   const {
     register,
     handleSubmit,
@@ -19,10 +23,10 @@ const DatosIngresosEditForm = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      targetAmount: '',
-      category: '',
-      description: '',
-      createdAt: '',
+      targetAmount: activePopup?.metadata?.data?.targetAmount || '',
+      category: activePopup?.metadata?.data?.category || '',
+      description: activePopup?.metadata?.data?.description || '',
+      createdAt: activePopup?.metadata?.data?.createdAt || '',
     },
   })
 
@@ -48,6 +52,8 @@ const DatosIngresosEditForm = () => {
   const onSubmit = async (data) => {
     const { targetAmount, category, description, createdAt } = data
     const id = activePopup?.metadata?.data._id
+    const setData = activePopup?.metadata?.change
+
     const response = await updateTransaction(id, {
       amount: parseFloat(targetAmount),
       type: 'Ingreso',
@@ -66,6 +72,8 @@ const DatosIngresosEditForm = () => {
         metadataId: DatosIngresosEditFormModalID,
       })
     }
+    const newData = await getTransactions(type)
+    setData(newData.data)
     reset()
   }
 
@@ -100,12 +108,12 @@ const DatosIngresosEditForm = () => {
         {/* Campo Monto */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Monto
+            Monto <span className='text-red-500'>*</span>
           </label>
           <input
             type='number'
             id='targetAmount'
-            {...register('targetAmount', { min: 0.01 })}
+            {...register('targetAmount', { min: 0.01, required: true })}
             placeholder='$1000.00'
             className='w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
