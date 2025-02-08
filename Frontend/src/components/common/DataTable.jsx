@@ -6,7 +6,7 @@ import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import { format } from '@formkit/tempo'
 
-const DataTable = ({ data }) => {
+const DataTable = ({ data, setData }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredData, setFilteredData] = useState(data)
   const [priorityFilter, setPriorityFilter] = useState('')
@@ -19,7 +19,7 @@ const DataTable = ({ data }) => {
   const handleClick = () => {
     show({
       popUpId: AhorrosFormModalID,
-      metadata: { id: AhorrosFormModalID },
+      metadata: { id: AhorrosFormModalID, change: setData },
       pushMethod: 'prepend',
     })
   }
@@ -27,15 +27,20 @@ const DataTable = ({ data }) => {
   const handleCloseDelete = (idModal) => {
     show({
       popUpId: DatosEliminadosModalID,
-      metadata: { id: DatosEliminadosModalID, idModal: idModal },
+      metadata: {
+        id: DatosEliminadosModalID,
+        idModal: idModal,
+        change: setData,
+        type: 'Ahorro',
+      },
       pushMethod: 'prepend',
     })
   }
 
-  const handleEdit = (data) => {
+  const handleEdit = (idModal) => {
     show({
       popUpId: AhorrosEditFormModalID,
-      metadata: { id: AhorrosEditFormModalID, data: data },
+      metadata: { id: AhorrosEditFormModalID, idModal, change: setData },
       pushMethod: 'prepend',
     })
   }
@@ -65,12 +70,12 @@ const DataTable = ({ data }) => {
 
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
-  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem)
+  const currentItems = filteredData?.slice(indexOfFirstItem, indexOfLastItem)
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   const nextPage = () => {
-    if (currentPage < Math.ceil(filteredData.length / itemsPerPage)) {
+    if (currentPage < Math.ceil(filteredData?.length / itemsPerPage)) {
       setCurrentPage(currentPage + 1)
     }
   }
@@ -131,7 +136,7 @@ const DataTable = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((data) => (
+          {currentItems?.map((data) => (
             <tr key={data.id} className='hover:bg-gray-50'>
               <td className='p-2 text-center'>
                 <Badge
@@ -158,7 +163,7 @@ const DataTable = ({ data }) => {
               <td className='flex items-center justify-center gap-2 px-2'>
                 <button
                   className='w-[112px] h-[39px] bg-amarillo text-white px-2 rounded-lg flex justify-center items-center gap-2 hover:bg-amarillooscuro'
-                  onClick={() => handleEdit(data)}
+                  onClick={() => handleEdit(data.id)}
                 >
                   <svg
                     width='21'
@@ -209,7 +214,7 @@ const DataTable = ({ data }) => {
         <nav>
           <ul className='flex gap-2'>
             {Array.from(
-              { length: Math.ceil(filteredData.length / itemsPerPage) },
+              { length: Math.ceil(filteredData?.length / itemsPerPage) },
               (_, i) => (
                 <li key={i + 1}>
                   <button
@@ -229,10 +234,10 @@ const DataTable = ({ data }) => {
               <button
                 onClick={nextPage}
                 disabled={
-                  currentPage === Math.ceil(filteredData.length / itemsPerPage)
+                  currentPage === Math.ceil(filteredData?.length / itemsPerPage)
                 }
                 className={`px-3 py-1 rounded ${
-                  currentPage === Math.ceil(filteredData.length / itemsPerPage)
+                  currentPage === Math.ceil(filteredData?.length / itemsPerPage)
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-white text-gris2'
                 }`}
@@ -257,7 +262,8 @@ DataTable.propTypes = {
       createdAt: PropTypes.string.isRequired,
       deadline: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
+  setData: PropTypes.func,
 }
 
 export default DataTable

@@ -150,6 +150,7 @@ export async function poblateBD(req: Request, res: Response) {
         userId: datos.userId,
         priority: datos.priority,
         currentAmount: datos.currentAmount,
+        createdAt: new Date(),
       })
     })
     console.log('ahorros creados')

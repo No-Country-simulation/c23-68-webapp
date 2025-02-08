@@ -82,6 +82,7 @@ const Gastos = () => {
       metadata: {
         id: DatosEliminadosModalID,
         idModal: idModal,
+        type: 'Gasto',
         change: setData,
       },
       pushMethod: 'prepend',

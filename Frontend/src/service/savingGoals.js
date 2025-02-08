@@ -7,6 +7,7 @@ export const createSavingsGoal = async (
   targetAmount,
   deadline,
   priority,
+  createdAt,
   currentAmount = 0
 ) => {
   try {
@@ -25,12 +26,16 @@ export const createSavingsGoal = async (
           deadline,
           priority,
           currentAmount,
+          createdAt,
         }),
       }
     )
 
-    if (!response.ok)
+    if (!response.ok) {
+      const text = await response.text()
+      console.error(text)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
+    }
     return await response.json()
   } catch (error) {
     console.error('Error al crear la meta de ahorro:', error.message)
@@ -88,8 +93,11 @@ export const updateSavingsGoal = async (
       }
     )
 
-    if (!response.ok)
+    if (!response.ok) {
+      const text = await response.text()
+      console.error(text)
       throw new Error(`Error ${response.status}: ${response.statusText}`)
+    }
     return await response.json()
   } catch (error) {
     console.error('Error al actualizar la meta de ahorro:', error.message)

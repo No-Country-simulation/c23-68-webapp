@@ -13,7 +13,7 @@ const MainData = () => {
     getElements()
   }, [])
 
-  return <DataTable data={data} />
+  return <DataTable data={data} setData={setData} />
 }
 
 export default MainData

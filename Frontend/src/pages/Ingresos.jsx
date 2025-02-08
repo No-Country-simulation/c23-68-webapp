@@ -85,6 +85,7 @@ const Ingresos = () => {
       metadata: {
         id: DatosEliminadosModalID,
         idModal: idModal,
+        type: 'Ingreso',
         change: setData,
       },
       pushMethod: 'prepend',

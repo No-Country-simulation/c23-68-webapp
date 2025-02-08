@@ -3,13 +3,13 @@ import usePopups from '../../hooks/usePopups'
 import { nameModal } from '../../config/nameModals'
 import usePopup from '../../hooks/usePopup'
 import { deleteTransaction, getTransactions } from '../../service/transactions'
+import { deleteSavingsGoal, getSavingsGoals } from '../../service/savingGoals'
 // import usePopup from "../../hooks/usePopup";
 
 function DatosEliminadosModal() {
   const { DatosEliminadosModalID } = nameModal
   const { hide } = usePopups()
   const { activePopup } = usePopup(DatosEliminadosModalID)
-  const type = 'Gasto'
 
   const handleClose = () => {
     hide({
@@ -21,16 +21,33 @@ function DatosEliminadosModal() {
   const handleDelteItem = async () => {
     const id = activePopup?.metadata?.idModal
     const setData = activePopup?.metadata?.change
+    const type = activePopup?.metadata?.type
 
-    const response = await deleteTransaction(id)
-    if (response) {
-      hide({
-        popUpId: DatosEliminadosModalID,
-        metadataId: DatosEliminadosModalID,
-      })
+    if (type === 'Ingreso' || type === 'Gasto') {
+      const response = await deleteTransaction(id)
+      if (response) {
+        hide({
+          popUpId: DatosEliminadosModalID,
+          metadataId: DatosEliminadosModalID,
+        })
 
-      const newData = await getTransactions(type)
-      setData(newData.data)
+        const newData = await getTransactions(type)
+        setData(newData.data)
+      }
+      return
+    }
+
+    if (type === 'Ahorro') {
+      const response = await deleteSavingsGoal(id)
+      if (response) {
+        hide({
+          popUpId: DatosEliminadosModalID,
+          metadataId: DatosEliminadosModalID,
+        })
+
+        const newData = await getSavingsGoals()
+        setData(newData.data)
+      }
     }
   }
 

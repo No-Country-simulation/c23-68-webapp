@@ -53,7 +53,7 @@ const DataTable = ({ data = [] }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   const nextPage = () => {
-    if (currentPage < Math.ceil(filteredData.length / itemsPerPage)) {
+    if (currentPage < Math.ceil(filteredData?.length / itemsPerPage)) {
       setCurrentPage(currentPage + 1)
     }
   }
@@ -227,7 +227,7 @@ const DataTable = ({ data = [] }) => {
         <nav>
           <ul className='flex gap-2'>
             {Array.from(
-              { length: Math.ceil(filteredData.length / itemsPerPage) },
+              { length: Math.ceil(filteredData?.length / itemsPerPage) },
               (_, i) => (
                 <li key={i + 1}>
                   <button
@@ -247,10 +247,10 @@ const DataTable = ({ data = [] }) => {
               <button
                 onClick={nextPage}
                 disabled={
-                  currentPage === Math.ceil(filteredData.length / itemsPerPage)
+                  currentPage === Math.ceil(filteredData?.length / itemsPerPage)
                 }
                 className={`px-3 py-1 rounded ${
-                  currentPage === Math.ceil(filteredData.length / itemsPerPage)
+                  currentPage === Math.ceil(filteredData?.length / itemsPerPage)
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-white text-gris2'
                 }`}

@@ -4,6 +4,7 @@ import { nameModal } from '../../config/nameModals'
 import usePopups from '../../hooks/usePopups'
 import usePopup from '../../hooks/usePopup'
 import { useEffect } from 'react'
+import { getSavingsGoals, updateSavingsGoal } from '../../service/savingGoals'
 
 const AhorrosEditForm = () => {
   const { show, hide } = usePopups()
@@ -37,21 +38,38 @@ const AhorrosEditForm = () => {
     }
   }, [activePopup, reset])
 
-  const onSubmit = () => {
+  const onSubmit = async (data) => {
+    const { priority, name, targetAmount, createdAt, deadline } = data
+    const setData = activePopup?.metadata?.change
+    const id = activePopup?.metadata?.idModal
 
-    show({
-      popUpId: DataSavedModalID,
-      metadata: { id: DataSavedModalID },
-      pushMethod: 'prepend',
+    const response = await updateSavingsGoal(id, {
+      priority: priority,
+      name: name,
+      targetAmount: targetAmount,
+      createdAt: createdAt,
+      deadline: deadline,
     })
-    hide({
-      popUpId: AhorrosEditFormModalID,
-      metadataId: AhorrosEditFormModalID,
-    })
+
+    if (response) {
+      show({
+        popUpId: DataSavedModalID,
+        metadata: { id: DataSavedModalID },
+        pushMethod: 'prepend',
+      })
+      hide({
+        popUpId: AhorrosEditFormModalID,
+        metadataId: AhorrosEditFormModalID,
+      })
+
+      const newData = await getSavingsGoals()
+      setData(newData.data)
+    }
+
+    reset()
   }
 
   const handleCancel = () => {
-
     reset()
     hide({
       popUpId: AhorrosEditFormModalID,
@@ -82,11 +100,11 @@ const AhorrosEditForm = () => {
         {/* Campo Prioridad */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Prioridad <span className='text-red-500'>*</span>
+            Prioridad
           </label>
           <select
             id='priority'
-            {...register('priority', { required: true })}
+            {...register('priority')}
             className='text-grisclaro w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           >
             <option value=''>Elegir</option>
@@ -99,12 +117,12 @@ const AhorrosEditForm = () => {
         {/* Campo Objetivo/name */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Objetivo<span className='text-red-500'>*</span>
+            Objetivo
           </label>
           <input
             type='text'
             id='name'
-            {...register('name', { required: true })}
+            {...register('name')}
             placeholder='Una laptop marca X'
             className='w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
@@ -113,12 +131,12 @@ const AhorrosEditForm = () => {
         {/* Campo Monto */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Monto <span className='text-red-500'>*</span>
+            Monto
           </label>
           <input
             type='number'
             id='targetAmount'
-            {...register('targetAmount', { required: true, min: 0.01 })}
+            {...register('targetAmount', { min: 0.01 })}
             placeholder='$1000.00'
             className='w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
@@ -127,12 +145,12 @@ const AhorrosEditForm = () => {
         {/* Campo Fecha de Inicio */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Fecha Inicio<span className='text-red-500'>*</span>
+            Fecha Inicio
           </label>
           <input
             type='date'
             id='createdAt'
-            {...register('createdAt', { required: true })}
+            {...register('createdAt')}
             className='text-grisclaro -[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
         </div>
@@ -140,12 +158,12 @@ const AhorrosEditForm = () => {
         {/* Campo Fecha de Fin */}
         <div className='flex items-center gap-4 pl-2'>
           <label className='w-1/3 font-medium text-gray-700 text-start'>
-            Fecha Final<span className='text-red-500'>*</span>
+            Fecha Final
           </label>
           <input
             type='date'
             id='deadline'
-            {...register('deadline', { required: true })}
+            {...register('deadline')}
             className='text-grisclaro w-[180px] sm:w-2/3 lg:w-3/4 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-grisclaro focus:outline-none sm:text-sm'
           />
         </div>

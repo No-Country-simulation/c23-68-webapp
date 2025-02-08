@@ -7,6 +7,7 @@ interface ICreateSaving {
   deadline: Date
   userId: unknown
   priority: string
+  createdAt: Date
 }
 
 export async function createSavingGoals({
@@ -16,16 +17,10 @@ export async function createSavingGoals({
   userId,
   priority,
   currentAmount,
+  createdAt,
 }: ICreateSaving) {
   try {
-    if (
-      !name ||
-      !targetAmount ||
-      !deadline ||
-      !userId ||
-      !priority ||
-      !currentAmount
-    ) {
+    if (!name || !targetAmount || !deadline || !userId || !priority) {
       return {
         status: false,
         message: 'Complete todos los campos',
@@ -42,11 +37,11 @@ export async function createSavingGoals({
     if (typeof targetAmount !== 'number') {
       return {
         status: false,
-        message: 'El objetivo debe ser numerico',
+        message: 'El monto final debe ser numerico',
       }
     }
 
-    if (typeof currentAmount !== 'number') {
+    if (currentAmount && typeof currentAmount !== 'number') {
       return {
         status: false,
         message: 'El monto debe ser numerico',
@@ -60,6 +55,7 @@ export async function createSavingGoals({
       userId,
       priority,
       currentAmount,
+      createdAt,
     })
 
     await savingGoal.save()

@@ -18,7 +18,7 @@ export async function createControllerTransaction(req: Request, res: Response) {
   const dataToken = getDataToken(token)
 
   if (!dataToken.data) {
-    res.status(401).json({
+    res.status(400).json({
       status: false,
       message: 'No se ha iniciado sesión',
     })
@@ -111,7 +111,7 @@ export async function getControllerTransaction(req: Request, res: Response) {
 
   const dataToken = getDataToken(token)
   if (!dataToken.data) {
-    res.status(401).json({
+    res.status(400).json({
       status: false,
       message: 'No se ha iniciado sesión',
     })
@@ -177,7 +177,7 @@ export async function editControllerTransaction(req: Request, res: Response) {
   const dataToken = getDataToken(token)
 
   if (!dataToken.data) {
-    res.status(401).json({
+    res.status(400).json({
       status: false,
       message: 'No se ha iniciado sesión',
     })

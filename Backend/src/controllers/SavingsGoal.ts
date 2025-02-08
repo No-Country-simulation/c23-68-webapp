@@ -28,8 +28,10 @@ export async function createSavingGoalsController(req: Request, res: Response) {
 
     const id = dataUser.data?.dataID
 
-    const { name, targetAmount, deadline, priority, currentAmount } = req.body
-    if (!name || !targetAmount || !deadline || !priority || !currentAmount) {
+    const { name, targetAmount, deadline, priority, currentAmount, createdAt } =
+      req.body
+
+    if (!name || !targetAmount || !deadline || !priority || !createdAt) {
       res.status(400).json({
         status: false,
         message: 'Complete todos los campos',
@@ -62,10 +64,11 @@ export async function createSavingGoalsController(req: Request, res: Response) {
       deadline,
       userId: id,
       priority,
+      createdAt,
     })
 
     if (!savingGoal.data) {
-      res.status(401).json({
+      res.status(400).json({
         status: savingGoal.status,
         message: savingGoal.message,
       })
@@ -103,7 +106,7 @@ export async function getSavingGoalsController(req: Request, res: Response) {
     const savingGoals = await getSavingGoalsByUserID(id)
 
     if (!savingGoals.data) {
-      res.status(401).json({
+      res.status(400).json({
         status: savingGoals.status,
         message: savingGoals.message,
       })
@@ -125,8 +128,12 @@ export async function getSavingGoalsController(req: Request, res: Response) {
         priority,
         targetAmount,
         currentAmount,
-        deadline,
-        createdAt,
+        deadline: deadline
+          ? new Date(deadline).toISOString().split('T')[0]
+          : null,
+        createdAt: createdAt
+          ? new Date(createdAt).toISOString().split('T')[0]
+          : null,
       })
     )
 
@@ -272,7 +279,7 @@ export async function poblateSavings(req: Request, res: Response) {
     const user = await getUserByID(userID)
 
     if (!user.data) {
-      res.status(400).json({
+      res.status(401).json({
         status: false,
         message: user.message,
       })
@@ -322,6 +329,7 @@ export async function poblateSavings(req: Request, res: Response) {
         userId: datos.userId,
         priority: datos.priority,
         currentAmount: datos.currentAmount,
+        createdAt: new Date(),
       })
     })
 
