@@ -31,6 +31,10 @@ const Navbar = () => {
     { path: '/about', name: 'Acerca de' },
     { path: '/team', name: 'Equipo' },
     { path: '/finblog', name: 'FinBlog' },
+    { path: '/finblog/finblog01', name: '', parent: '/finblog' },
+    { path: '/finblog/finblog02', name: '', parent: '/finblog' },
+    { path: '/finblog/finblog03', name: '', parent: '/finblog' },
+    { path: '/finblog/finblog04', name: '', parent: '/finblog' },
     { path: '/datos', name: 'Datos' },
     { path: '/datos/ingresos', name: 'Ingresos', parent: '/datos' },
     { path: '/datos/gastos', name: 'Gastos', parent: '/datos' },
@@ -41,6 +45,9 @@ const Navbar = () => {
   const parentRoute = routes.find(
     (route) => route.path === currentRoute?.parent
   )
+
+  const excludedRoutes = ['/finblog/finblog01','/finblog/finblog02','/finblog/finblog03','/finblog/finblog04' ]
+  
 
   return (
     <div className='flex items-center justify-between px-8 w-100'>
@@ -53,6 +60,7 @@ const Navbar = () => {
           />
         </NavLink>
       </h1>
+      {!excludedRoutes.includes(location.pathname) && (
       <div className='flex text-left gap-4 -ml-[33%]'>
         <h2>
           {parentRoute ? (
@@ -75,6 +83,7 @@ const Navbar = () => {
           )}
         </h2>
       </div>
+      )}
 
       {isAuthenticated ? (
         <div className='flex items-center gap-4'>

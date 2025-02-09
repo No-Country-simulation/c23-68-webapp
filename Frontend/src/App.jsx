@@ -10,6 +10,10 @@ import Datos from './pages/Datos'
 import Ingresos from './pages/Ingresos'
 import Gastos from './pages/Gastos'
 import Savings from './pages/Savings'
+import FinBlog01 from './pages/FinBlog01'
+import FinBlog02 from './pages/FinBlog02'
+import FinBlog03 from './pages/FinBlog03'
+import FinBlog04 from './pages/FinBlog04'
 import { authStore } from './store/auth.store'
 
 // eslint-disable-next-line react/prop-types
@@ -32,6 +36,10 @@ function App() {
       { path: '/about', element: <About /> },
       { path: '/team', element: <Team /> },
       { path: '/finblog', element: <FinBlog /> },
+      { path: '/finblog/finblog01', element: <FinBlog01 /> },
+      { path: '/finblog/finblog02', element: <FinBlog02 /> },
+      { path: '/finblog/finblog03', element: <FinBlog03 /> },
+      { path: '/finblog/finblog04', element: <FinBlog04 /> },
       {
         path: '/dashboard',
         element: (
