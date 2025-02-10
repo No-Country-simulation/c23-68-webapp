@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const FinBlog04 = () => {
@@ -96,8 +95,6 @@ const FinBlog04 = () => {
       { breakpoint: 600, settings: { slidesToShow: 1 } },
     ],
   };
-
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen font-sans bg-white">
@@ -195,8 +192,12 @@ const FinBlog04 = () => {
             {relatedRoutes.map((route) => (
               <div
                 key={route.path}
-                className="p-4"
-                onClick={() => navigate(route.path)}
+                className="p-4 cursor-pointer"
+                href={route.path}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = route.path;
+                }}
               >
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
                   <img
@@ -216,6 +217,10 @@ const FinBlog04 = () => {
                     </p>
                     <a
                       href={route.path}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = route.path;
+                      }}
                       className="text-blue-500 hover:underline mt-2 inline-block"
                     >
                       Leer más

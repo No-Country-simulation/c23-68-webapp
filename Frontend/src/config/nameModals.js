@@ -1,6 +1,10 @@
+
+
 export const nameModal = {
   LoadingModalID: 'loading-modal',
   LoginModalID: 'login-modal',
+  CambioContraModalID: 'cambiocontra-modal',
+  ContraCambiadaModalID: 'contracambiada-modal',
   LoginContraModalID: 'logincontra-modal',
   RegisterModalID: 'register-modal',
   DataFormModalID: 'data-form-modal',

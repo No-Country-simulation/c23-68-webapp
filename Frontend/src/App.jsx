@@ -14,6 +14,7 @@ import FinBlog01 from './pages/FinBlog01'
 import FinBlog02 from './pages/FinBlog02'
 import FinBlog03 from './pages/FinBlog03'
 import FinBlog04 from './pages/FinBlog04'
+import Configuracion from './pages/Configuracion'
 import { authStore } from './store/auth.store'
 
 // eslint-disable-next-line react/prop-types
@@ -48,6 +49,15 @@ function App() {
           </PrivateLayout>
         ),
       },
+      {
+        path: '/configuracion',
+        element: (
+          <PrivateLayout>
+            <Configuracion />
+          </PrivateLayout>
+        ),
+      },
+
       {
         path: '/datos',
         element: (

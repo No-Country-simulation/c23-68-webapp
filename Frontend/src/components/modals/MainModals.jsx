@@ -14,12 +14,16 @@ import DatosIngresosEditForm from '../common/DatosIngresosEditForm'
 import DatosGastosForm from '../common/DatosGastosForm'
 import DatosGastosEditForm from '../common/DatosGastosEditForm'
 import { LogoutModal } from './Logout'
+import { CambioContra } from './CambioContra'
+import { ContraCambiada } from './ContraCambiada'
 
 export function MainModals() {
   return (
     <>
       <LoadingModal />
       <Login />
+      <CambioContra/>
+      <ContraCambiada/>
       <LoginContra />
       <Register />
       <DatosForm />
