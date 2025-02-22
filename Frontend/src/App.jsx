@@ -1,33 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { nameModal } from './config/nameModals'
+import usePopups from './hooks/usePopups'
+import Home from './pages/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { LoadingModalID, LoginModalID } = nameModal
+  const { show } = usePopups()
+
+  const handleShowModal = (idModal) => {
+    show({
+      popUpId: idModal,
+      metadata: { id: idModal },
+      pushMethod: 'prepend',
+    })
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <Home />
+       {/* <div className='flex flex-col items-center justify-center h-screen gap-4'>
+        <h1 className='text-xl text-red-600'> Testing de modales</h1>
+        <button
+          className='px-2 py-1 border border-red-400 rounded-lg'
+          onClick={() => handleShowModal(LoadingModalID)}
+        >
+          Show Loading Modal
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <button
+          className='px-2 py-1 border border-red-400 rounded-lg'
+          onClick={() => handleShowModal(LoginModalID)}
+        >
+          Show Login Modal
+        </button> 
+      </div>  */}
+
+  
     </>
   )
 }
